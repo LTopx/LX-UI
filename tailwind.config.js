@@ -1,31 +1,29 @@
+const lxPresets = require("./components/_lib/lx-ui-preset");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{tsx,ts,js,jsx}'],
+  presets: [lxPresets],
+  darkMode: "class",
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{tsx,ts,js,jsx}",
+    "./localComponents/**/*.{tsx,ts,js,jsx}",
+    "./theme.config.tsx",
+  ],
   theme: {
     extend: {
-      backgroundColor: {
-        'lx-color-fill-2': '#F2F3F5',
-        'lx-color-fill-3': '#E5E6EB',
-      },
-      colors: {
-        'lx-color-text-1': '#1D2129',
-        'lx-color-text-2': '',
-        'lx-color-text-3': '#86909C',
-        'lx-color-text-4': '#C9CDD4',
+      backgroundImage: {
+        logo: "linear-gradient(90deg,#41BDF8,#59A5F0,#788ADE,#936DC2,#A34E9D)",
       },
       keyframes: {
-        'lx-select-open': {
-          '0%': { transform: 'translate3d(0,-10%,0)', opacity: 0 },
-          '100%': { transform: 'translateZ(0)', opacity: 1 },
-        },
-        'lx-select-closed': {
-          '0%': { transform: 'translateZ(0)', opacity: 1 },
-          '100%': { transform: 'translate3d(0,-10%,0)', opacity: 0 },
+        flow: {
+          "0%": { backgroundPosition: "0 50%" },
+          "50%": { backgroundPosition: "100% 50%" },
+          "100%": { backgroundPosition: "0 50%" },
         },
       },
       animation: {
-        'lx-select-open': 'lx-select-open 0.2s ease-in-out',
-        'lx-select-closed': 'lx-select-closed 0.2s ease-in-out',
+        flow: "flow 6s linear infinite",
       },
     },
   },

@@ -1,0 +1,107 @@
+# Select 选择器
+
+当用户需要从一组同类数据中选择一个或多个时，可以使用下拉选择器，点击后选择对应项。
+
+## 代码示例
+
+### 基础用法
+
+import Basic from '@components/select/basic'
+
+<Basic />
+
+```tsx filename="select.tsx" copy
+import { Select, type SelectOption } from "@ltopx/lx-ui";
+
+export default function () {
+  const options: SelectOption[] = [
+    { label: "1", value: "1" },
+    { label: "2", value: "2", disabled: true },
+    { label: "3", value: "3" },
+  ];
+
+  const onChange = (value: string) => {
+    console.log(value, "value");
+  };
+
+  return (
+    <div className="flex gap-3">
+      <Select
+        className="w-60"
+        placeholder="请选择"
+        options={options}
+        onChange={onChange}
+      />
+      <Select
+        className="w-60"
+        placeholder="请选择"
+        options={options}
+        disabled
+      />
+      <Select
+        className="w-60"
+        placeholder="请选择"
+        loading
+        options={options}
+        onChange={onChange}
+      />
+    </div>
+  );
+}
+```
+
+### 尺寸大小
+
+import Size from '@components/select/size'
+
+<Size />
+
+```tsx filename="select.tsx" copy
+import { Select, type SelectOption } from "../../components";
+
+export default function () {
+  const options: SelectOption[] = [
+    { label: "1", value: "1" },
+    { label: "2", value: "2", disabled: true },
+    { label: "3", value: "3" },
+  ];
+
+  const onChange = (value: string) => {
+    console.log(value, "value");
+  };
+
+  return (
+    <div className="flex flex-col gap-3">
+      <div className="flex gap-2 items-center">
+        <div className="text-sm w-12">sm</div>
+        <Select
+          className="w-60"
+          placeholder="请选择"
+          size="sm"
+          options={options}
+          onChange={onChange}
+        />
+      </div>
+      <div className="flex gap-2 items-center">
+        <div className="text-sm w-12">base</div>
+        <Select
+          className="w-60"
+          placeholder="请选择"
+          options={options}
+          onChange={onChange}
+        />
+      </div>
+      <div className="flex gap-2 items-center">
+        <div className="text-sm w-12">lg</div>
+        <Select
+          className="w-60"
+          placeholder="请选择"
+          size="lg"
+          options={options}
+          onChange={onChange}
+        />
+      </div>
+    </div>
+  );
+}
+```

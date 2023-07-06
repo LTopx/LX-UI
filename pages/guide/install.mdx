@@ -1,0 +1,53 @@
+# 安装
+
+以下将指导你如何在项目中安装 `LX-UI`，快速上手使用。
+
+## 环境准备
+
+- 建议使用 pnpm 安装。
+
+  ```bash copy
+  npm i -g pnpm
+  ```
+
+- Tailwind CSS 安装
+
+  因为是基于Tailwind CSS的，因此需要在项目中安装并配置Tailwind CSS。[安装参考链接](https://tailwindcss.com/docs/installation)
+
+## 安装 LX-UI
+
+```bash copy
+pnpm add @ltopx/lx-ui
+```
+
+## 其他配置
+
+这个是项目初期暂时需要的一些配置，后续优化方案后会逐步减少和移除。
+
+```js filename="tailwind.config.js" copy
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  presets: [require('@ltopx/lx-ui/dist/_lib/lx-ui-preset.js')],
+  content: [
+    "./node_modules/@ltopx/lx-ui/dist/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+
+## 使用 LX-UI
+
+```js copy
+import { Select } from '@ltopx/lx-ui';
+
+export default function Home() {
+  return (
+    <>
+      <Select className="w-44" placeholder="请选择" options={[1, 2, 3]} />
+    </>
+  );
+}
+```

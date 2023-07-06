@@ -1,0 +1,39 @@
+{
+  "index": {
+    "type": "page",
+    "title": "LX-UI",
+    "display": "hidden"
+  },
+  "guide": {
+    "title": "指南",
+    "type": "menu",
+    "items": {
+      "index": {
+        "title": "简介",
+        "href": "/guide"
+      },
+      "quick-start": {
+        "title": "快速开始",
+        "href": "/guide/quick-start"
+      },
+      "install": {
+        "title": "安装",
+        "href": "/guide/install"
+      }
+    }
+  },
+  "components": {
+    "title": "组件",
+    "type": "menu",
+    "items": {
+      "overview": {
+        "title": "组件总览",
+        "href": "/components/overview"
+      },
+      "select": {
+        "title": "Select 选择器",
+        "href": "/components/select"
+      }
+    }
+  }
+}

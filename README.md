@@ -1,40 +1,23 @@
-# @ltopx/lx-ui
+# Nextra Docs Template 
 
-[![NPM version](https://img.shields.io/npm/v/@ltopx/lx-ui.svg?style=flat)](https://npmjs.org/package/@ltopx/lx-ui)
-[![NPM downloads](http://img.shields.io/npm/dm/@ltopx/lx-ui.svg?style=flat)](https://npmjs.org/package/@ltopx/lx-ui)
+This is a template for creating documentation with [Nextra](https://nextra.site).
 
-A react library developed with dumi
+[**Live Demo →**](https://nextra-docs-template.vercel.app)
 
-## Usage
+[![](.github/screenshot.png)](https://nextra-docs-template.vercel.app)
 
-TODO
+## Quick Start
 
-## Options
+Click the button to clone this repository and deploy it on Vercel:
 
-TODO
+[![](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra-docs-template&showOptionalTeamCreation=false)
 
-## Development
+## Local Development
 
-```bash
-# install dependencies
-$ pnpm install
+First, run `pnpm i` to install the dependencies.
 
-# develop library by docs demo
-$ pnpm start
+Then, run `pnpm dev` to start the development server and visit localhost:3000.
 
-# build library source code
-$ pnpm run build
+## License
 
-# build library source code in watch mode
-$ pnpm run build:watch
-
-# build docs
-$ pnpm run docs:build
-
-# check your project for potential problems
-$ pnpm run doctor
-```
-
-## LICENSE
-
-MIT
+This project is licensed under the MIT License.

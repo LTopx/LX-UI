@@ -1,0 +1,9 @@
+{
+  "index": "简介",
+  "-- Developer Guild": {
+    "type": "separator",
+    "title": "开发者指南"
+  },
+  "quick-start": "快速开始",
+  "install": "安装"
+}

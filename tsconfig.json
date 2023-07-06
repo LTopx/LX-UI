@@ -1,16 +1,24 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "declaration": true,
+    "baseUrl": ".",
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
     "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
     "esModuleInterop": true,
-    "jsx": "react",
-    "baseUrl": "./",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
     "paths": {
-      "@@/*": [".dumi/tmp/*"],
-      "@ltopx/lx-ui": ["src"],
-      "@ltopx/lx-ui/*": ["src/*", "*"]
+      "@components/*": ["localComponents/*"]
     }
   },
-  "include": [".dumi/**/*", ".dumirc.ts", "src/**/*"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

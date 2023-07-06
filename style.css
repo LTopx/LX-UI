@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+[data-radix-popper-content-wrapper] {
+  position: absolute !important;
+  width: 100%;
+}
