@@ -5,4 +5,5 @@ export default defineConfig({
   themeConfig: {
     name: 'lx-ui',
   },
+  favicons: ['/favicon.png'],
 });

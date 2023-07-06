@@ -4,9 +4,9 @@ hero:
   description: 一个简简单单的 React UI Library
   actions:
     - text: 开始使用
-      link: /
+      link: /guide
     - text: Github
-      link: /
+      link: https://github.com/LTopx/L-UI
 features:
   - title: Hello
     emoji: 💎
