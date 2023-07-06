@@ -10,7 +10,8 @@
     "build": "next build",
     "start": "next start",
     "build:ui": "father build",
-    "doctor": "father doctor"
+    "doctor": "father doctor",
+    "pm2": "next start -p 9001"
   },
   "repository": {
     "type": "git",
