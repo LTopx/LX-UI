@@ -1,0 +1,4 @@
+[data-radix-popper-content-wrapper] {
+  position: absolute !important;
+  width: 100%;
+}
