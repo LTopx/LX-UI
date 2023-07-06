@@ -11,7 +11,7 @@
     "start": "next start",
     "build:ui": "father build",
     "doctor": "father doctor",
-    "pm2": "next start -p 9001"
+    "pm2": "next start -p 9002"
   },
   "repository": {
     "type": "git",
