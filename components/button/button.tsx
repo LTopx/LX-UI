@@ -3,12 +3,12 @@ import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "../_lib/cn";
 
 export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "type">,
     VariantProps<typeof buttonVariants> {}
 
 const buttonVariants = cva("bg-sky-400 text-sm", {
   variants: {
-    variant: {
+    type: {
       default: "asf",
       primary: "asf",
       success: "asf",
@@ -22,16 +22,16 @@ const buttonVariants = cva("bg-sky-400 text-sm", {
     },
   },
   defaultVariants: {
-    variant: "default",
+    type: "default",
     size: "base",
   },
 });
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, size, variant, disabled, ...props }, forwardredRef) => {
+  ({ className, size, type, disabled, ...props }, forwardredRef) => {
     return (
       <button
-        className={cn(buttonVariants({ className, size, variant }))}
+        className={cn(buttonVariants({ className, size, type }))}
         ref={forwardredRef}
         {...props}
       />
