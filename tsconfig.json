@@ -1,14 +1,12 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
     "strict": false,
+    "skipLibCheck": true,
+    "declaration": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "incremental": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -16,8 +14,15 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "paths": {
-      "@components/*": ["localComponents/*"]
-    }
+      "@demo/*": ["demo/*"],
+      "@components/*": ["components/*"]
+    },
+    "allowJs": true,
+    "noEmit": true,
+    "incremental": false
+  },
+  "mdx": {
+    "plugins": [["remark-frontmatter", ["toml", "yaml"]], "remark-gfm"]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

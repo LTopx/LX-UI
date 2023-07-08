@@ -24,12 +24,12 @@ pnpm add @ltopx/lx-ui
 
 这个是项目初期暂时需要的一些配置，后续优化方案后会逐步减少和移除。
 
-```js filename="tailwind.config.js" copy
+```js filename="tailwind.config.js" copy {3-6}
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [require('@ltopx/lx-ui/dist/_lib/lx-ui-preset.js')],
   content: [
-    "./node_modules/@ltopx/lx-ui/dist/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@ltopx/lx-ui/dist/**/*.{js,mjs}",
   ],
   theme: {
     extend: {},
@@ -40,7 +40,7 @@ module.exports = {
 
 ## 使用 LX-UI
 
-```js copy
+```js live=true copy
 import { Select } from '@ltopx/lx-ui';
 
 export default function Home() {

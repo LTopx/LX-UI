@@ -7,7 +7,7 @@ module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{tsx,ts,js,jsx}",
-    "./localComponents/**/*.{tsx,ts,js,jsx}",
+    "./demo/**/*.{tsx,ts,js,jsx}",
     "./theme.config.tsx",
   ],
   theme: {

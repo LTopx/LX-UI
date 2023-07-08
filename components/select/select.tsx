@@ -40,7 +40,7 @@ const Select: React.FC<SelectProps> = ({
   const triggerRef = React.useRef<HTMLDivElement>(null);
 
   const selectOptions: SelectOption[] = React.useMemo(() => {
-    return options.map((item) => {
+    return options.map((item: any) => {
       if (typeof item === "string" || typeof item === "number") {
         return {
           label: String(item),
@@ -64,10 +64,7 @@ const Select: React.FC<SelectProps> = ({
     }, 100);
   };
 
-  const onValueChange = (value: string) => {
-    console.log(value, "value");
-    onChange?.(value);
-  };
+  const onValueChange = (value: string) => onChange?.(value);
 
   return (
     <RadixSelect.Root
@@ -110,7 +107,8 @@ const Select: React.FC<SelectProps> = ({
           sideOffset={4}
           className={cn(
             "z-[2000] bg-white shadow-md border rounded py-1",
-            "data-[state=open]:animate-lx-select-open data-[state=closed]:animate-lx-select-closed"
+            "data-[state=open]:animate-lx-select-open data-[state=closed]:animate-lx-select-closed",
+            "w-[--radix-popper-anchor-width]"
           )}
         >
           <RadixSelect.Viewport>

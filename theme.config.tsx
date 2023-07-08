@@ -1,6 +1,7 @@
 import { DocsThemeConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
 import { useConfig } from "nextra-theme-docs";
+import Link from "next/link";
 
 const logo = (
   <div className="font-extrabold text-transparent text-3xl">
@@ -54,6 +55,50 @@ const config: DocsThemeConfig = {
   },
   feedback: {
     content: null,
+  },
+  main: ({ children }) => {
+    const { frontMatter } = useConfig();
+    const { title, description, radix } = frontMatter;
+
+    return (
+      <div>
+        {!!title && (
+          <div className="flex font-bold h-14 my-2 tracking-tight text-4xl text-slate-900 items-center dark:text-slate-100">
+            {title}
+          </div>
+        )}
+        {!!description && <div>{description}</div>}
+        {!!radix && (
+          <div className="flex mt-3">
+            <Link
+              href={radix.link}
+              target="_blank"
+              className="rounded-full cursor-pointer flex bg-sky-400 text-white text-sm py-1 px-4 gap-1 items-center select-none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="14"
+                viewBox="0 0 25 25"
+                fill="none"
+              >
+                <path
+                  d="M12 25C7.58173 25 4 21.4183 4 17C4 12.5817 7.58173 9 12 9V25Z"
+                  fill="currentcolor"
+                ></path>
+                <path d="M12 0H4V8H12V0Z" fill="currentcolor"></path>
+                <path
+                  d="M17 8C19.2091 8 21 6.20914 21 4C21 1.79086 19.2091 0 17 0C14.7909 0 13 1.79086 13 4C13 6.20914 14.7909 8 17 8Z"
+                  fill="currentcolor"
+                ></path>
+              </svg>
+              <div>Radix {radix.title}</div>
+            </Link>
+          </div>
+        )}
+        <div>{children}</div>
+      </div>
+    );
   },
   footer: {
     text: (

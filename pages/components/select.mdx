@@ -1,107 +1,142 @@
-# Select 选择器
+---
+title: Select 选择器
+description: 当用户需要从一组同类数据中进行选择时，可以使用下拉选择器，点击后选择对应项。
+radix: 
+  title: Select
+  link: https://www.radix-ui.com/docs/primitives/components/select
+---
 
-当用户需要从一组同类数据中选择一个或多个时，可以使用下拉选择器，点击后选择对应项。
+import Code from "@demo/code";
+import Basic from "@demo/select/basic";
+import Size from "@demo/select/size";
+
 
 ## 代码示例
 
+### 引入
+
+```js copy
+import { Select } from '@ltopx/lx-ui'
+```
+
 ### 基础用法
 
-import Basic from '@components/select/basic'
+<Code 
+  description='基础用法' 
+  component={<Basic />}
+>
+  ```tsx filename="select.tsx" copy
+  import { Select, type SelectOption } from "@ltopx/lx-ui";
 
-<Basic />
+  export default function () {
+    const options: SelectOption[] = [
+      { label: "1", value: "1" },
+      { label: "2", value: "2", disabled: true },
+      { label: "3", value: "3" },
+    ];
 
-```tsx filename="select.tsx" copy
-import { Select, type SelectOption } from "@ltopx/lx-ui";
+    const onChange = (value: string) => {
+      console.log(value, "value");
+    };
 
-export default function () {
-  const options: SelectOption[] = [
-    { label: "1", value: "1" },
-    { label: "2", value: "2", disabled: true },
-    { label: "3", value: "3" },
-  ];
-
-  const onChange = (value: string) => {
-    console.log(value, "value");
-  };
-
-  return (
-    <div className="flex gap-3">
-      <Select
-        className="w-60"
-        placeholder="请选择"
-        options={options}
-        onChange={onChange}
-      />
-      <Select
-        className="w-60"
-        placeholder="请选择"
-        options={options}
-        disabled
-      />
-      <Select
-        className="w-60"
-        placeholder="请选择"
-        loading
-        options={options}
-        onChange={onChange}
-      />
-    </div>
-  );
-}
-```
+    return (
+      <div className="flex gap-3">
+        <Select
+          className="w-60"
+          placeholder="请选择"
+          options={options}
+          onChange={onChange}
+        />
+        <Select className="w-60" placeholder="请选择" options={options} disabled />
+        <Select
+          className="w-60"
+          placeholder="请选择"
+          loading
+          options={options}
+          onChange={onChange}
+        />
+      </div>
+    ); 
+  }
+  ```
+</Code>
 
 ### 尺寸大小
 
-import Size from '@components/select/size'
+<Code 
+  description={'尺寸大小。默认提供三种尺寸大小的选择框，可选值分别为 sm, base, lg'} 
+  component={<Size />}
+>
+  ```tsx filename="select.tsx" copy
+  import { Select, type SelectOption } from "@ltopx/lx-ui";
 
-<Size />
+  export default function () {
+    const options: SelectOption[] = [
+      { label: "1", value: "1" },
+      { label: "2", value: "2", disabled: true },
+      { label: "3", value: "3" },
+    ];
 
-```tsx filename="select.tsx" copy
-import { Select, type SelectOption } from "../../components";
+    const onChange = (value: string) => {
+      console.log(value, "value");
+    };
 
-export default function () {
-  const options: SelectOption[] = [
-    { label: "1", value: "1" },
-    { label: "2", value: "2", disabled: true },
-    { label: "3", value: "3" },
-  ];
-
-  const onChange = (value: string) => {
-    console.log(value, "value");
-  };
-
-  return (
-    <div className="flex flex-col gap-3">
-      <div className="flex gap-2 items-center">
-        <div className="text-sm w-12">sm</div>
-        <Select
-          className="w-60"
-          placeholder="请选择"
-          size="sm"
-          options={options}
-          onChange={onChange}
-        />
+    return (
+      <div className="flex flex-col gap-3">
+        <div className="flex gap-2 items-center">
+          <div className="text-sm w-12">sm</div>
+          <Select
+            className="w-60"
+            placeholder="请选择"
+            size="sm"
+            options={options}
+            onChange={onChange}
+          />
+        </div>
+        <div className="flex gap-2 items-center">
+          <div className="text-sm w-12">base</div>
+          <Select
+            className="w-60"
+            placeholder="请选择"
+            options={options}
+            onChange={onChange}
+          />
+        </div>
+        <div className="flex gap-2 items-center">
+          <div className="text-sm w-12">lg</div>
+          <Select
+            className="w-60"
+            placeholder="请选择"
+            size="lg"
+            options={options}
+            onChange={onChange}
+          />
+        </div>
       </div>
-      <div className="flex gap-2 items-center">
-        <div className="text-sm w-12">base</div>
-        <Select
-          className="w-60"
-          placeholder="请选择"
-          options={options}
-          onChange={onChange}
-        />
-      </div>
-      <div className="flex gap-2 items-center">
-        <div className="text-sm w-12">lg</div>
-        <Select
-          className="w-60"
-          placeholder="请选择"
-          size="lg"
-          options={options}
-          onChange={onChange}
-        />
-      </div>
-    </div>
-  );
-}
-```
+    );
+  }
+  ```
+</Code>
+
+## API
+
+### Select Props
+
+| 属性         | 描述                             | 类型                      | 默认值 |
+| ------------ | -------------------------------- | ------------------------- | ------ |
+| placeholder  | 默认占位文本                     | `string`                  | -      |
+| disabled     | 是否禁用                         | `boolean`                 | false  |
+| loading      | 是否正在加载下拉列表数据         | `boolean`                 | false  |
+| size         | 尺寸大小                         | `sm` \| `base` \| `lg `   | `base` |
+| options      | 下拉选项列表                     | `SelectOption[]`          | -      |
+| defaultValue | 默认选中条目                     | `string`                  | -      |
+| value        | 当前选中的条目                   | `string`                  | -      |
+| onChange     | 选中条目发生变化时，会触发此方法 | `(value: string) => void` | -      |
+
+### SelectOption Props
+
+| 属性     | 描述           | 类型                            | 默认值 |
+| -------- | -------------- | ------------------------------- | ------ |
+| label    | 选项展示内容   | `React.ReactNode` \| `string` | -      |
+| value    | 选项选中时的值 | `string`                        | -      |
+| disabled | 是否禁用       | `boolean`                       | false  |

@@ -1,0 +1,47 @@
+---
+title: Button 按钮
+description: 按钮是一种命令组件，可发起一个即时操作。
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/Button/basic";
+
+## 代码示例
+
+### 引入
+
+```js copy
+import { Button } from '@ltopx/lx-ui'
+```
+
+### 基础用法
+
+<Code 
+  description='基础用法' 
+  component={<Basic />}
+>
+  ```tsx filename="select.tsx" copy
+  import { Button} from "@ltopx/lx-ui";
+
+  export default function () {
+    return (
+      <div className="flex gap-3">
+        <Select
+          className="w-60"
+          placeholder="请选择"
+          options={options}
+          onChange={onChange}
+        />
+        <Select className="w-60" placeholder="请选择" options={options} disabled />
+        <Select
+          className="w-60"
+          placeholder="请选择"
+          loading
+          options={options}
+          onChange={onChange}
+        />
+      </div>
+    ); 
+  }
+  ```
+</Code>
