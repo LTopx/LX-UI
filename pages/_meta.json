@@ -30,6 +30,10 @@
         "title": "组件总览",
         "href": "/components/overview"
       },
+      "button": {
+        "title": "Button 按钮",
+        "href": "/components/button"
+      },
       "select": {
         "title": "Select 选择器",
         "href": "/components/select"

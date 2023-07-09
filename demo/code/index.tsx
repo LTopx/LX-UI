@@ -26,7 +26,7 @@ const Code: React.FC<CodeProps> = ({ component, children, description }) => {
       >
         {description}
       </div>
-      <div className="border-t border-dotted flex h-10 justify-center items-center">
+      <div className="border-t flex border-neutral-200/50 h-10 justify-center items-center dark:border-neutral-700">
         <div
           onClick={() => setVisible(!visible)}
           className={cn(
