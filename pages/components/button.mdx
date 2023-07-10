@@ -9,13 +9,15 @@ import Disabled from "@demo/button/disabled";
 import Shape from "@demo/button/shape";
 import Loading from "@demo/button/loading";
 import Block from "@demo/button/block";
+import Icon from "@demo/button/icon";
+import Href from "@demo/button/href";
 
 ## 代码示例
 
 ### 引入
 
 ```js copy
-import { Button } from '@ltopx/lx-ui'
+import { Button } from "@ltopx/lx-ui";
 ```
 
 ### 基础用法
@@ -24,88 +26,88 @@ import { Button } from '@ltopx/lx-ui'
   description='提供五种基础类型的按钮使用。搭配 outline 属性，你将再获得额外五种类型的按钮。' 
   component={<Basic />}
 >
-  ```tsx filename="Button.tsx" copy
-  import { Button } from "@ltopx/lx-ui";
+```tsx filename="Button.tsx" copy
+import { Button } from "@ltopx/lx-ui";
 
-  export default function () {
-    return (
-      <div className="flex flex-col gap-4">
-        <div className="flex flex-wrap gap-x-3 gap-y-2">
-          <Button>Default</Button>
-          <Button type="primary">Primary</Button>
-          <Button type="success">Success</Button>
-          <Button type="warning">Warning</Button>
-          <Button type="danger">Danger</Button>
-        </div>
-        <div className="flex flex-wrap gap-x-3 gap-y-2">
-          <Button outline>Default</Button>
-          <Button type="primary" outline>
-            Primary
-          </Button>
-          <Button type="success" outline>
-            Success
-          </Button>
-          <Button type="warning" outline>
-            Warning
-          </Button>
-          <Button type="danger" outline>
-            Danger
-          </Button>
-        </div>
+export default function () {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-wrap gap-x-3 gap-y-2">
+        <Button>Default</Button>
+        <Button type="primary">Primary</Button>
+        <Button type="success">Success</Button>
+        <Button type="warning">Warning</Button>
+        <Button type="danger">Danger</Button>
       </div>
-    );
-  }
-  ```
+      <div className="flex flex-wrap gap-x-3 gap-y-2">
+        <Button outline>Default</Button>
+        <Button type="primary" outline>
+          Primary
+        </Button>
+        <Button type="success" outline>
+          Success
+        </Button>
+        <Button type="warning" outline>
+          Warning
+        </Button>
+        <Button type="danger" outline>
+          Danger
+        </Button>
+      </div>
+    </div>
+  );
+}
+```
 </Code>
 
 ### 禁用按钮
 
-<Code 
-  description='按钮禁用状态。' 
+<Code
+  description='按钮禁用状态。'
   component={<Disabled />}
 >
-  ```tsx filename="Button.tsx" copy
-  import { Button } from "@ltopx/lx-ui";
+```tsx filename="Button.tsx" copy
+import { Button } from "@ltopx/lx-ui";
 
-  export default function () {
-    return (
-      <div className="flex flex-col gap-4">
-        <div className="flex flex-wrap gap-x-3 gap-y-2">
-          <Button disabled>Default</Button>
-          <Button type="primary" disabled>
-            Primary
-          </Button>
-          <Button type="success" disabled>
-            Success
-          </Button>
-          <Button type="warning" disabled>
-            Warning
-          </Button>
-          <Button type="danger" disabled>
-            Danger
-          </Button>
-        </div>
-        <div className="flex flex-wrap gap-x-3 gap-y-2">
-          <Button outline disabled>
-            Default
-          </Button>
-          <Button type="primary" outline disabled>
-            Primary
-          </Button>
-          <Button type="success" outline disabled>
-            Success
-          </Button>
-          <Button type="warning" outline disabled>
-            Warning
-          </Button>
-          <Button type="danger" outline disabled>
-            Danger
-          </Button>
-        </div>
+export default function () {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-wrap gap-x-3 gap-y-2">
+        <Button disabled>Default</Button>
+        <Button type="primary" disabled>
+          Primary
+        </Button>
+        <Button type="success" disabled>
+          Success
+        </Button>
+        <Button type="warning" disabled>
+          Warning
+        </Button>
+        <Button type="danger" disabled>
+          Danger
+        </Button>
       </div>
-    );
-  }
-  ```
+      <div className="flex flex-wrap gap-x-3 gap-y-2">
+        <Button outline disabled>
+          Default
+        </Button>
+        <Button type="primary" outline disabled>
+          Primary
+        </Button>
+        <Button type="success" outline disabled>
+          Success
+        </Button>
+        <Button type="warning" outline disabled>
+          Warning
+        </Button>
+        <Button type="danger" outline disabled>
+          Danger
+        </Button>
+      </div>
+    </div>
+  );
+}
+```
 </Code>
 
 ### 按钮形状
@@ -114,97 +116,162 @@ import { Button } from '@ltopx/lx-ui'
   description='按钮的形状。目前支持设置全圆角形状-rounded' 
   component={<Shape />}
 >
-  ```tsx filename="Button.tsx" copy
-  import { Button } from "@ltopx/lx-ui";
+```tsx filename="Button.tsx" copy
+import { Button } from "@ltopx/lx-ui";
 
-  export default function () {
-    return (
-      <div className="flex flex-wrap gap-x-3 gap-y-2">
-        <Button type="primary">Primary</Button>
-        <Button type="primary" rounded>
-          Rounded
-        </Button>
-      </div>
-    );
-  }
-  ```
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-x-3 gap-y-2">
+      <Button type="primary">Primary</Button>
+      <Button type="primary" rounded>
+        Rounded
+      </Button>
+    </div>
+  );
+}
+```
 </Code>
 
 ### 加载中按钮
 
-<Code 
-  description='可以设置 loading 属性来使按钮显示处于加载中的状态' 
+<Code
+  description='可以设置 loading 属性来使按钮显示处于加载中的状态'
   component={<Loading />}
 >
-  ```tsx filename="Button.tsx" copy
-  import React from 'react';
-  import { Button } from "@ltopx/lx-ui";
+```tsx filename="Button.tsx" copy
+import React from 'react';
+import { Button } from "@ltopx/lx-ui";
 
-  export default function () {
-    const [loading1, setLoading1] = React.useState(false);
-    const [loading2, setLoading2] = React.useState(false);
-
-    const onClick1 = () => {
-      setLoading1(true);
-      setTimeout(() => {
-        setLoading1(false);
-      }, 2000);
-    };
-
-    const onClick2 = () => {
-      setLoading2(true);
-      setTimeout(() => {
-        setLoading2(false);
-      }, 2000);
-    };
-
-    return (
-      <div className="flex flex-col gap-4">
-        <div className="flex flex-wrap gap-x-3 gap-y-2">
-          <Button type="primary" loading>
-            Loading
-          </Button>
-          <Button type="success" loading>
-            Loading
-          </Button>
-          <Button type="primary" rounded loading>
-            Loading
-          </Button>
-        </div>
-        <div className="flex flex-wrap gap-x-3 gap-y-2">
-          <Button type="primary" loading={loading1} onClick={onClick1}>
-            Loading
-          </Button>
-          <Button type="success" loading={loading2} onClick={onClick2}>
-            Loading
-          </Button>
-        </div>
+export default function () {
+  const [loading1, setLoading1] = React.useState(false);
+  const [loading2, setLoading2] = React.useState(false);
+  
+  const onClick1 = () => {
+    setLoading1(true);
+    setTimeout(() => {
+      setLoading1(false);
+    }, 2000);
+  };
+  
+  const onClick2 = () => {
+    setLoading2(true);
+    setTimeout(() => {
+      setLoading2(false);
+    }, 2000);
+  };
+  
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-wrap gap-x-3 gap-y-2">
+        <Button type="primary" loading>
+          Loading
+        </Button>
+        <Button type="success" loading>
+          Loading
+        </Button>
+        <Button type="primary" rounded loading>
+          Loading
+        </Button>
       </div>
-    );
-  }
-  ```
+      <div className="flex flex-wrap gap-x-3 gap-y-2">
+        <Button type="primary" loading={loading1} onClick={onClick1}>
+          Loading
+        </Button>
+        <Button type="success" loading={loading2} onClick={onClick2}>
+          Loading
+        </Button>
+      </div>
+    </div>
+  );
+}
+```
 </Code>
 
 ### 块级按钮
 
-<Code 
-  description='按钮宽度直接占满容器' 
+<Code
+  description='是否占满整个父容器宽度'
   component={<Block />}
 >
-  ```tsx filename="Button.tsx" copy
-  import { Button } from "@ltopx/lx-ui";
+```tsx filename="Button.tsx" copy
+import { Button } from "@ltopx/lx-ui";
 
-  export default function () {
-    return (
-      <div className="flex flex-wrap gap-x-3 gap-y-2">
-        <Button type="primary" block>
-          Block
-        </Button>
-        <Button type="primary" rounded block>
-          Block
-        </Button>
-      </div>
-    );
-  }
-  ```
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-x-3 gap-y-2">
+      <Button type="primary" block>
+        Block
+      </Button>
+      <Button type="primary" rounded block>
+        Block
+      </Button>
+    </div>
+  );
+}
+```
 </Code>
+
+### 图标按钮
+
+<Code
+description='可以在按钮文本左侧插入图标，提升按钮的可读性。想在右侧插入图标，自己实现即可'
+component={<Icon />}
+>
+```tsx filename="Button.tsx" copy
+import { Button } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-x-3 gap-y-2">
+      <Button type="primary">Primary</Button>
+      <Button type="primary" icon={<Close_line />}>
+        Primary
+      </Button>
+      <Button type="primary" rounded loading icon={<Loading_line />} />
+    </div>
+  );
+}
+```
+</Code>
+
+### 跳转按钮
+
+<Code
+  description='添加跳转链接，设置此属性，button的表现将跟a标签一致。'
+  component={<Href />}
+>
+```tsx filename="Button.tsx" copy
+import { Button } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-x-3 gap-y-2">
+      <Button type="primary" href="https://www.baidu.com">
+        Href
+      </Button>
+      <Button type="success" rounded href="https://www.baidu.com" target="_blank">
+        Href \_Blank
+      </Button>
+    </div>
+  ); 
+}
+```
+</Code>
+
+## API
+
+### Button Props
+
+| 属性     | 描述                                                     | 类型                                                            | 默认值    |
+| -------- | -------------------------------------------------------- | --------------------------------------------------------------- | --------- |
+| type     | 按钮类型                                                 | `default` \| `primary` \| `success ` \| `warning ` \| `danger ` | `default` |
+| size     | 尺寸大小                                                 | `sm` \| `base` \| `lg `                                         | `base`    |
+| disabled | 是否禁用                                                 | `boolean`                                                       | -         |
+| loading  | 是否处于加载中状态                                       | `boolean`                                                       | -         |
+| block    | 是否占满整个父容器宽度                                   | `boolean`                                                       | -         |
+| outline  | 是否以边框形式展示按钮                                   | `boolean`                                                       | -         |
+| rounded  | 是否以全圆角形式展示按钮                                 | `boolean`                                                       | -         |
+| icon     | 设置按钮左侧的图标                                       | `React.ReactNode`                                               | -         |
+| href     | 添加跳转链接，设置此属性，button 的表现将跟 a 标签一致。 | `string`                                                        | -         |
+| target   | a 标签的 target 属性。仅当 href 存在时生效               | `HTMLAttributeAnchorTarget`                                     | -         |
+| onClick  | 点击按钮的回调                                           | `(e: Event) => void`                                            | -         |

@@ -7,3 +7,4 @@
 ### Add
 
 - Add Button component and related documentation.
+- Improve the documentation for the Button component.
