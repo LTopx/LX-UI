@@ -1,5 +1,6 @@
 {
   "overview": "组件总览",
   "button": "Button 按钮",
-  "select": "Select 选择器"
+  "select": "Select 选择器",
+  "confirm": "Confirm 确认框"
 }

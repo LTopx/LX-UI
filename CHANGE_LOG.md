@@ -8,3 +8,4 @@
 
 - Add Button component and related documentation.
 - Improve the documentation for the Button component.
+- Add Confirm component and related documentation.

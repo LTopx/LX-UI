@@ -8,3 +8,4 @@
 
 - 新增 Button 组件以及 Button 相关文档
 - 完善 Button 组件的文档
+- 新增 Confirm 组件以及相关文档
