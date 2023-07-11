@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Button from "../components/button/button";
 
 export function Home() {
   return (
@@ -16,12 +17,9 @@ export function Home() {
         一款小而美的 React UI Component Library
       </div>
       <div className="flex">
-        <Link
-          className="rounded-full cursor-pointer bg-sky-400 text-white py-2 px-5"
-          href="/guide"
-        >
-          点击开始
-        </Link>
+        <Button size="lg" type="primary" rounded>
+          <Link href="/guide">点击开始</Link>
+        </Button>
       </div>
     </div>
   );

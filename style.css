@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* [data-radix-popper-content-wrapper] {
-  position: absolute !important;
-  width: 100%;
-} */
-
 table {
   display: block !important;
   width: 100%;
@@ -19,6 +14,10 @@ table {
   padding: 0 !important;
   font-size: 14px;
   scrollbar-gutter: unset !important;
+}
+
+:is(.dark table) {
+  border-color: #333334;
 }
 
 table th {
@@ -34,6 +33,12 @@ table th {
   background-color: #fbfbfb;
   border-bottom: 1px solid #efefef !important;
   border-right: 0px solid transparent !important;
+}
+
+:is(.dark table th) {
+  background-color: #2d2e31;
+  border-bottom-color: #333334 !important;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 table td:first-child {
@@ -65,6 +70,11 @@ table td {
   min-width: 110px;
 }
 
+:is(.dark table td) {
+  background-color: #111111;
+  color: rgba(255, 255, 255, 0.9);
+}
+
 table tr:not(:last-child) td {
   border-bottom: 0px solid transparent !important;
 }
@@ -72,4 +82,8 @@ table tr:not(:last-child) td {
 table code {
   background: hsl(var(--nextra-primary-hue) 100% 39%/0.05) !important;
   color: var(--shiki-color-text);
+}
+
+:is(.dark table code) {
+  background: hsla(0, 0%, 100%, 0.1) !important;
 }

@@ -1,7 +1,7 @@
 import { DocsThemeConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
 import { useConfig } from "nextra-theme-docs";
-import { Button } from "./components";
+import Button from "./components/button";
 
 const logo = (
   <div className="font-extrabold text-transparent text-3xl">

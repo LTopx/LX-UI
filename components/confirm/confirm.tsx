@@ -58,7 +58,7 @@ const Confirm: React.FC<ConfirmProps> = ({
           className={cn(
             "top-[45%] left-[50%] z-[500] -translate-x-[50%] -translate-y-[50%] fixed outline-none p-6 shadow rounded-md w-[500px] max-w-[calc(100vw-2rem)]",
             "data-[state=open]:animate-lx-modal-fade-in-up data-[state=closed]:animate-lx-modal-fade-out-down",
-            "bg-white"
+            "bg-white dark:bg-gray-700/70"
           )}
         >
           <AlertDialog.Title asChild>
@@ -73,7 +73,9 @@ const Confirm: React.FC<ConfirmProps> = ({
             </div>
           </AlertDialog.Title>
           <AlertDialog.Description asChild>
-            <div className="text-sm pt-4 pb-5 text-neutral-600">{content}</div>
+            <div className="text-sm pt-4 pb-5 text-neutral-600 dark:text-neutral-300">
+              {content}
+            </div>
           </AlertDialog.Description>
           <div className="flex gap-2 justify-end">
             <AlertDialog.Cancel asChild>
