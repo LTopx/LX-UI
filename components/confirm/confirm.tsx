@@ -9,11 +9,11 @@ export interface ConfirmProps {
   maskClosable?: boolean;
   disabled?: boolean;
   type?: ButtonProps["type"];
-  title?: React.ReactNode | string;
+  title?: React.ReactNode;
   icon?: React.ReactNode;
-  content?: React.ReactNode | string;
-  cancelText?: React.ReactNode | string;
-  okText?: React.ReactNode | string;
+  content?: React.ReactNode;
+  cancelText?: React.ReactNode;
+  okText?: React.ReactNode;
   onOk?: () => void;
 }
 

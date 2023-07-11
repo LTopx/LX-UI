@@ -49,6 +49,22 @@ module.exports = {
             opacity: 0,
           },
         },
+        "lx-dialog-show-left": {
+          "0%": { transform: "translate3d(-100%,0,0)", opacity: 0.8 },
+          "100%": { transform: "translateZ(0)", opacity: 1 },
+        },
+        "lx-dialog-hide-left": {
+          "0%": { transform: "translateZ(0)", opacity: 1 },
+          "100%": { transform: "translate3d(-100%,0,0)", opacity: 0.8 },
+        },
+        "lx-dialog-show-right": {
+          "0%": { transform: "translate3d(100%,0,0)", opacity: 0.8 },
+          "100%": { transform: "translateZ(0)", opacity: 1 },
+        },
+        "lx-dialog-hide-right": {
+          "0%": { transform: "translateZ(0)", opacity: 1 },
+          "100%": { transform: "translate3d(100%,0,0)", opacity: 0.8 },
+        },
       },
       animation: {
         "lx-select-open": "lx-select-open 0.2s ease-in-out",
@@ -57,6 +73,14 @@ module.exports = {
         "lx-fade-out": "lx-fade-out 0.2s ease-in-out",
         "lx-modal-fade-in-up": "lx-modal-fade-in-up 0.2s ease-in-out",
         "lx-modal-fade-out-down": "lx-modal-fade-out-down 0.2s ease-in-out",
+        "lx-dialog-show-left":
+          "lx-dialog-show-left 0.3s cubic-bezier(0.19, 1, 0.22, 1)",
+        "lx-dialog-hide-left":
+          "lx-dialog-hide-left 0.3s cubic-bezier(0.19, 1, 0.22, 1)",
+        "lx-dialog-show-right":
+          "lx-dialog-show-right 0.3s cubic-bezier(0.19, 1, 0.22, 1)",
+        "lx-dialog-hide-right":
+          "lx-dialog-hide-right 0.3s cubic-bezier(0.19, 1, 0.22, 1)",
       },
     },
   },

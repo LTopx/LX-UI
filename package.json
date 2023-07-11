@@ -27,6 +27,7 @@
   "homepage": "https://github.com/LTopx/L-UI#readme",
   "dependencies": {
     "@radix-ui/react-alert-dialog": "1.0.4",
+    "@radix-ui/react-dialog": "^1.0.4",
     "@radix-ui/react-select": "1.2.2",
     "clsx": "1.2.1",
     "next": "13.4.9",

@@ -57,6 +57,10 @@ table tbody tr:hover {
   background-color: rgba(60, 90, 100, 0.04) !important;
 }
 
+:is(.dark table tbody tr:hover) {
+  background: rgb(38 38 38) !important;
+}
+
 table tbody tr:hover td {
   background: none;
 }

@@ -41,6 +41,10 @@
       "confirm": {
         "title": "Confirm 确认框",
         "href": "/components/confirm"
+      },
+      "drawer": {
+        "title": "Drawer 抽屉",
+        "href": "/components/drawer"
       }
     }
   }

@@ -6,7 +6,7 @@ import { Down_fill, Loading_line } from "../icon";
 import SelectItem from "./item";
 
 export interface SelectOption {
-  label: React.ReactNode | string;
+  label: React.ReactNode;
   value: string;
   disabled?: boolean;
 }
