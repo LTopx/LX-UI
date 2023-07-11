@@ -5,6 +5,8 @@ import Button, { type ButtonProps } from "../button";
 import { Information_fill } from "../icon";
 
 export interface ConfirmProps {
+  className?: string;
+  overlayClassName?: string;
   children?: React.ReactNode;
   maskClosable?: boolean;
   disabled?: boolean;
@@ -18,6 +20,8 @@ export interface ConfirmProps {
 }
 
 const Confirm: React.FC<ConfirmProps> = ({
+  className,
+  overlayClassName,
   children,
   maskClosable,
   disabled,
@@ -50,15 +54,17 @@ const Confirm: React.FC<ConfirmProps> = ({
         <AlertDialog.Overlay
           className={cn(
             "bg-gray-900/60 backdrop-blur-sm fixed inset-0 z-[500]",
-            "data-[state=open]:animate-lx-fade-in data-[state=closed]:animate-lx-fade-out"
+            "data-[state=closed]:animate-lx-fade-out data-[state=open]:animate-lx-fade-in",
+            overlayClassName
           )}
           onClick={onClickOverlay}
         />
         <AlertDialog.Content
           className={cn(
             "top-[45%] left-[50%] z-[500] -translate-x-[50%] -translate-y-[50%] fixed outline-none p-6 shadow rounded-md w-[500px] max-w-[calc(100vw-2rem)]",
-            "data-[state=open]:animate-lx-modal-fade-in-up data-[state=closed]:animate-lx-modal-fade-out-down",
-            "bg-white dark:bg-gray-700/70"
+            "data-[state=closed]:animate-lx-modal-fade-out-down data-[state=open]:animate-lx-modal-fade-in-up",
+            "bg-white dark:bg-gray-700/70",
+            className
           )}
         >
           <AlertDialog.Title asChild>

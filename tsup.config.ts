@@ -1,6 +1,6 @@
-import { defineConfig } from "tsup";
+import { defineConfig, Options } from "tsup";
 
-export default defineConfig({
+export default defineConfig((options: Options) => ({
   treeshake: true,
   splitting: true,
   entry: ["components"],
@@ -9,4 +9,5 @@ export default defineConfig({
   dts: true,
   minify: true,
   external: ["react"],
-});
+  ...options,
+}));

@@ -1,67 +1,22 @@
 import React from "react";
-import { type VariantProps, cva } from "class-variance-authority";
 import { cn } from "../_lib/cn";
 import { Loading_line } from "../icon";
 
 export interface ButtonProps
   extends Omit<
-      React.ButtonHTMLAttributes<HTMLButtonElement & HTMLAnchorElement>,
-      "type"
-    >,
-    VariantProps<typeof buttonVariants> {
+    React.ButtonHTMLAttributes<HTMLButtonElement & HTMLAnchorElement>,
+    "type"
+  > {
+  type?: "default" | "primary" | "success" | "warning" | "danger";
+  size?: "sm" | "base" | "lg";
   outline?: boolean;
   icon?: React.ReactNode;
   href?: string;
   target?: React.HTMLAttributeAnchorTarget;
+  block?: boolean;
+  rounded?: boolean;
+  loading?: boolean;
 }
-
-const buttonVariants = cva(
-  "text-sm flex justify-center items-center transition-colors rounded-md border cursor-pointer",
-  {
-    variants: {
-      type: {
-        default: cn(
-          "border-neutral-200 hover:border-sky-400 hover:text-sky-400 active:border-sky-600 active:text-sky-600",
-          "dark:border-neutral-500/80 dark:hover:border-sky-400/90 dark:active:border-sky-600 dark:active:text-sky-600"
-        ),
-        primary: cn(
-          "text-white bg-sky-400 border-sky-400 hover:bg-sky-400/70 hover:border-sky-400/70 active:bg-sky-500 active:border-sky-500",
-          "dark:bg-sky-500 dark:border-sky-500 dark:hover:bg-sky-600 dark:hover:border-sky-600 dark:active:bg-sky-700 dark:active:border-sky-700"
-        ),
-        success: cn(
-          "text-white bg-emerald-400 border-emerald-400 hover:bg-emerald-400/70 hover:border-emerald-400/70 active:bg-emerald-500 active:border-emerald-500",
-          "dark:bg-emerald-500 dark:border-emerald-500 dark:hover:bg-emerald-600 dark:hover:border-emerald-600 dark:active:bg-emerald-700 dark:active:border-emerald-700"
-        ),
-        warning: cn(
-          "text-white bg-amber-400 border-amber-400 hover:bg-amber-400/70 hover:border-amber-400/70 active:bg-amber-600/80 active:border-amber-600/80",
-          "dark:bg-amber-500 dark:border-amber-500 dark:hover:bg-amber-600 dark:hover:border-amber-600 dark:active:bg-amber-700 dark:active:border-amber-700"
-        ),
-        danger: cn(
-          "text-white bg-rose-400 border-rose-400 hover:bg-rose-400/70 hover:border-rose-400/70 active:bg-rose-600/80 active:border-rose-600/80",
-          "dark:bg-rose-500 dark:border-rose-500 dark:hover:bg-rose-600 dark:hover:border-rose-600 dark:active:bg-rose-700 dark:active:border-rose-700"
-        ),
-      },
-      size: {
-        sm: "h-7 px-3",
-        base: "h-8 px-4",
-        lg: "h-9 px-4",
-      },
-      block: {
-        true: "w-full",
-      },
-      rounded: {
-        true: "rounded-full",
-      },
-      loading: {
-        true: "opacity-60 pointer-events-none",
-      },
-    },
-    defaultVariants: {
-      type: "default",
-      size: "base",
-    },
-  }
-);
 
 const Button = React.forwardRef<
   HTMLButtonElement & HTMLAnchorElement,
@@ -70,8 +25,8 @@ const Button = React.forwardRef<
   (
     {
       className,
-      type,
-      size,
+      type = "default",
+      size = "base",
       block,
       outline,
       disabled,
@@ -98,8 +53,24 @@ const Button = React.forwardRef<
     }
 
     const classNames = cn(
-      buttonVariants({ className, type, size, block, rounded, loading }),
+      "text-sm flex justify-center items-center transition-colors rounded-md border cursor-pointer",
       {
+        "border-neutral-200 hover:border-sky-400 hover:text-sky-400 active:border-sky-600 active:text-sky-600 dark:border-neutral-500/80 dark:hover:border-sky-400/90 dark:active:border-sky-600 dark:active:text-sky-600":
+          type === "default",
+        "text-white bg-sky-400 border-sky-400 hover:bg-sky-400/70 hover:border-sky-400/70 active:bg-sky-500 active:border-sky-500 dark:bg-sky-500 dark:border-sky-500 dark:hover:bg-sky-600 dark:hover:border-sky-600 dark:active:bg-sky-700 dark:active:border-sky-700":
+          type === "primary",
+        "text-white bg-emerald-400 border-emerald-400 hover:bg-emerald-400/70 hover:border-emerald-400/70 active:bg-emerald-500 active:border-emerald-500 dark:bg-emerald-500 dark:border-emerald-500 dark:hover:bg-emerald-600 dark:hover:border-emerald-600 dark:active:bg-emerald-700 dark:active:border-emerald-700":
+          type === "success",
+        "text-white bg-amber-400 border-amber-400 hover:bg-amber-400/70 hover:border-amber-400/70 active:bg-amber-600/80 active:border-amber-600/80 dark:bg-amber-500 dark:border-amber-500 dark:hover:bg-amber-600 dark:hover:border-amber-600 dark:active:bg-amber-700 dark:active:border-amber-700":
+          type === "warning",
+        "text-white bg-rose-400 border-rose-400 hover:bg-rose-400/70 hover:border-rose-400/70 active:bg-rose-600/80 active:border-rose-600/80 dark:bg-rose-500 dark:border-rose-500 dark:hover:bg-rose-600 dark:hover:border-rose-600 dark:active:bg-rose-700 dark:active:border-rose-700":
+          type === "danger",
+        "h-7 px-3": size === "sm",
+        "h-8 px-4": size === "base",
+        "h-9 px-4": size === "lg",
+        "w-full": block,
+        "rounded-full": rounded,
+        "opacity-60 pointer-events-none": loading,
         "border-sky-400 text-sky-400 dark:border-sky-500 dark:text-sky-500":
           outlineType === "default_outline",
         "bg-sky-100/70 text-sky-400 hover:bg-sky-400/70 hover:text-white dark:bg-sky-200/10 dark:text-sky-500 dark:hover:text-white":
@@ -130,7 +101,8 @@ const Button = React.forwardRef<
           outlineType === "warning_outline_disabled",
         "cursor-not-allowed bg-rose-100/30 text-rose-300/70 hover:bg-rose-100/30 active:bg-rose-100/30 dark:bg-rose-600/10 dark:border-rose-800/70 dark:text-rose-800/70 dark:hover:bg-rose-600/10 dark:hover:border-rose-800/70 dark:hover:text-rose-800/70 dark:active:bg-rose-600/10 dark:active:border-rose-800/70 dark:active:text-rose-800/70":
           outlineType === "danger_outline_disabled",
-      }
+      },
+      className
     );
 
     const onBtnClick = (
@@ -176,8 +148,8 @@ const Button = React.forwardRef<
     return (
       <button
         {...props}
-        className={classNames}
         ref={forwardredRef}
+        className={classNames}
         onClick={onBtnClick}
       >
         {renderIcon()}
@@ -191,5 +163,7 @@ const Button = React.forwardRef<
     );
   }
 );
+
+Button.displayName = "Button";
 
 export default Button;
