@@ -47,7 +47,7 @@ const Confirm: React.FC<ConfirmProps> = ({
 
   return (
     <AlertDialog.Root open={open} onOpenChange={onOpenChange}>
-      <AlertDialog.Trigger asChild>
+      <AlertDialog.Trigger asChild onClick={(e) => e.stopPropagation()}>
         <div>{children}</div>
       </AlertDialog.Trigger>
       <AlertDialog.Portal>
@@ -66,6 +66,7 @@ const Confirm: React.FC<ConfirmProps> = ({
             "bg-white dark:bg-gray-700/70",
             className
           )}
+          onClick={(e) => e.stopPropagation()}
         >
           <AlertDialog.Title asChild>
             <div className="flex font-semibold gap-1.5 items-center">

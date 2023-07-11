@@ -1,6 +1,6 @@
 # LX-UI Change Log
 
-## v0.0.25
+## v0.0.27
 
 > 2023-07-11
 
@@ -8,6 +8,7 @@
 
 - Fix the animation className of the Confirm component.
 - Fix the property problem of the Button component after packaging.
+- Fix the event bubbling problem of the Confirm component.
 
 ## v0.0.15
 
