@@ -9,15 +9,17 @@ export default function () {
   };
 
   return (
-    <Confirm
-      title="这是一个标题"
-      content={content}
-      type="success"
-      onOk={onOk}
-      cancelText="取 消"
-      okText="确 定"
-    >
-      <Button type="success">Confirm</Button>
-    </Confirm>
+    <div className="flex">
+      <Confirm
+        title="这是一个标题"
+        content={content}
+        type="success"
+        onOk={onOk}
+        cancelText="取 消"
+        okText="确 定"
+      >
+        <Button type="success">Confirm</Button>
+      </Confirm>
+    </div>
   );
 }

@@ -10,14 +10,16 @@ export default function () {
   };
 
   return (
-    <Confirm
-      title="自定义标题按钮"
-      icon={<Loading_line className="animate-spin" />}
-      content={content}
-      type="primary"
-      onOk={onOk}
-    >
-      <Button type="primary">Confirm</Button>
-    </Confirm>
+    <div className="flex">
+      <Confirm
+        title="自定义标题按钮"
+        icon={<Loading_line className="animate-spin" />}
+        content={content}
+        type="primary"
+        onOk={onOk}
+      >
+        <Button type="primary">Confirm</Button>
+      </Confirm>
+    </div>
   );
 }

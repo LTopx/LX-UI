@@ -83,10 +83,10 @@ export default function () {
 ```
 </Code>
 
-### 点击遮罩层关闭
+### 禁止遮罩层关闭
 
 <Code 
-  description='当 maskClosable 设置为true时，点击遮罩层也可以关闭确认框' 
+  description='当 maskClosable 设置为 false 时，点击遮罩层则无法关闭确认框' 
   component={<MaskClosable />}
 >
 ```tsx filename="Confirm.tsx" copy {16}
@@ -101,15 +101,17 @@ export default function () {
   };
   
   return (
-    <Confirm
-      title="这是一个标题"
-      content={content}
-      type="primary"
-      maskClosable
-      onOk={onOk}
-    >
-      <Button type="primary">Confirm</Button>
-    </Confirm>
+    <div className="flex">
+      <Confirm
+        title="这是一个标题"
+        content={content}
+        type="primary"
+        maskClosable={false}
+        onOk={onOk}
+      >
+        <Button type="primary">Confirm</Button>
+      </Confirm>
+    </div>
   );
 }
 ```
@@ -133,15 +135,17 @@ export default function () {
   };
   
   return (
-    <Confirm
-      title="自定义标题按钮"
-      icon={<Loading_line className="animate-spin" />}
-      content={content}
-      type="primary"
-      onOk={onOk}
-    >
-      <Button type="primary">Confirm</Button>
-    </Confirm>
+    <div className="flex">
+      <Confirm
+        title="自定义标题按钮"
+        icon={<Loading_line className="animate-spin" />}
+        content={content}
+        type="primary"
+        onOk={onOk}
+      >
+        <Button type="primary">Confirm</Button>
+      </Confirm>
+    </div>
   );
 }
 ```
@@ -165,16 +169,18 @@ export default function () {
   };
   
   return (
-    <Confirm
-      title="这是一个标题"
-      content={content}
-      type="success"
-      onOk={onOk}
-      cancelText="取 消"
-      okText="确 定"
-    >
-      <Button type="success">Confirm</Button>
-    </Confirm>
+    <div className="flex">
+      <Confirm
+        title="这是一个标题"
+        content={content}
+        type="success"
+        onOk={onOk}
+        cancelText="取 消"
+        okText="确 定"
+      >
+        <Button type="success">Confirm</Button>
+      </Confirm>
+    </div>
   );
 }
 ```
@@ -188,7 +194,7 @@ export default function () {
 | ---------------- | -------------------- | ------------------------------------------------------------ | --------- |
 | className        | 内容区域类名         | `string`                                                     | -         |
 | overlayClassName | 遮罩层类名           | `string`                                                     | -         |
-| maskClosable     | 是否可点击遮罩层关闭 | `boolean`                                                    | -         |
+| maskClosable     | 是否可点击遮罩层关闭 | `boolean`                                                    | true      |
 | disabled         | 是否禁用             | `boolean`                                                    | -         |
 | type             | 确认框类型           | `default` \| `primary` \| `success` \| `warning` \| `danger` | `primary` |
 | icon             | 自定义标题按钮       | `React.ReactNode`                                            | -         |

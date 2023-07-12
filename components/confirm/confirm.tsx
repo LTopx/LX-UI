@@ -23,7 +23,7 @@ const Confirm: React.FC<ConfirmProps> = ({
   className,
   overlayClassName,
   children,
-  maskClosable,
+  maskClosable = true,
   disabled,
   type = "primary",
   title = "Title",

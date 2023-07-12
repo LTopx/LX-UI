@@ -31,14 +31,14 @@ import { Drawer, Button } from "@ltopx/lx-ui";
 export default function () {
   const [open, setOpen] = React.useState(false);
   return (
-    <>
+    <div>
       <Button type="primary" onClick={() => setOpen(true)}>
         Drawer
       </Button>
       <Drawer title="这是一个title" open={open} onClose={() => setOpen(false)}>
         <div>Drawer Content</div>
       </Drawer>
-    </>
+    </div>
   );
 }
 ```
@@ -100,6 +100,7 @@ export default function () {
 | overlayClassName | 遮罩层类名               | `string`             | -       |
 | title            | 自定义标题               | `React.ReactNode`    | Title   |
 | placement        | 抽屉弹出方向             | `left` \| `right`    | `right` |
+| maskClosable     | 点击遮罩层关闭           | `boolean`            | true    |
 | open             | 是否显示抽屉             | `boolean`            | -       |
 | width            | 抽屉显示宽度             | `number` \| `string` | 378     |
 | onClose          | 关闭抽屉时触发的回调函数 | `() => void`         | -       |

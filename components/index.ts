@@ -8,3 +8,5 @@ export { default as Drawer } from "./drawer";
 export type { DrawerProps } from "./drawer";
 export { default as Dropdown } from "./dropdown";
 export type { DropdownProps, DropdownOption } from "./dropdown";
+export { default as Modal } from "./modal";
+export type { ModalProps } from "./modal";

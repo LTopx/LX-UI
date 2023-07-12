@@ -49,6 +49,10 @@
       "dropdown": {
         "title": "Dropdown 下拉菜单",
         "href": "/components/dropdown"
+      },
+      "modal": {
+        "title": "Modal 对话框",
+        "href": "/components/modal"
       }
     }
   }

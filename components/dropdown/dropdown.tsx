@@ -51,8 +51,9 @@ const Dropdown: React.FC<DropdownProps> = ({
       <DropdownMenu.Trigger
         style={{ boxShadow: "none" }}
         onClick={(e) => e.stopPropagation()}
+        asChild
       >
-        <div>{children}</div>
+        {children}
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
@@ -63,7 +64,8 @@ const Dropdown: React.FC<DropdownProps> = ({
           sideOffset={sideOffset}
           className={cn(
             "z-[500] bg-white border border-neutral-200 rounded-md py-1",
-            "data-[side=top]:animate-lx-dropdown-open-top data-[side=bottom]:animate-lx-dropdown-open-down data-[state=closed]:animate-lx-fade-out",
+            "data-[side=top]:animate-lx-dropdown-open-top data-[side=bottom]:animate-lx-dropdown-open-down",
+            "data-[state=closed]:animate-lx-fade-out",
             "dark:bg-gray-700 dark:border-slate-400/40",
             className
           )}

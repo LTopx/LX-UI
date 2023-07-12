@@ -1,0 +1,44 @@
+---
+title: Modal 对话框
+description: 当需要在不影响当前页面内容的情况下，展示或处理相关事务时，可以采用Modal模态框在当前页面打开一个浮层，承载相应的操作。
+radix:
+  title: Alert Dialog
+  link: https://www.radix-ui.com/docs/primitives/components/alert-dialog
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/modal/basic";
+
+## 代码示例
+
+### 引入
+
+```js copy
+import { Modal } from "@ltopx/lx-ui";
+```
+
+### 基础用法
+
+<Code 
+  description='提供与 Button 按钮 相同的五种基础类型确认框。点击“确认”按钮时触发 onOk 回调' 
+  component={<Basic />}
+>
+```tsx filename="Confirm.tsx" copy
+import { Confirm, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  const content =
+    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum quo ab quis odio maxime, distinctio ea nesciunt provident cumque tempora libero officia fuga accusamus consequuntur ipsum recusandae facere voluptatem sapiente.";
+    
+  const onOk = () => {
+    console.log("ok");
+  };
+  
+  return (
+    <div className="flex flex-wrap gap-x-3 gap-y-2">
+      
+    </div>
+  );
+}
+```
+</Code>

@@ -1,17 +1,19 @@
 import React from "react";
-import { Drawer, Button } from "../../components";
+import { Modal, Button } from "../../components";
 
 export default function () {
   const [open, setOpen] = React.useState(false);
 
+  const onClose = () => setOpen(false);
+
   return (
     <div className="flex">
       <Button type="primary" onClick={() => setOpen(true)}>
-        Drawer
+        Modal
       </Button>
-      <Drawer title="这是一个title" open={open} onClose={() => setOpen(false)}>
-        <div>Drawer Content</div>
-      </Drawer>
+      <Modal open={open} onClose={onClose}>
+        <div>哇哈哈</div>
+      </Modal>
     </div>
   );
 }

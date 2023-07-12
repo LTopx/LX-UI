@@ -1,18 +1,18 @@
 # LX-UI Change Log
 
-## v0.0.28
+## v0.0.29
 
 > 2023-07-12
-
-### Add
-
-- Add Dropdown component and related documentation.
 
 ### Fixed
 
 - Fix the animation className of the Confirm component.
 - Fix the property problem of the Button component after packaging.
 - Fix the event bubbling problem of the Confirm component.
+
+### Add
+
+- Add Dropdown component and related documentation.
 
 ## v0.0.15
 

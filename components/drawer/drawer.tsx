@@ -12,6 +12,9 @@ export interface DrawerProps {
 
   placement?: "left" | "right";
 
+  /** Whether to close the Alert dialog when the Overlay is clicked. default is true */
+  maskClosable?: boolean;
+
   /** The Drawer is open or not */
   open?: boolean;
 
@@ -30,6 +33,7 @@ const Drawer: React.FC<DrawerProps> = ({
   overlayClassName,
   children,
   placement = "right",
+  maskClosable = true,
   open,
   title = "Title",
   width = 378,
@@ -37,6 +41,11 @@ const Drawer: React.FC<DrawerProps> = ({
 }) => {
   const onOpenChange = (open: boolean) => {
     if (!open) onClose?.();
+  };
+
+  const onInteractOutside = (event: Event) => {
+    if (maskClosable) return onClose?.();
+    event.preventDefault();
   };
 
   return (
@@ -65,6 +74,7 @@ const Drawer: React.FC<DrawerProps> = ({
             className
           )}
           style={{ width }}
+          onInteractOutside={onInteractOutside}
         >
           <Dialog.Title asChild>
             <div className="flex font-medium h-14 px-4 leading-6 items-center">
