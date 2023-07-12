@@ -1,7 +1,7 @@
 import React from "react";
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
-import { cn } from "../_lib/cn";
 import Button, { type ButtonProps } from "../button";
+import { cn } from "../_lib/cn";
 import { Information_fill } from "../icon";
 
 export interface ConfirmProps {
@@ -63,7 +63,7 @@ const Confirm: React.FC<ConfirmProps> = ({
           className={cn(
             "top-[45%] left-[50%] z-[500] -translate-x-[50%] -translate-y-[50%] fixed outline-none p-6 shadow rounded-md w-[500px] max-w-[calc(100vw-2rem)]",
             "data-[state=closed]:animate-lx-modal-fade-out-down data-[state=open]:animate-lx-modal-fade-in-up",
-            "bg-white dark:bg-gray-700/70",
+            "bg-white backdrop-blur dark:bg-gray-700/70",
             className
           )}
           onClick={(e) => e.stopPropagation()}
@@ -79,11 +79,9 @@ const Confirm: React.FC<ConfirmProps> = ({
               {title}
             </div>
           </AlertDialog.Title>
-          <AlertDialog.Description asChild>
-            <div className="text-sm pt-4 pb-5 text-neutral-600 dark:text-neutral-300">
-              {content}
-            </div>
-          </AlertDialog.Description>
+          <div className="text-sm pt-4 pb-5 text-neutral-600 dark:text-neutral-300">
+            {content}
+          </div>
           <div className="flex gap-2 justify-end">
             <AlertDialog.Cancel asChild>
               <div>

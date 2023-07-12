@@ -2,7 +2,7 @@
 
 ## v0.0.29
 
-> 2023-07-12
+> 2023-07-13
 
 ### Fixed
 
@@ -13,6 +13,7 @@
 ### Add
 
 - Add Dropdown component and related documentation.
+- Add Modal component and related documentation.
 
 ## v0.0.15
 

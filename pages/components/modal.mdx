@@ -8,6 +8,9 @@ radix:
 
 import Code from "@demo/code";
 import Basic from "@demo/modal/basic";
+import MaskClosable from "@demo/modal/maskClosable";
+import Footer from "@demo/modal/footer";
+import FooterText from "@demo/modal/footerText";
 
 ## 代码示例
 
@@ -20,25 +23,196 @@ import { Modal } from "@ltopx/lx-ui";
 ### 基础用法
 
 <Code 
-  description='提供与 Button 按钮 相同的五种基础类型确认框。点击“确认”按钮时触发 onOk 回调' 
+  description='基本对话框。' 
   component={<Basic />}
 >
-```tsx filename="Confirm.tsx" copy
-import { Confirm, Button } from "@ltopx/lx-ui";
+```tsx filename="Modal.tsx" copy
+import { Modal, Button } from "@ltopx/lx-ui";
 
 export default function () {
-  const content =
-    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum quo ab quis odio maxime, distinctio ea nesciunt provident cumque tempora libero officia fuga accusamus consequuntur ipsum recusandae facere voluptatem sapiente.";
-    
-  const onOk = () => {
-    console.log("ok");
-  };
+  const [open, setOpen] = React.useState(false);
+  
+  const onClose = () => setOpen(false);
+  
+  const onOk = () => setOpen(false);
   
   return (
-    <div className="flex flex-wrap gap-x-3 gap-y-2">
-      
+    <div className="flex">
+      <Button type="primary" onClick={() => setOpen(true)}>
+        Modal
+      </Button>
+      <Modal title="这是一个标题" open={open} onClose={onClose} onOk={onOk}>
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto,
+          assumenda corporis quas accusamus nesciunt quasi quisquam quibusdam
+          nobis facilis dolore voluptates vero est rem repellat iste eos
+          doloremque dignissimos illo! Aut quibusdam ullam, omnis minima
+          corporis id? Hic quasi consequatur beatae dolorem sapiente explicabo,
+          expedita incidunt odio quia harum dicta quod quae nostrum omnis eum
+          consectetur reiciendis distinctio accusamus veniam.
+        </div>
+      </Modal>
     </div>
   );
 }
 ```
 </Code>
+
+### 禁止遮罩层关闭
+
+<Code 
+  description='当 maskClosable 设置为 false 时，点击遮罩层则无法关闭对话框' 
+  component={<MaskClosable />}
+>
+```tsx filename="Modal.tsx" copy {17}
+import { Modal, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  const [open, setOpen] = React.useState(false);
+  
+  const onClose = () => setOpen(false);
+  
+  const onOk = () => setOpen(false);
+  
+  return (
+    <div className="flex">
+      <Button type="primary" onClick={() => setOpen(true)}>
+        Modal
+      </Button>
+      <Modal
+        title="这是一个标题"
+        maskClosable={false}
+        open={open}
+        onClose={onClose}
+        onOk={onOk}
+      >
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto,
+          assumenda corporis quas accusamus nesciunt quasi quisquam quibusdam
+          nobis facilis dolore voluptates vero est rem repellat iste eos
+          doloremque dignissimos illo! Aut quibusdam ullam, omnis minima
+          corporis id? Hic quasi consequatur beatae dolorem sapiente explicabo,
+          expedita incidunt odio quia harum dicta quod quae nostrum omnis eum
+          consectetur reiciendis distinctio accusamus veniam.
+        </div>
+      </Modal>
+    </div>
+  );
+}
+```
+</Code>
+
+### 自定义底部按钮文字
+
+<Code 
+  description='可以自定义底部按钮的文字' 
+  component={<FooterText />}
+>
+```tsx filename="Modal.tsx" copy {17}
+import { Modal, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  const [open, setOpen] = React.useState(false);
+  
+  const onClose = () => setOpen(false);
+  
+  const onOk = () => setOpen(false);
+  
+  return (
+    <div className="flex">
+      <Button type="primary" onClick={() => setOpen(true)}>
+        Modal
+      </Button>
+      <Modal
+        title="这是一个标题"
+        open={open}
+        onClose={onClose}
+        onOk={onOk}
+        cancelText="取 消"
+        okText="确 定"
+      >
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto,
+          assumenda corporis quas accusamus nesciunt quasi quisquam quibusdam
+          nobis facilis dolore voluptates vero est rem repellat iste eos
+          doloremque dignissimos illo! Aut quibusdam ullam, omnis minima
+          corporis id? Hic quasi consequatur beatae dolorem sapiente explicabo,
+          expedita incidunt odio quia harum dicta quod quae nostrum omnis eum
+          consectetur reiciendis distinctio accusamus veniam.
+        </div>
+      </Modal>
+    </div>
+  );
+}
+```
+</Code>
+
+### 自定义页脚
+
+<Code 
+  description='传入 footer 可以自定义页脚区域按钮显示' 
+  component={<Footer />}
+>
+```tsx filename="Modal.tsx" copy {19-28}
+import { Modal, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  const [open, setOpen] = React.useState(false);
+  
+  const onClose = () => setOpen(false);
+  
+  const onOk = () => setOpen(false);
+  
+  return (
+    <div className="flex">
+      <Button type="primary" onClick={() => setOpen(true)}>
+        Modal
+      </Button>
+      <Modal
+        title="这是一个标题"
+        open={open}
+        onClose={onClose}
+        footer={
+          <div className="flex gap-2 justify-end">
+            <Button type="warning" onClick={onClose}>
+              自定义1
+            </Button>
+            <Button type="danger" onClick={onOk}>
+              自定义2
+            </Button>
+          </div>
+        }
+      >
+        <div>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto,
+          assumenda corporis quas accusamus nesciunt quasi quisquam quibusdam
+          nobis facilis dolore voluptates vero est rem repellat iste eos
+          doloremque dignissimos illo! Aut quibusdam ullam, omnis minima
+          corporis id? Hic quasi consequatur beatae dolorem sapiente explicabo,
+          expedita incidunt odio quia harum dicta quod quae nostrum omnis eum
+          consectetur reiciendis distinctio accusamus veniam.
+        </div>
+      </Modal>
+    </div>
+  );
+}
+```
+</Code>
+
+## API
+
+### Modal Props
+
+| 属性             | 描述                 | 类型                 | 默认值    |
+| ---------------- | -------------------- | -------------------- | --------- |
+| className        | 内容区域类名         | `string`             | -         |
+| overlayClassName | 遮罩层类名           | `string`             | -         |
+| width            | 对话框宽度           | `string` \| `number` | `32.5rem` |
+| maskClosable     | 是否可点击遮罩层关闭 | `boolean`            | true      |
+| title            | 自定义标题           | `React.ReactNode`    | Title     |
+| footer           | 自定义页脚           | `React.ReactNode`    | -         |
+| cancelText       | 自定义取消按钮文字   | `React.ReactNode`    | Cancel    |
+| okText           | 自定义确认按钮文字   | `React.ReactNode`    | Ok        |
+| open             | 对话框是否可见       | `boolean`            | -         |
+| onOk             | 点击“确认”按钮回调   | `() => void`         | -         |
+| onClose          | 对话框关闭时的回调   | `() => void`         | -         |

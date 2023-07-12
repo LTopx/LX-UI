@@ -70,19 +70,18 @@ const Drawer: React.FC<DrawerProps> = ({
               "right-0 data-[state=open]:animate-lx-dialog-show-right data-[state=closed]:animate-lx-dialog-hide-right":
                 placement === "right",
             },
-            "bg-white/90 dark:bg-gray-700/70 backdrop-blur-sm",
+            "bg-white/90 dark:bg-gray-700/70 backdrop-blur",
             className
           )}
           style={{ width }}
           onInteractOutside={onInteractOutside}
         >
           <Dialog.Title asChild>
-            <div className="flex font-medium h-14 px-4 leading-6 items-center">
+            <div className="flex font-semibold h-14 px-4 leading-6 items-center">
               {title}
             </div>
           </Dialog.Title>
-          <div className="px-4">{children}</div>
-          <Dialog.Close asChild>
+          <Dialog.Close asChild style={{ boxShadow: "none" }}>
             <button
               className={cn(
                 "outline-none transition-colors absolute h-14 w-14 flex justify-center items-center top-0 right-0",
@@ -93,6 +92,7 @@ const Drawer: React.FC<DrawerProps> = ({
               <Close_line size={20} />
             </button>
           </Dialog.Close>
+          <div className="px-4">{children}</div>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>

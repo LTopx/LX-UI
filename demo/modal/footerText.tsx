@@ -13,7 +13,14 @@ export default function () {
       <Button type="primary" onClick={() => setOpen(true)}>
         Modal
       </Button>
-      <Modal title="这是一个标题" open={open} onClose={onClose} onOk={onOk}>
+      <Modal
+        title="这是一个标题"
+        open={open}
+        onClose={onClose}
+        onOk={onOk}
+        cancelText="取 消"
+        okText="确 定"
+      >
         <div>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto,
           assumenda corporis quas accusamus nesciunt quasi quisquam quibusdam
