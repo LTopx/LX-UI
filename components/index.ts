@@ -6,3 +6,5 @@ export { default as Confirm } from "./confirm";
 export type { ConfirmProps } from "./confirm";
 export { default as Drawer } from "./drawer";
 export type { DrawerProps } from "./drawer";
+export { default as Dropdown } from "./dropdown";
+export type { DropdownProps, DropdownOption } from "./dropdown";

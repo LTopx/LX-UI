@@ -3,5 +3,6 @@
   "button": "Button 按钮",
   "select": "Select 选择器",
   "confirm": "Confirm 确认框",
-  "drawer": "Drawer 抽屉"
+  "drawer": "Drawer 抽屉",
+  "dropdown": "Dropdown 下拉菜单"
 }

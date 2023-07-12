@@ -3,13 +3,11 @@ import { cn } from "../_lib/cn";
 import { Loading_line } from "../icon";
 
 export interface ButtonProps
-  extends Omit<
-    React.ButtonHTMLAttributes<HTMLButtonElement & HTMLAnchorElement>,
-    "type"
-  > {
+  extends React.HTMLAttributes<HTMLDivElement & HTMLAnchorElement> {
   type?: "default" | "primary" | "success" | "warning" | "danger";
   size?: "sm" | "base" | "lg";
   outline?: boolean;
+  disabled?: boolean;
   icon?: React.ReactNode;
   href?: string;
   target?: React.HTMLAttributeAnchorTarget;
@@ -19,7 +17,7 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<
-  HTMLButtonElement & HTMLAnchorElement,
+  HTMLDivElement & HTMLAnchorElement,
   ButtonProps
 >(
   (
@@ -105,9 +103,7 @@ const Button = React.forwardRef<
       className
     );
 
-    const onBtnClick = (
-      e: React.MouseEvent<HTMLButtonElement | HTMLAnchorElement, MouseEvent>
-    ) => {
+    const onBtnClick = (e: any) => {
       if (loading || disabled) {
         e.preventDefault();
         return;
@@ -146,7 +142,7 @@ const Button = React.forwardRef<
     }
 
     return (
-      <button
+      <div
         {...props}
         ref={forwardredRef}
         className={classNames}
@@ -159,7 +155,7 @@ const Button = React.forwardRef<
             {props.children}
           </div>
         )}
-      </button>
+      </div>
     );
   }
 );

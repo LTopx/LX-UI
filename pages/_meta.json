@@ -45,6 +45,10 @@
       "drawer": {
         "title": "Drawer 抽屉",
         "href": "/components/drawer"
+      },
+      "dropdown": {
+        "title": "Dropdown 下拉菜单",
+        "href": "/components/dropdown"
       }
     }
   }

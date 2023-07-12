@@ -1,8 +1,12 @@
 # LX-UI Change Log
 
-## v0.0.27
+## v0.0.28
 
-> 2023-07-11
+> 2023-07-12
+
+### Add
+
+- Add Dropdown component and related documentation.
 
 ### Fixed
 

@@ -106,7 +106,7 @@ const Select: React.FC<SelectProps> = ({
           position="popper"
           sideOffset={4}
           className={cn(
-            "z-[2000] bg-white shadow-md border rounded py-1",
+            "z-[500] bg-white shadow-md border rounded py-1",
             "data-[state=open]:animate-lx-select-open data-[state=closed]:animate-lx-select-closed",
             "w-[--radix-popper-anchor-width]"
           )}

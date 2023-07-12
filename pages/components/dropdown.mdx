@@ -1,0 +1,218 @@
+---
+title: Dropdown 下拉菜单
+description: 当页面上元素过多时，可以将多个同类选项放到一个下拉菜单中容器中进行选择。
+radix:
+  title: Dropdown
+  link: https://www.radix-ui.com/docs/primitives/components/dropdown-menu
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/dropdown/basic";
+import Side from "@demo/dropdown/side";
+import Align from "@demo/dropdown/align";
+import Selectable from "@demo/dropdown/selectable";
+
+## 代码示例
+
+### 引入
+
+```js copy
+import { Dropdown } from "@ltopx/lx-ui";
+```
+
+### 基础用法
+
+<Code 
+  description='基础下拉菜单，可自定义 label 显示内容' 
+  component={<Basic />}
+>
+```tsx filename="Dropdown.tsx" copy
+import React from "react";
+import { Dropdown, Button, type DropdownOption } from "@ltopx/lx-ui";
+
+export default function () {
+  const options: DropdownOption[] = [
+    {
+      label: (
+        <div className="flex gap-1 items-center">
+          <Loading_line />
+          <div>土豆 土豆</div>
+        </div>
+      ),
+      value: "111",
+    },
+    {
+      label: (
+        <div className="flex gap-1 items-center">
+          <Information_fill />
+          <div>西红柿 西红柿</div>
+        </div>
+      ),
+      value: "222;",
+    },
+    { type: "seperate" },
+    {
+      label: (
+        <div className="flex gap-1 items-center">
+          <Loading_line />
+          <div>马铃薯 马铃薯</div>
+        </div>
+      ),
+      value: "333",
+    },
+    {
+      label: (
+        <div className="flex gap-1 items-center">
+          <Close_line />
+          <div>番茄 番茄</div>
+        </div>
+      ),
+      value: "444",
+    },
+  ];
+  
+  return (
+    <div className="flex gap-2">
+      <Dropdown options={options}>
+        <Button type="primary">Dropdown</Button>
+      </Dropdown>
+      <Dropdown disabled options={options}>
+        <Button type="primary" disabled>
+          Dropdown
+        </Button>
+      </Dropdown>
+    </div>
+  );
+}
+```
+</Code>
+
+### 弹出方向和间距
+
+<Code 
+  description='可以通过 side 属性自定义Dropdown弹出方向；通过设置 sideOffset 属性自定义Dropdown与触发元素的间距' 
+  component={<Side />}
+>
+```tsx filename="Dropdown.tsx" copy {17,20}
+import React from "react";
+import { Drawer, Button, type DropdownOption } from "@ltopx/lx-ui";
+
+export default function () {
+  const options: DropdownOption[] = [
+    { label: "土豆,土豆", value: "111" },
+    { label: "西红柿,西红柿", value: "222;" },
+    { label: "马铃薯,马铃薯", value: "333" },
+    { label: "番茄,番茄", value: "444" },
+  ];
+  
+  return (
+    <div className="flex gap-2">
+      <Dropdown options={options}>
+        <Button type="primary">Dropdown Auto</Button>
+      </Dropdown>
+      <Dropdown options={options} side="top" sideOffset={20}>
+        <Button type="primary">Dropdown Top</Button>
+      </Dropdown>
+      <Dropdown options={options} side="bottom" sideOffset={0}>
+        <Button type="primary">Dropdown Bottom</Button>
+      </Dropdown>
+    </div>
+  );
+}
+```
+</Code>
+
+### 对齐方向和间距
+
+<Code 
+  description='可以通过 align 属性自定义Dropdown对齐方向；通过设置 alignOffset 属性自定义Dropdown与触发元素的间距' 
+  component={<Align />}
+>
+```tsx filename="Dropdown.tsx" copy {14,17,20,23}
+import React from "react";
+import { Drawer, Button, type DropdownOption } from "@ltopx/lx-ui";
+
+export default function () {
+  const options: DropdownOption[] = [
+    { label: "土豆,土豆", value: "111" },
+    { label: "西红柿,西红柿", value: "222;" },
+    { label: "马铃薯,马铃薯", value: "333" },
+    { label: "番茄,番茄", value: "444" },
+  ];
+  
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Dropdown options={options} align="start">
+        <Button type="primary">Dropdown Start</Button>
+      </Dropdown>
+      <Dropdown options={options} align="start" alignOffset={50}>
+        <Button type="primary">Dropdown Start</Button>
+      </Dropdown>
+      <Dropdown options={options} align="center">
+        <Button type="primary">Dropdown Center</Button>
+      </Dropdown>
+      <Dropdown options={options} align="end">
+        <Button type="primary">Dropdown End</Button>
+      </Dropdown>
+    </div>
+  );
+}
+```
+</Code>
+
+### 支持可选中
+
+<Code 
+  description='可以支持选中，在某些场景下可以替代 Select 使用。' 
+  component={<Selectable />}
+>
+```tsx filename="Dropdown.tsx" copy
+import React from "react";
+import { Drawer, Button, type DropdownOption } from "@ltopx/lx-ui";
+
+export default function () {
+  const options: DropdownOption[] = [
+    { label: "土豆,土豆", value: "111" },
+    { label: "西红柿,西红柿", value: "222;" },
+    { label: "马铃薯,马铃薯", value: "333" },
+    { label: "番茄,番茄", value: "444" },
+  ];
+  
+  const [value, setValue] = React.useState("111");
+  
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Dropdown options={options} selectable value={value} onSelect={setValue}>
+        <Button type="primary">Selectable</Button>
+      </Dropdown>
+    </div>
+  );
+}
+```
+</Code>
+
+## API
+
+### Dropdown Props
+
+| 属性        | 描述               | 类型                         | 默认值   |
+| ----------- | ------------------ | ---------------------------- | -------- |
+| className   | 内容区域类名       | `string`                     | -        |
+| disabled    | 是否禁用           | `boolean`                    | -        |
+| side        | 弹出方向           | `top` \| `bottom`            | `bottom` |
+| sideOffset  | 弹出方向的间距     | `number`                     | 6        |
+| align       | 对齐方向           | `start` \| `center` \| `end` | `center` |
+| alignOffset | 对齐方向的间距     | `number`                     | -        |
+| label       | 标题               | `string`                     | -        |
+| options     | 选项列表           | `DropdownOption[]`           | -        |
+| selectable  | 是否可支持选中     | `boolean`                    | -        |
+| value       | 当前选中的值       | `string` \| `number`         | -        |
+| onSelect    | 选中某一选项的回调 | `(value: any) => void`       | -        |
+
+### DropdownOption Props
+
+| 属性  | 描述           | 类型              | 默认值 |
+| ----- | -------------- | ----------------- | ------ |
+| label | 选项展示内容   | `React.ReactNode` | -      |
+| value | 选项选中时的值 | `string`          | -      |
+| type  | 是否禁用       | `seperate`        | -      |
