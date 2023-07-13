@@ -53,6 +53,10 @@
       "modal": {
         "title": "Modal 对话框",
         "href": "/components/modal"
+      },
+      "input": {
+        "title": "Input 输入框",
+        "href": "/components/input"
       }
     }
   }

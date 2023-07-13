@@ -1,0 +1,55 @@
+---
+title: Input 输入框
+description: 基础表单组件，使用鼠标和键盘输入内容。
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/input/basic";
+
+## 代码示例
+
+### 引入
+
+```js copy
+import { Input } from "@ltopx/lx-ui";
+```
+
+### 基础用法
+
+<Code 
+  description='提供五种基础类型的按钮使用。搭配 outline 属性，你将再获得额外五种类型的按钮。' 
+  component={<Basic />}
+>
+```tsx filename="Button.tsx" copy
+import { Button } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-wrap gap-x-3 gap-y-2">
+        <Button>Default</Button>
+        <Button type="primary">Primary</Button>
+        <Button type="success">Success</Button>
+        <Button type="warning">Warning</Button>
+        <Button type="danger">Danger</Button>
+      </div>
+      <div className="flex flex-wrap gap-x-3 gap-y-2">
+        <Button outline>Default</Button>
+        <Button type="primary" outline>
+          Primary
+        </Button>
+        <Button type="success" outline>
+          Success
+        </Button>
+        <Button type="warning" outline>
+          Warning
+        </Button>
+        <Button type="danger" outline>
+          Danger
+        </Button>
+      </div>
+    </div>
+  );
+}
+```
+</Code>

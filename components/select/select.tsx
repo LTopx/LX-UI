@@ -81,8 +81,10 @@ const Select: React.FC<SelectProps> = ({
           className={cn(
             "px-3 relative cursor-pointer transition-colors group select-none rounded outline-none inline-flex text-sm items-center justify-between border border-transparent",
             "data-[state=open]:bg-white data-[state=open]:border-sky-400",
+            "dark:data-[state=open]:bg-[#232324] dark:data-[state=open]:border-sky-500",
             "data-[disabled]:bg-lx-color-fill-2 data-[disabled]:cursor-not-allowed data-[disabled]:text-lx-color-text-4",
             "bg-lx-color-fill-2 hover:bg-lx-color-fill-3 text-lx-color-text-3",
+            "dark:bg-lx-color-fill-2-dark dark:hover:bg-lx-color-fill-3-dark",
             { "h-7": size === "sm" },
             { "h-8": size === "base" },
             { "h-9": size === "lg" },

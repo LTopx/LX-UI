@@ -3,11 +3,14 @@ module.exports = {
   theme: {
     extend: {
       backgroundColor: {
-        "lx-color-fill-2": "#F2F3F5",
-        "lx-color-fill-3": "#E5E6EB",
+        "lx-color-fill-2": "rgb(242,243,245)",
+        "lx-color-fill-2-dark": "hsla(0,0%,100%,0.08)",
+        "lx-color-fill-3": "rgb(229,230,235)",
+        "lx-color-fill-3-dark": "hsla(0,0%,100%,0.12)",
       },
       colors: {
         "lx-color-text-1": "#1D2129",
+        "lx-color-text-1-dark": "hsla(0,0%,100%,0.9)",
         "lx-color-text-2": "",
         "lx-color-text-3": "#86909C",
         "lx-color-text-4": "#C9CDD4",

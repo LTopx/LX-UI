@@ -67,7 +67,7 @@ const Modal: React.FC<ModalProps> = ({
         <Dialog.Content
           className={cn(
             "top-[45%] left-[50%] z-[500] -translate-x-[50%] -translate-y-[50%] fixed outline-none p-6 shadow rounded-md max-w-[calc(100vw-2rem)]",
-            "data-[state=closed]:animate-lx-modal-fade-out-down data-[state=open]:animate-lx-modal-fade-in-up",
+            "data-[state=open]:animate-lx-modal-fade-in-up data-[state=closed]:animate-lx-modal-fade-out-down",
             "bg-white backdrop-blur dark:bg-gray-700/70",
             className
           )}
