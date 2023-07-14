@@ -7,11 +7,11 @@ module.exports = {
         "lx-color-fill-2-dark": "hsla(0,0%,100%,0.08)",
         "lx-color-fill-3": "rgb(229,230,235)",
         "lx-color-fill-3-dark": "hsla(0,0%,100%,0.12)",
+        "lx-color-fill-4-dark": "hsla(0,0%,100%,0.16)",
       },
       colors: {
         "lx-color-text-1": "#1D2129",
         "lx-color-text-1-dark": "hsla(0,0%,100%,0.9)",
-        "lx-color-text-2": "",
         "lx-color-text-3": "#86909C",
         "lx-color-text-4": "#C9CDD4",
       },

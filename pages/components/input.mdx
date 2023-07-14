@@ -5,6 +5,8 @@ description: 基础表单组件，使用鼠标和键盘输入内容。
 
 import Code from "@demo/code";
 import Basic from "@demo/input/basic";
+import Size from "@demo/input/size";
+import Trigger from "@demo/input/trigger";
 
 ## 代码示例
 
@@ -17,39 +19,95 @@ import { Input } from "@ltopx/lx-ui";
 ### 基础用法
 
 <Code 
-  description='提供五种基础类型的按钮使用。搭配 outline 属性，你将再获得额外五种类型的按钮。' 
+  description='通过键盘或鼠标输入内容。' 
   component={<Basic />}
 >
-```tsx filename="Button.tsx" copy
-import { Button } from "@ltopx/lx-ui";
+```tsx filename="Input.tsx" copy
+import { Input } from "@ltopx/lx-ui";
 
 export default function () {
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex flex-wrap gap-x-3 gap-y-2">
-        <Button>Default</Button>
-        <Button type="primary">Primary</Button>
-        <Button type="success">Success</Button>
-        <Button type="warning">Warning</Button>
-        <Button type="danger">Danger</Button>
-      </div>
-      <div className="flex flex-wrap gap-x-3 gap-y-2">
-        <Button outline>Default</Button>
-        <Button type="primary" outline>
-          Primary
-        </Button>
-        <Button type="success" outline>
-          Success
-        </Button>
-        <Button type="warning" outline>
-          Warning
-        </Button>
-        <Button type="danger" outline>
-          Danger
-        </Button>
-      </div>
+    <div className="flex flex-wrap gap-2">
+      <Input className="w-52" placeholder="请输入" allowClear />
     </div>
   );
 }
 ```
 </Code>
+
+### 尺寸大小
+
+<Code 
+  description='默认提供三种尺寸大小，可选值分别为 sm, base, lg' 
+  component={<Size />}
+>
+```tsx filename="Input.tsx" copy
+import { Input } from "@ltopx/lx-ui";
+import { Tabs, Tab } from "nextra/components";
+
+export default function () {
+  return (
+    <Tabs items={["sm", "base", "lg"]}>
+      <Tab>
+        <Input className="w-52" placeholder="请输入" size="sm" allowClear />
+      </Tab>
+      <Tab>
+        <Input className="w-52" placeholder="请输入" size="base" allowClear />
+      </Tab>
+      <Tab>
+        <Input className="w-52" placeholder="请输入" size="lg" allowClear />
+      </Tab>
+    </Tabs>
+  );
+}
+```
+</Code>
+
+### 手动触发事件
+
+<Code 
+  description='继承原生input的所有触发事件' 
+  component={<Trigger />}
+>
+```tsx filename="Input.tsx" copy
+import { Input, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  const inputRef = React.useRef<HTMLInputElement>(null);
+  
+  const onFocus = () => inputRef.current?.focus();
+  
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Button type="primary" onClick={onFocus}>
+        聚焦Input
+      </Button>
+      <Input className="w-52" placeholder="请输入" allowClear ref={inputRef} />
+    </div>
+  );
+}
+```
+</Code>
+
+## API
+
+### Input Props
+
+| 属性        | 描述                                                                                                                                        | 类型                    | 默认值 |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ------ |
+| className   | 结构类名                                                                                                                                    | `string`                | -      |
+| type        | input 类型，与原生 input 标签的 type 属性相同。见 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#%E5%B1%9E%E6%80%A7) | `string`                | `text` |
+| size        | 尺寸大小                                                                                                                                    | `sm` \| `base` \| `lg ` | `base` |
+| allowClear  | 是否允许清空                                                                                                                                | boolean                 | -      |
+| placeholder | 默认占位文本                                                                                                                                | `string`                | -      |
+| value       | 输入框的值，受控模式                                                                                                                        | `string` \| `number`    | -      |
+| onFocus     | 获得焦点时的回调                                                                                                                            | `() => void`            | -      |
+| onBlur      | 失去焦点时的回调                                                                                                                            | `() => void`            | -      |
+| onChange    | 输入时的回调                                                                                                                                | `(value: any) => void`  | -      |
+
+### Input Methods
+
+| 属性  | 描述     | 类型                               | 默认值 |
+| ----- | -------- | ---------------------------------- | ------ |
+| focus | 获取焦点 | `(options?: FocusOptions) => void` | -      |
+| blur  | 取消焦点 | `() => void`                       | -      |

@@ -106,8 +106,11 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             className={cn(
               "group-hover:block relative cursor-pointer hidden",
               "before:absolute before:transition-colors before:rounded-full before:w-5 before:h-5 before:left-[50%] before:top-[50%] before:-translate-x-[50%] before:-translate-y-[50%]",
-              "before:hover:bg-[rgb(201,205,212)]",
-              { "before:hover:bg-[rgb(242,243,245)]": isFocus }
+              "before:hover:bg-[rgb(201,205,212)] dark:before:hover:bg-lx-color-fill-4-dark",
+              {
+                "before:hover:bg-[rgb(242,243,245)] dark:before:hover:bg-lx-color-fill-2-dark":
+                  isFocus,
+              }
             )}
             onClick={onClear}
           >

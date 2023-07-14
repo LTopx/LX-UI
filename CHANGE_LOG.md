@@ -1,8 +1,8 @@
 # LX-UI Change Log
 
-## v0.0.29
+## v0.0.36
 
-> 2023-07-13
+> 2023-07-14
 
 ### Fixed
 
@@ -14,6 +14,7 @@
 
 - Add Dropdown component and related documentation.
 - Add Modal component and related documentation.
+- Add Input component and related documentation.
 
 ## v0.0.15
 
