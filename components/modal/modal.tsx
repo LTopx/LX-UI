@@ -88,13 +88,13 @@ const Modal: React.FC<ModalProps> = ({
               <Close_line size={20} />
             </button>
           </Dialog.Close>
-          <div className="text-sm pt-4 pb-5 text-neutral-600 dark:text-neutral-300">
+          <div className="text-sm pt-4 text-neutral-600 dark:text-neutral-300">
             {children}
           </div>
           {footer !== undefined ? (
             footer
           ) : (
-            <div className="flex gap-2 justify-end">
+            <div className="flex mt-5 gap-2 justify-end">
               <Button onClick={onClose}>{cancelText}</Button>
               <Button type="primary" onClick={onOk}>
                 {okText}

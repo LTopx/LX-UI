@@ -1,0 +1,102 @@
+---
+title: Divider 分割线
+description: 划分内容区域，对模块做分隔。
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/divider/basic";
+import Vertical from "@demo/divider/vertical";
+import Orientation from "@demo/divider/orientation";
+
+## 代码示例
+
+### 引入
+
+```js copy
+import { Divider } from "@ltopx/lx-ui";
+```
+
+### 基础用法
+
+<Code 
+  description='分割段落内容，支持实线和虚线。' 
+  component={<Basic />}
+>
+```tsx filename="Divider.tsx" copy
+import { Divider } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div>
+      <div>这是一段文字</div>
+      <Divider />
+      <div>这是一段文字</div>
+      <Divider dashed />
+      <div>这是一段文字</div>
+    </div>
+  );
+}
+```
+</Code>
+
+### 竖向分割线
+
+<Code 
+  description='设置type为vertical时，展示竖向分割线。' 
+  component={<Vertical />}
+>
+```tsx filename="Divider.tsx" copy
+import { Divider } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div>
+      <span>这是一段文字</span>
+      <Divider type="vertical" />
+      <span>这是一段文字</span>
+      <Divider type="vertical" dashed />
+      <span>这是一段文字</span>
+    </div>
+  );
+}
+```
+</Code>
+
+### 文字分割线
+
+<Code 
+  description='设置 orientation 属性，可以将文字放在分割线的左边、右边或者居中。' 
+  component={<Orientation />}
+>
+```tsx filename="Divider.tsx" copy
+import { Divider } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div>
+      <span>这是一段文字</span>
+      <Divider orientation="left">文字</Divider>
+      <span>这是一段文字</span>
+      <Divider dashed orientation="center">
+        文字
+      </Divider>
+      <span>这是一段文字</span>
+      <Divider orientation="right">文字</Divider>
+      <span>这是一段文字</span>
+    </div>
+  );
+}
+```
+</Code>
+
+## API
+
+### Divider Props
+
+| 属性        | 描述                  | 类型                          | 默认值       |
+| ----------- | --------------------- | ----------------------------- | ------------ |
+| className   | 结构类名              | `string`                      | -            |
+| type        | 分割线类型，水平/竖直 | `horizontal` \| `vertical`    | `horizontal` |
+| dashed      | 是否虚线              | boolean                       | -            |
+| children    | 嵌套的标题            | `React.ReactNode`             | -            |
+| orientation | 分割线嵌套标题的位置  | `left` \| `center` \| `right` | `center`     |

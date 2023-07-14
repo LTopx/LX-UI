@@ -13,6 +13,7 @@ export interface InputProps
   size?: SizeType;
   value?: string | number;
   onChange?: (value: any) => void;
+  onEnter?: (value: any) => void;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
@@ -27,6 +28,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       onFocus,
       onBlur,
       onChange,
+      onEnter,
     },
     forwardredRef
   ) => {
@@ -46,6 +48,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       if (!inputRef.current) return;
       onChange?.("");
       setInputValue("");
+    };
+
+    const onKeyDown = (event: any) => {
+      if (event.keyCode === 13) onEnter?.(event.target.value);
     };
 
     React.useEffect(() => {
@@ -82,7 +88,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <input
           ref={inputRef}
           className={cn(
-            "bg-transparent w-full h-full text-sm leading-[1.5715]",
+            "bg-transparent w-full h-full text-sm leading-[1.5715] outline-none",
             { "py-0.5": size === "sm" },
             { "py-1": size === "base" },
             { "py-1.5": size === "lg" }
@@ -100,6 +106,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             onBlur?.(e);
           }}
           onChange={onChangeValue}
+          onKeyDown={onKeyDown}
         />
         {!!allowClear && inputValue && (
           <span

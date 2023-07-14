@@ -1,6 +1,14 @@
 # LX-UI Change Log
 
-## v0.0.36
+## v0.0.40
+
+> 2023-07-15
+
+### Add
+
+- Add Divider component and related documentation.
+
+## v0.0.38
 
 > 2023-07-14
 
@@ -15,6 +23,11 @@
 - Add Dropdown component and related documentation.
 - Add Modal component and related documentation.
 - Add Input component and related documentation.
+- Add onEnter method to Input component, which is triggered when the Enter key is pressed.
+
+### Changed
+
+- Optimize the style of the Modal component footer.
 
 ## v0.0.15
 

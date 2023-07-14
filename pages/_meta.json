@@ -57,6 +57,10 @@
       "input": {
         "title": "Input 输入框",
         "href": "/components/input"
+      },
+      "divider": {
+        "title": "Divider 分割线",
+        "href": "/components/divider"
       }
     }
   }
