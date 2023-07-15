@@ -1,12 +1,16 @@
 # LX-UI Change Log
 
-## v0.0.40
+## v0.0.41
 
 > 2023-07-15
 
 ### Add
 
 - Add Divider component and related documentation.
+
+### Changed
+
+- Replace button loading button.
 
 ## v0.0.38
 

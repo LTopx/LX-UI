@@ -16,6 +16,12 @@ export interface ButtonProps
   loading?: boolean;
 }
 
+const renderIcon = (loading: boolean, icon: React.ReactNode) => {
+  if (loading) return <Loading_line className="animate-spin" />;
+  if (icon) return icon;
+  return null;
+};
+
 const Button = React.forwardRef<
   HTMLDivElement & HTMLAnchorElement,
   ButtonProps
@@ -115,12 +121,6 @@ const Button = React.forwardRef<
       )?.(e);
     };
 
-    const renderIcon = () => {
-      if (loading) return <Loading_line className="text-white animate-spin" />;
-      if (icon) return icon;
-      return null;
-    };
-
     if (href) {
       return (
         <a
@@ -130,7 +130,7 @@ const Button = React.forwardRef<
           onClick={onBtnClick}
           href={href}
         >
-          {renderIcon()}
+          {renderIcon(loading, icon)}
 
           {!!props.children && (
             <div className={cn({ "ml-2": !!icon || !!loading })}>
@@ -148,7 +148,7 @@ const Button = React.forwardRef<
         className={classNames}
         onClick={onBtnClick}
       >
-        {renderIcon()}
+        {renderIcon(loading, icon)}
 
         {!!props.children && (
           <div className={cn({ "ml-2": !!icon || !!loading })}>
