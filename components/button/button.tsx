@@ -1,10 +1,11 @@
 import React from "react";
 import { cn } from "../_lib/cn";
 import { Loading_line } from "../icon";
+import type { ShownType } from "../config-provider";
 
 export interface ButtonProps
   extends React.HTMLAttributes<HTMLDivElement & HTMLAnchorElement> {
-  type?: "default" | "primary" | "success" | "warning" | "danger";
+  type?: ShownType;
   size?: "sm" | "base" | "lg";
   outline?: boolean;
   disabled?: boolean;

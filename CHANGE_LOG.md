@@ -1,12 +1,17 @@
 # LX-UI Change Log
 
-## v0.0.41
+## v0.0.46
 
 > 2023-07-15
+
+### Fixed
+
+- Fix the problem that the Dropdown is closed abnormally due to clicking too fast.
 
 ### Add
 
 - Add Divider component and related documentation.
+- Add Progress component and related documentation.
 
 ### Changed
 

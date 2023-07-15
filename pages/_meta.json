@@ -61,6 +61,10 @@
       "divider": {
         "title": "Divider 分割线",
         "href": "/components/divider"
+      },
+      "progress": {
+        "title": "Progress 进度条",
+        "href": "/components/progress"
       }
     }
   }

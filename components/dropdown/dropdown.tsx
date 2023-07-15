@@ -41,9 +41,26 @@ const Dropdown: React.FC<DropdownProps> = ({
 }) => {
   const [open, setOpen] = React.useState(false);
 
+  const disabledRef = React.useRef(false);
+  const disabledTimer = React.useRef<NodeJS.Timeout>();
+
   const onOpenChange = (isOpen: boolean) => {
     if (disabled) return setOpen(false);
     setOpen(isOpen);
+    if (isOpen) {
+      disabledRef.current = true;
+
+      if (disabledTimer.current) clearTimeout(disabledTimer.current);
+
+      disabledTimer.current = setTimeout(() => {
+        disabledRef.current = false;
+      }, 200);
+    }
+  };
+
+  const onMenuSelect = (e: any, value: string) => {
+    if (disabledRef.current) return e.preventDefault();
+    onSelect?.(value);
   };
 
   return (
@@ -83,7 +100,8 @@ const Dropdown: React.FC<DropdownProps> = ({
               <DropdownMenu.Item
                 key={item.value}
                 style={{ boxShadow: "none" }}
-                onSelect={() => onSelect?.(item.value)}
+                // onSelect={() => onSelect?.(item.value)}
+                onSelect={(e) => onMenuSelect(e, item.value)}
                 className={cn(
                   "select-none cursor-pointer outline-none border-none h-8 px-3 flex items-center text-sm transition-colors",
                   "bg-white hover:bg-neutral-200/60",
