@@ -1,0 +1,142 @@
+---
+title: Tabs 标签页
+description: 给予用户当前系统执行中任务运行状态的反馈，多用于运行一段时间的场景，有效减轻用户在等待中产生的焦虑感。
+radix:
+  title: Tabs
+  link: https://www.radix-ui.com/docs/primitives/components/tabs
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/tabs/basic";
+import Size from "@demo/tabs/size";
+import Active from "@demo/tabs/active";
+
+## 代码示例
+
+### 引入
+
+```js copy
+import { Tabs } from "@ltopx/lx-ui";
+```
+
+### 基础用法
+
+<Code 
+  description='默认选中第一个 tab' 
+  component={<Basic />}
+>
+```tsx filename="Tabs.tsx" copy
+import { Tabs, type TabsOption } from "@ltopx/lx-ui";
+
+export default function () {
+  const options: TabsOption[] = [
+    {
+      label: "Tab1",
+      value: "1",
+      children: <div>啊啊啊啊</div>,
+    },
+    {
+      label: "Tab2",
+      value: "2",
+      children: <div>呃呃呃呃</div>,
+    },
+  ];
+  
+  return (
+    <div>
+      <Tabs options={options} defaultActiveTab="1" />
+    </div>
+  );
+}
+```
+</Code>
+
+### 尺寸大小
+
+<Code 
+  description='默认提供三种尺寸大小，可选值分别为 sm, base, lg' 
+  component={<Size />}
+>
+```tsx filename="Tabs.tsx" copy
+import { Tabs, type TabsOption } from "@ltopx/lx-ui";
+
+export default function () {
+  const options: TabsOption[] = [
+    {
+      label: "Tab1",
+      value: "1",
+      children: <div>啊啊啊啊</div>,
+    },
+    {
+      label: "Tab2",
+      value: "2",
+      children: <div>呃呃呃呃</div>,
+    },
+  ];
+  
+  return (
+    <div className="flex flex-col gap-5">
+      <Tabs options={options} defaultActiveTab="1" size="sm" />
+      <Tabs options={options} defaultActiveTab="1" />
+      <Tabs options={options} defaultActiveTab="1" size="lg" />
+    </div>
+  );
+}
+```
+</Code>
+
+### 受控模式
+
+<Code 
+  description='通过 activeTab 开启受控模式。' 
+  component={<Active />}
+>
+```tsx filename="Tabs.tsx" copy
+import { Tabs, type TabsOption } from "@ltopx/lx-ui";
+
+export default function () {
+  const options: TabsOption[] = [
+    {
+      label: "Tab1",
+      value: "1",
+      children: <div>啊啊啊啊</div>,
+    },
+    {
+      label: "Tab2",
+      value: "2",
+      children: <div>呃呃呃呃</div>,
+    },
+  ];
+  
+  const [active, setActive] = React.useState("1");
+  
+  return (
+    <div className="flex flex-col gap-2">
+      <div>当前选中：{active}</div>
+      <Tabs options={options} activeTab={active} onChange={setActive} />
+    </div>
+  );
+}
+```
+</Code>
+
+## API
+
+### Tabs Props
+
+| 属性             | 描述                     | 类型                      | 默认值 |
+| ---------------- | ------------------------ | ------------------------- | ------ |
+| className        | 节点类名                 | `string`                  | -      |
+| size             | 尺寸大小                 | `sm` \| `base` \| `lg`    | `base` |
+| options          | Tabs 选项内容            | `TabsOption[]`            | -      |
+| defaultActiveTab | 默认选中的标签选项       | `string`                  | -      |
+| activeTab        | 受控模式下选中的标签选项 | `number`                  | -      |
+| onChange         | 切换标签页时的回调       | `(value: string) => void` | -      |
+
+### TabsOption Props
+
+| 属性     | 描述             | 类型              | 默认值 |
+| -------- | ---------------- | ----------------- | ------ |
+| label    | 标签页显示文本   | `React.ReactNode` | -      |
+| value    | 标签页选中对应值 | `string`          | -      |
+| children | 标签页显示内容   | `React.ReactNode` | -      |

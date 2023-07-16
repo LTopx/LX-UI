@@ -65,6 +65,10 @@
       "progress": {
         "title": "Progress 进度条",
         "href": "/components/progress"
+      },
+      "tabs": {
+        "title": "Tabs 标签页",
+        "href": "/components/tabs"
       }
     }
   }

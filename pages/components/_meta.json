@@ -8,5 +8,6 @@
   "modal": "Modal 对话框",
   "input": "Input 输入框",
   "divider": "Divider 分割线",
-  "progress": "Progress 进度条"
+  "progress": "Progress 进度条",
+  "tabs": "Tabs 标签页"
 }

@@ -1,8 +1,8 @@
 # LX-UI Change Log
 
-## v0.0.46
+## v0.0.48
 
-> 2023-07-15
+> 2023-07-16
 
 ### Fixed
 
@@ -12,6 +12,7 @@
 
 - Add Divider component and related documentation.
 - Add Progress component and related documentation.
+- Add Tabs component and related documentation.
 
 ### Changed
 
