@@ -69,6 +69,10 @@
       "tabs": {
         "title": "Tabs 标签页",
         "href": "/components/tabs"
+      },
+      "accordion": {
+        "title": "Accordion 手风琴",
+        "href": "/components/accordion"
       }
     }
   }

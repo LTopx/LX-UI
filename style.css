@@ -91,3 +91,7 @@ table code {
 :is(.dark table code) {
   background: hsla(0, 0%, 100%, 0.1) !important;
 }
+
+.nextra-nav-container > nav div:nth-child(1) {
+  max-height: none;
+}

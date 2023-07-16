@@ -5,7 +5,7 @@ import type { ShownType } from "../config-provider";
 
 export interface ButtonProps
   extends React.HTMLAttributes<HTMLDivElement & HTMLAnchorElement> {
-  type?: ShownType;
+  type?: ShownType | "link";
   size?: "sm" | "base" | "lg";
   outline?: boolean;
   disabled?: boolean;
@@ -70,6 +70,8 @@ const Button = React.forwardRef<
           type === "warning",
         "text-white bg-rose-400 border-rose-400 hover:bg-rose-400/70 hover:border-rose-400/70 active:bg-rose-600/80 active:border-rose-600/80 dark:bg-rose-500 dark:border-rose-500 dark:hover:bg-rose-600 dark:hover:border-rose-600 dark:active:bg-rose-700 dark:active:border-rose-700":
           type === "danger",
+        "hover:underline text-sky-400 dark:text-sky-500 hover:text-sky-500 dark:hover:text-sky-600 border-transparent":
+          type === "link",
         "h-7 px-3": size === "sm",
         "h-8 px-4": size === "base",
         "h-9 px-4": size === "lg",

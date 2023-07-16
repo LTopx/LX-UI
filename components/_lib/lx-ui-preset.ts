@@ -76,6 +76,14 @@ module.exports = {
           "0%": { transform: "translateZ(0)", opacity: "1" },
           "100%": { transform: "translate3d(100%,0,0)", opacity: "0.8" },
         },
+        "lx-accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "lx-accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
       },
       animation: {
         "lx-select-open": "lx-select-open 0.2s ease-in-out",
@@ -94,6 +102,10 @@ module.exports = {
           "lx-dialog-show-right 0.3s cubic-bezier(0.19, 1, 0.22, 1)",
         "lx-dialog-hide-right":
           "lx-dialog-hide-right 0.3s cubic-bezier(0.19, 1, 0.22, 1)",
+        "lx-accordion-down":
+          "lx-accordion-down 300ms cubic-bezier(0.87, 0, 0.13, 1)",
+        "lx-accordion-up":
+          "lx-accordion-up 300ms cubic-bezier(0.87, 0, 0.13, 1)",
       },
     },
   },

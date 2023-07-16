@@ -9,6 +9,7 @@ radix:
 import Code from "@demo/code";
 import Basic from "@demo/tabs/basic";
 import Size from "@demo/tabs/size";
+import ItemsFull from "@demo/tabs/itemsFull";
 import Active from "@demo/tabs/active";
 
 ## 代码示例
@@ -85,6 +86,38 @@ export default function () {
 ```
 </Code>
 
+### 占满一行
+
+<Code 
+  description='配置 itemsFull，可以使 Tab Item 占满一行。' 
+  component={<ItemsFull />}
+>
+```tsx filename="Tabs.tsx" copy {19}
+import { Tabs, type TabsOption } from "@ltopx/lx-ui";
+
+export default function () {
+  const options: TabsOption[] = [
+    {
+      label: "Tab1",
+      value: "1",
+      children: <div>啊啊啊啊</div>,
+    },
+    {
+      label: "Tab2",
+      value: "2",
+      children: <div>呃呃呃呃</div>,
+    },
+  ];
+  
+  return (
+    <div>
+      <Tabs options={options} defaultActiveTab="1" itemsFull />
+    </div>
+  );
+}
+```
+</Code>
+
 ### 受控模式
 
 <Code 
@@ -130,6 +163,7 @@ export default function () {
 | size             | 尺寸大小                 | `sm` \| `base` \| `lg`    | `base` |
 | options          | Tabs 选项内容            | `TabsOption[]`            | -      |
 | defaultActiveTab | 默认选中的标签选项       | `string`                  | -      |
+| itemsFull        | 标签页选项是否占满一行   | `boolean`                 | -      |
 | activeTab        | 受控模式下选中的标签选项 | `number`                  | -      |
 | onChange         | 切换标签页时的回调       | `(value: string) => void` | -      |
 

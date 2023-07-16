@@ -1,6 +1,6 @@
 {
   "name": "@ltopx/lx-ui",
-  "version": "0.0.48",
+  "version": "0.0.52",
   "private": false,
   "description": "A react ui library based on radix-ui and tailwindcss",
   "module": "dist/index.mjs",
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/LTopx/L-UI#readme",
   "dependencies": {
+    "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "1.0.4",
     "@radix-ui/react-dialog": "1.0.4",
     "@radix-ui/react-dropdown-menu": "2.0.5",

@@ -1,0 +1,110 @@
+---
+title: Accordion 手风琴
+description: 用于将复杂的内容区域分组和隐藏，可折叠或展开。
+radix:
+  title: Accordion
+  link: https://www.radix-ui.com/docs/primitives/components/accordion
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/accordion/basic";
+import Size from "@demo/accordion/size";
+
+## 代码示例
+
+### 引入
+
+```js copy
+import { Accordion } from "@ltopx/lx-ui";
+```
+
+### 基础用法
+
+<Code 
+  description='可点击展开或收起面板。' 
+  component={<Basic />}
+>
+```tsx filename="Accordion.tsx" copy
+import { Accordion, type AccordionItem } from "@ltopx/lx-ui";
+export default function () {
+  const items: AccordionItem[] = [
+    {
+      label: "111",
+      value: "111",
+      children: <div>111</div>,
+    },
+    {
+      label: "222",
+      value: "222",
+      children: <div>222</div>,
+    },
+    {
+      label: "333",
+      value: "333",
+      children: <div>333</div>,
+    },
+  ];
+  return <Accordion items={items} />;
+}
+```
+</Code>
+
+### 尺寸大小
+
+<Code 
+  description='默认提供三种尺寸大小，可选值分别为 sm, base, lg' 
+  component={<Size />}
+>
+```tsx filename="Accordion.tsx" copy
+import { Accordion, type AccordionItem } from "@ltopx/lx-ui";
+
+export default function () {
+  const items: AccordionItem[] = [
+    {
+      label: "111",
+      value: "111",
+      children: <div>111</div>,
+    },
+    {
+      label: "222",
+      value: "222",
+      children: <div>222</div>,
+    },
+    {
+      label: "333",
+      value: "333",
+      children: <div>333</div>,
+    },
+  ];
+  
+  return (
+    <div className="flex flex-col gap-6">
+      <Accordion items={items} size="sm" />
+      <Accordion items={items} />
+      <Accordion items={items} size="lg" />
+    </div>
+  );
+}
+```
+</Code>
+
+## API
+
+### Accordion Props
+
+| 属性             | 描述         | 类型                   | 默认值 |
+| ---------------- | ------------ | ---------------------- | ------ |
+| className        | 节点类名     | `string`               | -      |
+| itemClassName    | 选项节点类名 | `string`               | -      |
+| triggerClassName | 选项标题类名 | `string`               | -      |
+| contentClassName | 选项内容类名 | `string`               | -      |
+| size             | 尺寸大小     | `sm` \| `base` \| `lg` | `base` |
+| items            | 选项内容列表 | `AccordionProps[]`     | -      |
+
+### AccordionProps Props
+
+| 属性     | 描述         | 类型              | 默认值 |
+| -------- | ------------ | ----------------- | ------ |
+| label    | 选项标题     | `React.ReactNode` | -      |
+| value    | 选项唯一键   | `string`          | -      |
+| children | 选项显示内容 | `React.ReactNode` | -      |

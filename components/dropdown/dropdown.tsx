@@ -100,7 +100,6 @@ const Dropdown: React.FC<DropdownProps> = ({
               <DropdownMenu.Item
                 key={item.value}
                 style={{ boxShadow: "none" }}
-                // onSelect={() => onSelect?.(item.value)}
                 onSelect={(e) => onMenuSelect(e, item.value)}
                 className={cn(
                   "select-none cursor-pointer outline-none border-none h-8 px-3 flex items-center text-sm transition-colors",

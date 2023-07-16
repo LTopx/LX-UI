@@ -15,15 +15,17 @@ export interface TabsProps {
   options?: TabsOption[];
   defaultActiveTab?: string;
   activeTab?: string;
+  itemsFull?: boolean;
   onChange?: (value: string) => void;
 }
 
 const Tabs: React.FC<TabsProps> = ({
   className,
   size = "base",
-  options,
+  options = [],
   defaultActiveTab,
   activeTab,
+  itemsFull,
   onChange,
 }) => {
   const onValueChange = (value: string) => onChange?.(value);
@@ -39,7 +41,8 @@ const Tabs: React.FC<TabsProps> = ({
         <RadixTabs.List
           className={cn(
             "flex gap-1 rounded text-sm w-auto p-1",
-            "bg-lx-color-fill-3 dark:bg-lx-color-fill-3-dark"
+            "bg-lx-color-fill-3 dark:bg-lx-color-fill-3-dark",
+            { "flex-1": !!itemsFull }
           )}
         >
           {options.map((item) => (

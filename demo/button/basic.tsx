@@ -9,6 +9,7 @@ export default function () {
         <Button type="success">Success</Button>
         <Button type="warning">Warning</Button>
         <Button type="danger">Danger</Button>
+        <Button type="link">Link</Button>
       </div>
       <div className="flex flex-wrap gap-x-3 gap-y-2">
         <Button outline>Default</Button>
