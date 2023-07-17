@@ -22,3 +22,5 @@ export { default as Accordion } from "./accordion";
 export type { AccordionProps, AccordionItem } from "./accordion";
 export { default as Tooltip } from "./tooltip";
 export type { ToolTipProps } from "./tooltip";
+export { default as Slider } from "./slider";
+export type { SliderProps } from "./slider";

@@ -1,6 +1,6 @@
 # LX-UI Change Log
 
-## v0.0.60
+## v0.0.61
 
 > 2023-07-17
 
@@ -18,6 +18,7 @@
 - Add Accordion component and related documentation.
 - Add Tooltip component and related documentation.
 - Add type number to Input component.
+- Add Slider component and related documentation.
 
 ### Changed
 

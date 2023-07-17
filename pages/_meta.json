@@ -77,6 +77,10 @@
       "tooltip": {
         "title": "Tooltip 文字提示",
         "href": "/components/tooltip"
+      },
+      "slider": {
+        "title": "Slider 滑动输入条",
+        "href": "/components/slider"
       }
     }
   }

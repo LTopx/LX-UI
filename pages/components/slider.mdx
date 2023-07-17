@@ -1,0 +1,70 @@
+---
+title: Slider 滑动输入条
+description: 滑动型输入器，展示当前值和可选范围。
+radix:
+  title: Slider
+  link: https://www.radix-ui.com/docs/primitives/components/slider
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/slider/basic";
+import Step from "@demo/slider/step";
+
+## 代码示例
+
+### 引入
+
+```js copy
+import { Slider } from "@ltopx/lx-ui";
+```
+
+### 基础用法
+
+<Code 
+  description='基本用法展示。' 
+  component={<Basic />}
+>
+```tsx filename="Slider.tsx" copy
+import { Slider } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-col gap-2">
+      <Slider defaultValue={30} max={100} />
+    </div>
+  );
+}
+```
+</Code>
+
+### 设置步长
+
+<Code 
+  description='传入 step 设置步长。 默认步长为 1。' 
+  component={<Step />}
+>
+```tsx filename="Slider.tsx" copy
+import { Slider } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-col gap-2">
+      <Slider defaultValue={30} max={100} step={10} />
+    </div>
+  );
+}
+```
+</Code>
+
+## API
+
+### Slider Props
+
+| 属性         | 描述         | 类型                      | 默认值 |
+| ------------ | ------------ | ------------------------- | ------ |
+| className    | 节点类名     | `string`                  | -      |
+| defaultValue | 默认值       | `number`                  | -      |
+| value        | 受控的值     | `number`                  | -      |
+| max          | 最大值       | `number`                  | 100    |
+| step         | 步长         | `number`                  | 1      |
+| onChange     | 滑动时的回调 | `(value: number) => void` | -      |
