@@ -1,5 +1,13 @@
 # LX-UI Change Log
 
+## v0.0.63
+
+> 2023-07-17
+
+### Fixed
+
+- Fix the Input component bug.
+
 ## v0.0.61
 
 > 2023-07-17

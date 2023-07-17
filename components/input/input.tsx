@@ -65,18 +65,21 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     };
 
     const onInputBlur = (event: any) => {
-      const value = Number(event.target.value);
-      if (max && value > max) {
-        setInputValue(max);
-        onChange?.(max);
-      } else if (min && value < min) {
-        setInputValue(min);
-        onChange?.(min);
-      } else if (!isUndefined(step) && step > 0) {
-        const stepValue = Math.round(value / step) * step;
-        setInputValue(stepValue);
-        onChange?.(stepValue);
+      if (type === "number") {
+        const value = Number(event.target.value);
+        if (max && value > max) {
+          setInputValue(max);
+          onChange?.(max);
+        } else if (min && value < min) {
+          setInputValue(min);
+          onChange?.(min);
+        } else if (!isUndefined(step) && step > 0) {
+          const stepValue = Math.round(value / step) * step;
+          setInputValue(stepValue);
+          onChange?.(stepValue);
+        }
       }
+
       onBlur?.(event);
     };
 
