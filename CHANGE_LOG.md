@@ -21,6 +21,7 @@
 ### Changed
 
 - Replace button loading button.
+- Refactor Button with tailwind-variants.
 
 ## v0.0.38
 

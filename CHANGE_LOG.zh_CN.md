@@ -1,6 +1,6 @@
 # LX-UI 更新日志
 
-## v0.0.54
+## v0.0.58
 
 > 2023-07-17
 
@@ -21,6 +21,7 @@
 ### 调整
 
 - 替换 button loading 按钮
+- 引入 tailwind-variants 重构 Button
 
 ## v0.0.38
 
