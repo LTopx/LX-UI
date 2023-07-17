@@ -73,6 +73,10 @@
       "accordion": {
         "title": "Accordion 手风琴",
         "href": "/components/accordion"
+      },
+      "tooltip": {
+        "title": "Tooltip 文字提示",
+        "href": "/components/tooltip"
       }
     }
   }

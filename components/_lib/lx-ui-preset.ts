@@ -14,6 +14,8 @@ module.exports = {
         "lx-color-text-1-dark": "hsla(0,0%,100%,0.9)",
         "lx-color-text-3": "#86909C",
         "lx-color-text-4": "#C9CDD4",
+        "lx-color-text-4-dark": "hsla(0,0%,100%,0.3)",
+        "lx-color-border-3-dark": "hsla(0,0%,100%,0.12)",
       },
       keyframes: {
         "lx-select-open": {

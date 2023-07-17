@@ -15,9 +15,10 @@ const SelectItem = React.forwardRef<any, SelectItemProps>(
         {...props}
         ref={forwardedRef}
         className={cn(
-          "outline-none text-sm cursor-pointer px-3 py-[7px] transition-colors text-lx-color-text-1",
-          "data-[state=checked]:bg-lx-color-fill-2 hover:bg-lx-color-fill-2",
-          "data-[disabled]:text-lx-color-text-4 data-[disabled]:bg-white data-[disabled]:cursor-not-allowed",
+          "outline-none text-sm cursor-pointer px-3 py-[7px] transition-colors",
+          "text-lx-color-text-1 dark:text-lx-color-text-1-dark",
+          "data-[state=checked]:bg-lx-color-fill-2 dark:data-[state=checked]:bg-lx-color-fill-2-dark hover:bg-lx-color-fill-2 dark:hover:bg-lx-color-fill-2-dark",
+          "data-[disabled]:text-lx-color-text-4 dark:data-[disabled]:text-lx-color-text-4-dark data-[disabled]:bg-white dark:data-[disabled]:bg-[#373739] data-[disabled]:cursor-not-allowed",
           className
         )}
       >

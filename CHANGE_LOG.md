@@ -1,12 +1,13 @@
 # LX-UI Change Log
 
-## v0.0.52
+## v0.0.54
 
-> 2023-07-16
+> 2023-07-17
 
 ### Fixed
 
 - Fix the problem that the Dropdown is closed abnormally due to clicking too fast.
+- Fix the style problem of Select in dark mode.
 
 ### Add
 
@@ -15,6 +16,7 @@
 - Add Tabs component and related documentation.
 - Add link type to Button component.
 - Add Accordion component and related documentation.
+- Add Tooltip component and related documentation.
 
 ### Changed
 

@@ -20,3 +20,5 @@ export { default as Tabs } from "./tabs";
 export type { TabsProps, TabsOption } from "./tabs";
 export { default as Accordion } from "./accordion";
 export type { AccordionProps, AccordionItem } from "./accordion";
+export { default as Tooltip } from "./tooltip";
+export type { ToolTipProps } from "./tooltip";

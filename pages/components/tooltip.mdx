@@ -1,0 +1,108 @@
+---
+title: Tooltip 文字提示
+description: 鼠标悬停时显示提示文字，移出隐藏。用于辅助说明。
+radix:
+  title: Tooltip
+  link: https://www.radix-ui.com/docs/primitives/components/tooltip
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/tooltip/basic";
+import Side from "@demo/tooltip/side";
+import Align from "@demo/tooltip/align";
+
+## 代码示例
+
+### 引入
+
+```js copy
+import { Tooltip } from "@ltopx/lx-ui";
+```
+
+### 基础用法
+
+<Code 
+  description='鼠标移入显示提示文字，移出隐藏。' 
+  component={<Basic />}
+>
+```tsx filename="Tooltip.tsx" copy
+import { Tooltip, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex">
+      <Tooltip title="这是 Tooltip 显示的内容">
+        <Button>Tooltip</Button>
+      </Tooltip>
+    </div>
+  );
+}
+```
+</Code>
+
+### 弹出方向和间距
+
+<Code 
+  description='可以通过 side 属性自定义 Tooltip 弹出方向；通过设置 sideOffset 属性自定义 Tooltip 与触发元素的间距' 
+  component={<Side />}
+>
+```tsx filename="Tooltip.tsx" copy {9,12}
+import { Tooltip, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Tooltip title="这是 Tooltip 显示的内容">
+        <Button>Tooltip Auto</Button>
+      </Tooltip>
+      <Tooltip title="这是 Tooltip 显示的内容" side="top" sideOffset={20}>
+        <Button>Tooltip Top</Button>
+      </Tooltip>
+      <Tooltip title="这是 Tooltip 显示的内容" side="bottom" sideOffset={0}>
+        <Button>Tooltip Bottom</Button>
+      </Tooltip>
+    </div>
+  );
+}
+```
+</Code>
+
+### 对齐方向和间距
+
+<Code 
+  description='可以通过 align 属性自定义 Tooltip 对齐方向；通过设置 alignOffset 属性自定义 Tooltip 与触发元素的间距' 
+  component={<Align />}
+>
+```tsx filename="Tooltip.tsx" copy {6,9,12}
+import { Tooltip, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Tooltip title="这是 Tooltip 显示的内容" align="start">
+        <Button>Tooltip Start</Button>
+      </Tooltip>
+      <Tooltip title="这是 Tooltip 显示的内容" align="center">
+        <Button>Tooltip Center</Button>
+      </Tooltip>
+      <Tooltip title="这是 Tooltip 显示的内容" align="end">
+        <Button>Tooltip End</Button>
+      </Tooltip>
+    </div>
+  );
+}
+```
+</Code>
+
+## API
+
+### Tooltip Props
+
+| 属性        | 描述             | 类型                         | 默认值   |
+| ----------- | ---------------- | ---------------------------- | -------- |
+| className   | 节点类名         | `string`                     | -        |
+| side        | 弹出方向         | `top` \| `bottom`            | `bottom` |
+| sideOffset  | 弹出方向的间距   | `number`                     | 6        |
+| align       | 对齐方向         | `start` \| `center` \| `end` | `center` |
+| alignOffset | 对齐方向的间距   | `number`                     | -        |
+| title       | Tooltip 显示内容 | `React.ReactNode`            | -        |
