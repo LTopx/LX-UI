@@ -95,3 +95,12 @@ table code {
 .nextra-nav-container > nav div:nth-child(1) {
   max-height: none;
 }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}

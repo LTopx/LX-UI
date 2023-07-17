@@ -1,6 +1,6 @@
 # LX-UI Change Log
 
-## v0.0.54
+## v0.0.60
 
 > 2023-07-17
 
@@ -17,6 +17,7 @@
 - Add link type to Button component.
 - Add Accordion component and related documentation.
 - Add Tooltip component and related documentation.
+- Add type number to Input component.
 
 ### Changed
 

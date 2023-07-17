@@ -9,6 +9,11 @@ export type InputType = "text" | "password" | "number";
 export interface InputProps
   extends Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> {
   allowClear?: boolean;
+  disabled?: boolean;
+  min?: number;
+  max?: number;
+  maxLength?: number;
+  step?: number;
   type?: InputType;
   size?: SizeType;
   value?: string | number;
@@ -21,6 +26,11 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     {
       className,
       allowClear,
+      disabled,
+      min,
+      max,
+      maxLength,
+      step = 1,
       type = "text",
       size = "base",
       placeholder,
@@ -52,6 +62,22 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     const onKeyDown = (event: any) => {
       if (event.keyCode === 13) onEnter?.(event.target.value);
+    };
+
+    const onInputBlur = (event: any) => {
+      const value = Number(event.target.value);
+      if (max && value > max) {
+        setInputValue(max);
+        onChange?.(max);
+      } else if (min && value < min) {
+        setInputValue(min);
+        onChange?.(min);
+      } else if (!isUndefined(step) && step > 0) {
+        const stepValue = Math.round(value / step) * step;
+        setInputValue(stepValue);
+        onChange?.(stepValue);
+      }
+      onBlur?.(event);
     };
 
     React.useEffect(() => {
@@ -88,7 +114,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <input
           ref={inputRef}
           className={cn(
-            "bg-transparent w-full h-full text-sm leading-[1.5715] outline-none",
+            "appearance-none bg-transparent w-full h-full text-sm leading-[1.5715] outline-none",
             { "py-0.5": size === "sm" },
             { "py-1": size === "base" },
             { "py-1.5": size === "lg" }
@@ -96,6 +122,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           style={{ boxShadow: "none" }}
           type={type}
           placeholder={placeholder}
+          disabled={disabled}
+          maxLength={maxLength}
           value={inputValue}
           onFocus={(e) => {
             setFocus(true);
@@ -103,7 +131,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           }}
           onBlur={(e) => {
             setFocus(false);
-            onBlur?.(e);
+            onInputBlur(e);
           }}
           onChange={onChangeValue}
           onKeyDown={onKeyDown}

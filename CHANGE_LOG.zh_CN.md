@@ -1,6 +1,6 @@
 # LX-UI 更新日志
 
-## v0.0.58
+## v0.0.60
 
 > 2023-07-17
 
@@ -17,6 +17,7 @@
 - Button 添加 type 为 link 的类型
 - 新增 Accordion 组件以及相关文档
 - 新增 Tooltip 组件以及相关文档
+- 新增 Input 支持 type number 类型
 
 ### 调整
 

@@ -6,6 +6,8 @@ description: 基础表单组件，使用鼠标和键盘输入内容。
 import Code from "@demo/code";
 import Basic from "@demo/input/basic";
 import Size from "@demo/input/size";
+import MaxLength from "@demo/input/maxLength";
+import Number from "@demo/input/number";
 import Trigger from "@demo/input/trigger";
 
 ## 代码示例
@@ -63,6 +65,59 @@ export default function () {
 ```
 </Code>
 
+### 长度限制
+
+<Code 
+  description='设置 maxLength 可以限制最大字数' 
+  component={<MaxLength />}
+>
+```tsx filename="Input.tsx" copy {6}
+import { Input } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Input className="w-52" placeholder="请输入" allowClear maxLength={10} />
+    </div>
+  );
+}
+```
+</Code>
+
+### 数字输入框
+
+<Code 
+  description='设置 type 为 number， 支持仅输入数字。还可配置最大最小以及精度属性' 
+  component={<Number />}
+>
+```tsx filename="Input.tsx" copy {8,16-19}
+import { Input } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-col flex-wrap gap-5">
+      <div className="flex flex-col gap-0.5">
+        <div>基础用法</div>
+        <Input className="w-52" placeholder="请输入" allowClear type="number" />
+      </div>
+      <div className="flex flex-col gap-0.5">
+        <div>可配置最大最小以及精度属性</div>
+        <Input
+          className="w-52"
+          placeholder="请输入"
+          allowClear
+          type="number"
+          min={6}
+          max={10}
+          step={1}
+        />
+      </div>
+    </div>
+  );
+}
+```
+</Code>
+
 ### 手动触发事件
 
 <Code 
@@ -99,6 +154,11 @@ export default function () {
 | type        | input 类型，与原生 input 标签的 type 属性相同。见 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#%E5%B1%9E%E6%80%A7) | `string`               | `text` |
 | size        | 尺寸大小                                                                                                                                    | `sm` \| `base` \| `lg` | `base` |
 | allowClear  | 是否允许清空                                                                                                                                | boolean                | -      |
+| disabled    | 是否禁用                                                                                                                                    | boolean                | -      |
+| min         | 最小值                                                                                                                                      | number                 | -      |
+| max         | 最大值                                                                                                                                      | number                 | -      |
+| maxLength   | 输入框最大输入的长度                                                                                                                        | number                 | -      |
+| step        | 数字变化步长                                                                                                                                | number                 | 1      |
 | placeholder | 默认占位文本                                                                                                                                | `string`               | -      |
 | value       | 输入框的值，受控模式                                                                                                                        | `string` \| `number`   | -      |
 | onFocus     | 获得焦点时的回调                                                                                                                            | `() => void`           | -      |
