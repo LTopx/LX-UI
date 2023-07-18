@@ -12,5 +12,6 @@
   "tabs": "Tabs 标签页",
   "accordion": "Accordion 手风琴",
   "tooltip": "Tooltip 文字提示",
-  "slider": "Slider 滑动输入条"
+  "slider": "Slider 滑动输入条",
+  "switch": "Switch 开关"
 }

@@ -1,0 +1,79 @@
+---
+title: Switch 开关
+description: 互斥性的操作控件，用户可打开或关闭某个功能。
+radix:
+  title: Switch
+  link: https://www.radix-ui.com/docs/primitives/components/switch
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/switch/basic";
+import DefaultChecked from "@demo/switch/defaultChecked";
+import Checked from "@demo/switch/checked";
+
+## 代码示例
+
+### 引入
+
+```js copy
+import { Switch } from "@ltopx/lx-ui";
+```
+
+### 基础用法
+
+<Code 
+  description='展示开关' 
+  component={<Basic />}
+>
+```tsx filename="Switch.tsx" copy
+import { Switch } from "@ltopx/lx-ui";
+
+export default function () {
+  return <Switch />;
+}
+```
+</Code>
+
+### 默认打开
+
+<Code 
+  description='设置defaultChecked可让开关默认处于打开状态' 
+  component={<DefaultChecked />}
+>
+```tsx filename="Switch.tsx" copy
+import { Switch } from "@ltopx/lx-ui";
+
+export default function () {
+  return <Switch defaultChecked />;
+}
+```
+</Code>
+
+### 受控模式
+
+<Code 
+  description='设置 checked，让开关处于受控模式' 
+  component={<Checked />}
+>
+```tsx filename="Switch.tsx" copy
+import { Switch } from "@ltopx/lx-ui";
+
+export default function () {
+  const [checked, setChecked] = React.useState(false);
+  
+  return <Switch checked={checked} onChange={setChecked} />;
+}
+```
+</Code>
+
+## API
+
+### Switch Props
+
+| 属性           | 描述                 | 类型                         | 默认值 |
+| -------------- | -------------------- | ---------------------------- | ------ |
+| className      | 节点类名             | `string`                     | -      |
+| thumbClass     | 中间圆点类名         | `string`                     | -      |
+| checked        | 受控模式，是否打开   | `boolean`                    | -      |
+| defaultChecked | 默认打开状态         | `boolean`                    | -      |
+| onChange       | 切换开关状态时的回调 | `(checked: boolean) => void` | -      |

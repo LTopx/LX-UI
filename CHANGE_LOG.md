@@ -1,12 +1,21 @@
 # LX-UI Change Log
 
-## v0.0.63
+## v0.0.66
 
-> 2023-07-17
+> 2023-07-18
 
 ### Fixed
 
 - Fix the Input component bug.
+- Fix the display problem of Select options when they are too long.
+
+### Add
+
+- Add Switch component and related documentation.
+
+### Changed
+
+- Adjust the style of the Drawer content part.
 
 ## v0.0.61
 

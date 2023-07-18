@@ -92,7 +92,7 @@ const Drawer: React.FC<DrawerProps> = ({
               <Close_line size={20} />
             </button>
           </Dialog.Close>
-          <div className="px-4">{children}</div>
+          {children}
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>

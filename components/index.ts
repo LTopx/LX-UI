@@ -24,3 +24,5 @@ export { default as Tooltip } from "./tooltip";
 export type { ToolTipProps } from "./tooltip";
 export { default as Slider } from "./slider";
 export type { SliderProps } from "./slider";
+export { default as Switch } from "./switch";
+export type { SwitchProps } from "./switch";
