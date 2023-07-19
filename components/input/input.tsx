@@ -85,8 +85,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     React.useEffect(() => {
       if (isUndefined(value)) return;
+      if (value === inputValue) return;
       setInputValue(value);
-    }, []);
+    }, [value]);
 
     React.useImperativeHandle(forwardredRef, () => inputRef.current, []);
 

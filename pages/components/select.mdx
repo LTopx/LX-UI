@@ -8,6 +8,7 @@ radix:
 
 import Code from "@demo/code";
 import Basic from "@demo/select/basic";
+import RenderLabel from "@demo/select/renderLabel";
 import Size from "@demo/select/size";
 
 ## 代码示例
@@ -53,6 +54,40 @@ export default function () {
         loading
         options={options}
         onChange={onChange}
+      />
+    </div>
+  );
+}
+```
+</Code>
+
+### 自定义渲染
+
+<Code 
+  description='使用 renderLabel， 可以自定义渲染 label 内容' 
+  component={<RenderLabel />}
+>
+```tsx filename="Select.tsx" copy {20}
+import { Select, type SelectOption } from "@ltopx/lx-ui";
+
+export default function () {
+  const options: SelectOption[] = [
+    { label: "1", value: "1" },
+    { label: "2", value: "2", disabled: true },
+    { label: "3", value: "3" },
+  ];
+  
+  const renderLabel = (item: any) => {
+    return <div>😄{item.label}😄</div>;
+  };
+  
+  return (
+    <div className="flex gap-3">
+      <Select
+        className="w-60"
+        placeholder="请选择"
+        options={options}
+        renderLabel={renderLabel}
       />
     </div>
   );
@@ -121,16 +156,17 @@ export default function () {
 
 ### Select Props
 
-| 属性         | 描述                             | 类型                      | 默认值 |
-| ------------ | -------------------------------- | ------------------------- | ------ |
-| placeholder  | 默认占位文本                     | `string`                  | -      |
-| disabled     | 是否禁用                         | `boolean`                 | false  |
-| loading      | 是否正在加载下拉列表数据         | `boolean`                 | false  |
-| size         | 尺寸大小                         | `sm` \| `base` \| `lg`    | `base` |
-| options      | 下拉选项列表                     | `SelectOption[]`          | -      |
-| defaultValue | 默认选中条目                     | `string`                  | -      |
-| value        | 当前选中的条目                   | `string`                  | -      |
-| onChange     | 选中条目发生变化时，会触发此方法 | `(value: string) => void` | -      |
+| 属性         | 描述                             | 类型                              | 默认值 |
+| ------------ | -------------------------------- | --------------------------------- | ------ |
+| placeholder  | 默认占位文本                     | `string`                          | -      |
+| disabled     | 是否禁用                         | `boolean`                         | false  |
+| loading      | 是否正在加载下拉列表数据         | `boolean`                         | false  |
+| size         | 尺寸大小                         | `sm` \| `base` \| `lg`            | `base` |
+| options      | 下拉选项列表                     | `SelectOption[]`                  | -      |
+| renderLabel  | 自定义渲染列表显示内容           | `(value: any) => React.ReactNode` | -      |
+| defaultValue | 默认选中条目                     | `string`                          | -      |
+| value        | 当前选中的条目                   | `string`                          | -      |
+| onChange     | 选中条目发生变化时，会触发此方法 | `(value: string) => void`         | -      |
 
 ### SelectOption Props
 

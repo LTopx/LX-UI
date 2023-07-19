@@ -54,6 +54,21 @@ const Modal: React.FC<ModalProps> = ({
     event.preventDefault();
   };
 
+  const renderFooter = () => {
+    if (footer === undefined) {
+      return (
+        <div className="flex mt-5 gap-2 justify-end">
+          <Button onClick={onClose}>{cancelText}</Button>
+          <Button type="primary" onClick={onOk}>
+            {okText}
+          </Button>
+        </div>
+      );
+    }
+    if (footer === null) return null;
+    return <div className="flex mt-5 gap-2 justify-end">{footer}</div>;
+  };
+
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
@@ -91,16 +106,7 @@ const Modal: React.FC<ModalProps> = ({
           <div className="text-sm pt-4 text-neutral-600 dark:text-neutral-300">
             {children}
           </div>
-          {footer !== undefined ? (
-            footer
-          ) : (
-            <div className="flex mt-5 gap-2 justify-end">
-              <Button onClick={onClose}>{cancelText}</Button>
-              <Button type="primary" onClick={onOk}>
-                {okText}
-              </Button>
-            </div>
-          )}
+          {renderFooter()}
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>

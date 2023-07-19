@@ -1,21 +1,24 @@
 # LX-UI 更新日志
 
-## v0.0.66
+## v0.0.74
 
-> 2023-07-18
+> 2023-07-19
 
 ### 修复
 
 - 修复 Input 组件 bug
 - 修复 Select 选项过长时的显示问题
+- 修复 Input 组件外部调整 value 时不会更新 DOM 的问题
 
 ### 新增
 
 - 新增 Switch 开关组件以及相关文档
+- Seletc 新增 renderLabel 支持渲染自定义内容
 
 ### 调整
 
 - 调整 Drawer content 部分的节点样式
+- 调整 Modal Footer 部分的样式
 
 ## v0.0.61
 

@@ -1,21 +1,24 @@
 # LX-UI Change Log
 
-## v0.0.66
+## v0.0.74
 
-> 2023-07-18
+> 2023-07-19
 
 ### Fixed
 
 - Fix the Input component bug.
 - Fix the display problem of Select options when they are too long.
+- Fix the problem that the DOM is not updated when the value of the Input component is adjusted externally.
 
 ### Add
 
 - Add Switch component and related documentation.
+- Add renderLabel to Seletc to support rendering custom content.
 
 ### Changed
 
 - Adjust the style of the Drawer content part.
+- Adjust the style of the Modal Footer part.
 
 ## v0.0.61
 
