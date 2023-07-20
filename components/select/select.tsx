@@ -54,6 +54,7 @@ const Select: React.FC<SelectProps> = ({
       }
 
       return {
+        ...item,
         label: item.label,
         value: item.value,
         disabled: !!item.disabled,

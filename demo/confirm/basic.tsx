@@ -8,13 +8,21 @@ export default function () {
     console.log("ok");
   };
 
+  const asyncOk = () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve("哇哈哈");
+      }, 2000);
+    });
+  };
+
   return (
     <div className="flex flex-wrap gap-x-3 gap-y-2">
       <Confirm
         title="这是一个标题"
         content={content}
         type="primary"
-        onOk={onOk}
+        onOk={asyncOk}
       >
         <Button type="primary">Confirm</Button>
       </Confirm>

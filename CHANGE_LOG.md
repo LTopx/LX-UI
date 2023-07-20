@@ -2,7 +2,7 @@
 
 ## v0.0.74
 
-> 2023-07-19
+> 2023-07-20
 
 ### Fixed
 
@@ -14,6 +14,7 @@
 
 - Add Switch component and related documentation.
 - Add renderLabel to Seletc to support rendering custom content.
+- Confirm adds support for asynchronous events.
 
 ### Changed
 

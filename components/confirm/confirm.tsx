@@ -17,6 +17,7 @@ export interface ConfirmProps {
   cancelText?: React.ReactNode;
   okText?: React.ReactNode;
   onOk?: () => void;
+  onCancel?: () => void;
 }
 
 const Confirm: React.FC<ConfirmProps> = React.memo(
@@ -33,17 +34,58 @@ const Confirm: React.FC<ConfirmProps> = React.memo(
     cancelText = "Cancel",
     okText = "OK",
     onOk,
+    onCancel,
   }) => {
     const [open, setOpen] = React.useState(false);
+    const [loading, setLoading] = React.useState(false);
+    const retRef = React.useRef<any>();
+    const reje = React.useRef<any>();
 
     const onOpenChange = (isOpen: boolean) => {
       if (disabled) return setOpen(false);
+      if (isOpen) {
+        retRef.current = null;
+        reje.current = null;
+      }
       setOpen(isOpen);
     };
 
     const onClickOverlay = (event: any) => {
       event.stopPropagation();
       if (maskClosable) setOpen(false);
+    };
+
+    const onClickCancel = () => {
+      reje.current?.();
+      setOpen(false);
+    };
+
+    const onAsyncOk = () => {
+      return new Promise(async (resolve, reject) => {
+        reje.current = reject;
+        try {
+          await retRef.current.then();
+          resolve("");
+        } catch (error) {
+          reject();
+        }
+      });
+    };
+
+    const onClickOk = async () => {
+      if (onOk) retRef.current = onOk();
+
+      if (!retRef.current) return setOpen(false);
+
+      if (retRef.current?.then) {
+        try {
+          setLoading(true);
+          await onAsyncOk();
+          setOpen(false);
+        } finally {
+          setLoading(false);
+        }
+      }
     };
 
     return (
@@ -85,13 +127,13 @@ const Confirm: React.FC<ConfirmProps> = React.memo(
             </div>
             <div className="flex gap-2 justify-end">
               <AlertDialog.Cancel asChild>
-                <div>
-                  <Button>{cancelText}</Button>
+                <div onClick={(e) => e.preventDefault()}>
+                  <Button onClick={onClickCancel}>{cancelText}</Button>
                 </div>
               </AlertDialog.Cancel>
               <AlertDialog.Action asChild>
-                <div>
-                  <Button type={type} onClick={onOk}>
+                <div onClick={(e) => e.preventDefault()}>
+                  <Button type={type} loading={loading} onClick={onClickOk}>
                     {okText}
                   </Button>
                 </div>
