@@ -188,6 +188,7 @@ const Button = React.forwardRef<
     const onBtnClick = (e: any) => {
       if (loading || disabled) {
         e.preventDefault();
+        e.stopPropagation();
         return;
       }
       (
@@ -204,6 +205,7 @@ const Button = React.forwardRef<
           ref={forwardredRef}
           className={cn(
             button({ size, type, block, rounded, loading, outline, disabled }),
+            "gap-2",
             className
           )}
           onClick={onBtnClick}
@@ -211,11 +213,7 @@ const Button = React.forwardRef<
         >
           {renderIcon(loading, icon)}
 
-          {!!props.children && (
-            <div className={cn({ "ml-2": !!icon || !!loading })}>
-              {props.children}
-            </div>
-          )}
+          {!!props.children && props.children}
         </a>
       );
     }
@@ -226,17 +224,14 @@ const Button = React.forwardRef<
         ref={forwardredRef}
         className={cn(
           button({ size, type, block, rounded, loading, outline, disabled }),
+          "gap-2",
           className
         )}
         onClick={onBtnClick}
       >
         {renderIcon(loading, icon)}
 
-        {!!props.children && (
-          <div className={cn({ "ml-2": !!icon || !!loading })}>
-            {props.children}
-          </div>
-        )}
+        {!!props.children && props.children}
       </div>
     );
   }

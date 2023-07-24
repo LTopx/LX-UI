@@ -100,6 +100,10 @@ const Select: React.FC<SelectProps> = ({
     if (!isUndefined(defaultValue)) setSelectValue(defaultValue);
   }, [defaultValue]);
 
+  React.useEffect(() => {
+    if (!isUndefined(value) && isUndefined(selectValue)) setSelectValue(value);
+  }, [value]);
+
   return (
     <RadixSelect.Root
       open={isOpen}
@@ -118,7 +122,6 @@ const Select: React.FC<SelectProps> = ({
             "dark:data-[state=open]:bg-[#232324] dark:data-[state=open]:border-sky-500",
             "data-[disabled]:bg-lx-color-fill-2 data-[disabled]:cursor-not-allowed data-[disabled]:text-lx-color-text-4",
             "bg-lx-color-fill-2 hover:bg-lx-color-fill-3 text-lx-color-text-3",
-            { "text-lx-color-text-1": !!value },
             "dark:bg-lx-color-fill-2-dark dark:hover:bg-lx-color-fill-3-dark",
             { "h-7": size === "sm" },
             { "h-8": size === "base" },
@@ -127,7 +130,14 @@ const Select: React.FC<SelectProps> = ({
           )}
         >
           <RadixSelect.Value asChild>
-            <div>{renderValue()}</div>
+            <div
+              className={cn({
+                "text-lx-color-text-1 dark:text-lx-color-text-1-dark":
+                  !!selectValue,
+              })}
+            >
+              {renderValue()}
+            </div>
           </RadixSelect.Value>
           <RadixSelect.Icon>
             {loading ? (

@@ -45,7 +45,6 @@ const Dropdown: React.FC<DropdownProps> = ({
   const disabledTimer = React.useRef<NodeJS.Timeout>();
 
   const onOpenChange = (isOpen: boolean) => {
-    if (disabled) return setOpen(false);
     setOpen(isOpen);
     if (isOpen) {
       disabledRef.current = true;
@@ -68,6 +67,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       <DropdownMenu.Trigger
         style={{ boxShadow: "none" }}
         onClick={(e) => e.stopPropagation()}
+        disabled={disabled}
         asChild
       >
         {children}

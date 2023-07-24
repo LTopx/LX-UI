@@ -1,6 +1,19 @@
 # LX-UI Change Log
 
-## v0.0.74
+## v0.0.83
+
+> 2023-07-24
+
+### Fixed
+
+- Fix the style problem of Button in dark mode.
+
+### Changed
+
+- Adjust Button Style
+- Adjust Dropdown disabled code
+
+## v0.0.76
 
 > 2023-07-20
 
