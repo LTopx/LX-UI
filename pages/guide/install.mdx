@@ -1,10 +1,18 @@
+import { Callout } from "nextra/components";
+import { Tabs, Tab } from "nextra/components";
+
 # 安装
 
 以下将指导你如何在项目中安装 `LX-UI`，快速上手使用。
 
+<Callout emoji="⚠️">
+  LX-UI 目前是基于 React 18版本开发的。如果你使用的是老版本
+  React，可能会出现一些问题，建议升级到最新版本 React 使用。
+</Callout>
+
 ## 环境准备
 
-- 建议使用 pnpm 安装。
+- 建议使用 pnpm 安装 (当然使用 npm、yarn 也行)
 
   ```bash copy
   npm i -g pnpm
@@ -12,25 +20,43 @@
 
 - Tailwind CSS 安装
 
-  因为是基于Tailwind CSS的，因此需要在项目中安装并配置Tailwind CSS。[安装参考链接](https://tailwindcss.com/docs/installation)
+  因为 LX-UI 是基于 Tailwind CSS 的，因此需要在您的项目中安装并配置 Tailwind CSS 才能正常使用。[安装配置参考链接](https://tailwindcss.com/docs/installation)
 
 ## 安装 LX-UI
 
-```bash copy
-pnpm add @ltopx/lx-ui
-```
+<Tabs items={["pnpm", "npm", "yarn"]}>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash copy 
+    pnpm add @ltopx/lx-ui
+    ```
+  </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash copy 
+    npm i @ltopx/lx-ui
+    ```
+  </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash copy 
+    yarn add @ltopx/lx-ui
+    ```
+  </Tab>
+</Tabs>
 
-## 其他配置
+## 配置 LX-UI
 
-这个是项目初期暂时需要的一些配置，后续优化方案后会逐步减少和移除。
+由于 LX-UI 是基于 Tailwind CSS 开发的，因此需要修改您项目中的 tailwind.config.js 文件，添加 LX-UI 的相关配置。
 
-```js filename="tailwind.config.js" copy {3-6}
+- 添加 presets 预设配置
+- 配置 content 路径解析 LX-UI 组件
+
+```js filename="tailwind.config.js" copy {3-4}
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  presets: [require('@ltopx/lx-ui/dist/_lib/lx-ui-preset.js')],
-  content: [
-    "./node_modules/@ltopx/lx-ui/dist/**/*.{js,mjs}",
-  ],
+  presets: [require("@ltopx/lx-ui/dist/presets")],
+  content: ["./node_modules/@ltopx/lx-ui/dist/**/*.{mjs,js,ts,jsx,tsx,mdx}"],
   theme: {
     extend: {},
   },
@@ -40,14 +66,10 @@ module.exports = {
 
 ## 使用 LX-UI
 
-```js live=true copy
-import { Select } from '@ltopx/lx-ui';
+```js copy
+import { Select } from "@ltopx/lx-ui";
 
 export default function Home() {
-  return (
-    <>
-      <Select className="w-44" placeholder="请选择" options={[1, 2, 3]} />
-    </>
-  );
+  return <Select placeholder="请选择" options={[1, 2, 3]} />;
 }
 ```

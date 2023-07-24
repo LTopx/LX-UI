@@ -1,8 +1,12 @@
 # LX-UI Change Log
 
-## v0.0.83
+## v0.0.84
 
-> 2023-07-24
+> 2023-07-25
+
+### Add
+
+- Improve the details of the project documentation.
 
 ### Fixed
 

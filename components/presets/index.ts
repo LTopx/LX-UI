@@ -1,4 +1,4 @@
-// lx-ui tailwindcss preset
+// LX-UI tailwindcss preset
 module.exports = {
   theme: {
     extend: {

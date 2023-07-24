@@ -1,4 +1,4 @@
-const lxPresets = require("./components/_lib/lx-ui-preset");
+const lxPresets = require("./components/_presets");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

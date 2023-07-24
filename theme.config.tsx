@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { DocsThemeConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
 import { useConfig } from "nextra-theme-docs";
@@ -36,16 +37,29 @@ const config: DocsThemeConfig = {
         />
         <meta name="og:title" content={title ? title + " – LX-UI" : "LX-UI"} />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        {!!process.env.UMAMI_WEBSITE_ID && (
+          <script
+            async
+            src="https://umami.ltopx.com/script.js"
+            data-website-id={process.env.UMAMI_WEBSITE_ID}
+          ></script>
+        )}
       </>
     );
   },
   banner: {
-    key: "0.7.2-release",
+    key: "0.8.0-release",
     text: (
-      <a href="https://gpt.ltopx.com" target="_blank">
-        🎉 L-GPT v0.7.2 is released. Get to know →
+      <a href="https://chat.ltopx.com" target="_blank">
+        🎉 L-GPT v0.8.0 is released
       </a>
     ),
+  },
+  search: {
+    placeholder: "搜索文档...",
+  },
+  nextThemes: {
+    defaultTheme: "dark",
   },
   sidebar: {
     defaultMenuCollapseLevel: 1,
@@ -61,7 +75,7 @@ const config: DocsThemeConfig = {
     const { title, description, radix } = frontMatter;
 
     return (
-      <div>
+      <>
         {!!title && (
           <div className="flex font-bold h-14 my-2 tracking-tight text-4xl text-slate-900 items-center dark:text-slate-100">
             {title}
@@ -102,12 +116,12 @@ const config: DocsThemeConfig = {
           </div>
         )}
         <div>{children}</div>
-      </div>
+      </>
     );
   },
   footer: {
     text: (
-      <div className="flex flex-col w-full items-center sm:items-start">
+      <div className="flex flex-col w-full z-10 items-center sm:items-start">
         <div>
           <a
             className="flex text-current gap-1 items-center"
