@@ -51,39 +51,71 @@ export default function () {
 
 ### 尺寸大小
 
-<Code 
-  description='默认提供三种尺寸大小，可选值分别为 sm, base, lg' 
-  component={<Size />}
->
+<Code component={<Size />}>
+<Code.Description>
+  提供三种尺寸的大小：`sm` , `base` , `lg`
+</Code.Description>
 ```tsx filename="Accordion.tsx" copy
-import { Accordion, type AccordionItem } from "@ltopx/lx-ui";
+import {
+  Accordion,
+  Tabs,
+  type AccordionItem,
+  type TabsOption,
+} from "@ltopx/lx-ui";
 
 export default function () {
-  const items: AccordionItem[] = [
+  const options: SelectOption[] = [
+    { label: "1", value: "1" },
+    { label: "2", value: "2", disabled: true },
+    { label: "3", value: "3" },
+  ];
+  
+  const onChange = (value: string) => {
+    console.log(value, "value");
+  };
+  
+  const tabOptions: TabsOption[] = [
     {
-      label: "111",
-      value: "111",
-      children: <div>111</div>,
+      label: "sm",
+      value: "sm",
+      children: (
+        <Select
+          className="w-60"
+          placeholder="请选择"
+          size="sm"
+          options={options}
+          onChange={onChange}
+        />
+      ),
     },
     {
-      label: "222",
-      value: "222",
-      children: <div>222</div>,
+      label: "base",
+      value: "base",
+      children: (
+        <Select
+          className="w-60"
+          placeholder="请选择"
+          options={options}
+          onChange={onChange}
+        />
+      ),
     },
     {
-      label: "333",
-      value: "333",
-      children: <div>333</div>,
+      label: "lg",
+      value: "lg",
+      children: (
+        <Select
+          className="w-60"
+          placeholder="请选择"
+          size="lg"
+          options={options}
+          onChange={onChange}
+        />
+      ),
     },
   ];
   
-  return (
-    <div className="flex flex-col gap-6">
-      <Accordion items={items} size="sm" />
-      <Accordion items={items} />
-      <Accordion items={items} size="lg" />
-    </div>
-  );
+  return <Tabs options={tabOptions} defaultActiveTab="sm" />;
 }
 ```
 </Code>

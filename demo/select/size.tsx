@@ -1,4 +1,9 @@
-import { Select, type SelectOption } from "../../components";
+import {
+  Select,
+  Tabs,
+  type SelectOption,
+  type TabsOption,
+} from "../../components";
 
 export default function () {
   const options: SelectOption[] = [
@@ -11,10 +16,11 @@ export default function () {
     console.log(value, "value");
   };
 
-  return (
-    <div className="flex flex-col gap-3">
-      <div className="flex gap-2 items-center">
-        <div className="text-sm w-12">sm</div>
+  const tabOptions: TabsOption[] = [
+    {
+      label: "sm",
+      value: "sm",
+      children: (
         <Select
           className="w-60"
           placeholder="请选择"
@@ -22,18 +28,24 @@ export default function () {
           options={options}
           onChange={onChange}
         />
-      </div>
-      <div className="flex gap-2 items-center">
-        <div className="text-sm w-12">base</div>
+      ),
+    },
+    {
+      label: "base",
+      value: "base",
+      children: (
         <Select
           className="w-60"
           placeholder="请选择"
           options={options}
           onChange={onChange}
         />
-      </div>
-      <div className="flex gap-2 items-center">
-        <div className="text-sm w-12">lg</div>
+      ),
+    },
+    {
+      label: "lg",
+      value: "lg",
+      children: (
         <Select
           className="w-60"
           placeholder="请选择"
@@ -41,7 +53,9 @@ export default function () {
           options={options}
           onChange={onChange}
         />
-      </div>
-    </div>
-  );
+      ),
+    },
+  ];
+
+  return <Tabs options={tabOptions} defaultActiveTab="sm" />;
 }

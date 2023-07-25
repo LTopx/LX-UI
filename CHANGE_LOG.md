@@ -1,8 +1,8 @@
 # LX-UI Change Log
 
-## v0.0.84
+## v0.0.85
 
-> 2023-07-25
+> 2023-07-26
 
 ### Add
 
@@ -11,6 +11,7 @@
 ### Fixed
 
 - Fix the style problem of Button in dark mode.
+- Fix the bug of Select option and value type support.
 
 ### Changed
 

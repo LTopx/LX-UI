@@ -9,8 +9,16 @@ import Size from "@demo/input/size";
 import MaxLength from "@demo/input/maxLength";
 import Number from "@demo/input/number";
 import Trigger from "@demo/input/trigger";
+import { Callout } from "nextra/components";
 
 ## 代码示例
+
+{/* prettier-ignore */}
+<Callout emoji="👾">
+  目前版本还有以下已知问题
+  - disabled 状态 UI显示问题
+  - 受控状态的处理还需优化
+</Callout>
 
 ### 引入
 
@@ -25,6 +33,7 @@ import { Input } from "@ltopx/lx-ui";
   component={<Basic />}
 >
 ```tsx filename="Input.tsx" copy
+import React from 'react';
 import { Input } from "@ltopx/lx-ui";
 
 export default function () {
@@ -48,13 +57,12 @@ export default function () {
 
 ### 尺寸大小
 
-<Code 
-  description='默认提供三种尺寸大小，可选值分别为 sm, base, lg' 
-  component={<Size />}
->
+<Code component={<Size />}>
+<Code.Description>
+  提供三种尺寸的大小：`sm` , `base` , `lg`
+</Code.Description>
 ```tsx filename="Input.tsx" copy
-import { Input } from "@ltopx/lx-ui";
-import { Tabs, Tab } from "nextra/components";
+import { Input, Tabs, type TabsOption } from "@ltopx/lx-ui";
 
 export default function () {
   return (
@@ -134,6 +142,7 @@ export default function () {
   component={<Trigger />}
 >
 ```tsx filename="Input.tsx" copy
+import React from "react";
 import { Input, Button } from "@ltopx/lx-ui";
 
 export default function () {
@@ -159,7 +168,7 @@ export default function () {
 
 | 属性        | 描述                                                                                                                                        | 类型                   | 默认值 |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ------ |
-| className   | 结构类名                                                                                                                                    | `string`               | -      |
+| className   | 节点类名                                                                                                                                    | `string`               | -      |
 | type        | input 类型，与原生 input 标签的 type 属性相同。见 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#%E5%B1%9E%E6%80%A7) | `string`               | `text` |
 | size        | 尺寸大小                                                                                                                                    | `sm` \| `base` \| `lg` | `base` |
 | allowClear  | 是否允许清空                                                                                                                                | boolean                | -      |

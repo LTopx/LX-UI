@@ -23,10 +23,11 @@ import { Modal } from "@ltopx/lx-ui";
 ### 基础用法
 
 <Code 
-  description='基本对话框。' 
+  description='基本对话框' 
   component={<Basic />}
 >
 ```tsx filename="Modal.tsx" copy
+import React from "react";
 import { Modal, Button } from "@ltopx/lx-ui";
 
 export default function () {
@@ -60,11 +61,12 @@ export default function () {
 
 ### 禁止遮罩层关闭
 
-<Code 
-  description='当 maskClosable 设置为 false 时，点击遮罩层则无法关闭对话框' 
-  component={<MaskClosable />}
->
+<Code component={<MaskClosable />}>
+<Code.Description>
+  当 `maskClosable` 设置为 false 时，点击遮罩层则无法关闭对话框
+</Code.Description>
 ```tsx filename="Modal.tsx" copy {17}
+import React from "react";
 import { Modal, Button } from "@ltopx/lx-ui";
 
 export default function () {
@@ -108,7 +110,8 @@ export default function () {
   description='可以自定义底部按钮的文字' 
   component={<FooterText />}
 >
-```tsx filename="Modal.tsx" copy {17}
+```tsx filename="Modal.tsx" copy {20,21}
+import React from "react";
 import { Modal, Button } from "@ltopx/lx-ui";
 
 export default function () {
@@ -149,11 +152,12 @@ export default function () {
 
 ### 自定义页脚
 
-<Code 
-  description='传入 footer 可以自定义页脚区域按钮显示' 
-  component={<Footer />}
->
+<Code component={<Footer />}>
+<Code.Description>
+  传入 `footer` 可以自定义页脚区域按钮显示
+</Code.Description>
 ```tsx filename="Modal.tsx" copy {19-28}
+import React from "react";
 import { Modal, Button } from "@ltopx/lx-ui";
 
 export default function () {
@@ -205,7 +209,7 @@ export default function () {
 
 | 属性             | 描述                 | 类型                 | 默认值    |
 | ---------------- | -------------------- | -------------------- | --------- |
-| className        | 内容区域类名         | `string`             | -         |
+| className        | 节点类名             | `string`             | -         |
 | overlayClassName | 遮罩层类名           | `string`             | -         |
 | width            | 对话框宽度           | `string` \| `number` | `32.5rem` |
 | maskClosable     | 是否可点击遮罩层关闭 | `boolean`            | true      |

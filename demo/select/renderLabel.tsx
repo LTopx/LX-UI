@@ -7,7 +7,7 @@ export default function () {
     { label: "3", value: "3" },
   ];
 
-  const renderLabel = (item: any) => {
+  const renderLabel = (item: SelectOption) => {
     return <div>😄{item.label}😄</div>;
   };
 

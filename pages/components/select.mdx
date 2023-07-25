@@ -26,6 +26,7 @@ import { Select } from "@ltopx/lx-ui";
   component={<Basic />}
 >
 ```tsx filename="Select.tsx" copy
+import React from "react";
 import { Select, type SelectOption } from "@ltopx/lx-ui";
 
 export default function () {
@@ -35,25 +36,37 @@ export default function () {
     { label: "3", value: "3" },
   ];
   
+  const [value, setValue] = React.useState<number>(1);
+  
   const onChange = (value: string) => {
     console.log(value, "value");
   };
   
+  const onChangeValue = (value: number) => {
+    setValue(value);
+  };
+  
   return (
-    <div className="flex gap-3">
+    <div className="flex flex-wrap gap-3">
       <Select
         className="w-60"
         placeholder="请选择"
         options={options}
         onChange={onChange}
       />
-      <Select className="w-60" placeholder="请选择" options={options} disabled />
+      <Select
+        className="w-60"
+        placeholder="请选择"
+        options={options}
+        disabled
+      />
       <Select
         className="w-60"
         placeholder="请选择"
         loading
-        options={options}
-        onChange={onChange}
+        options={[1, 2, 3]}
+        value={value}
+        onChange={onChangeValue}
       />
     </div>
   );
@@ -63,10 +76,10 @@ export default function () {
 
 ### 自定义渲染
 
-<Code 
-  description='使用 renderLabel， 可以自定义渲染 label 内容' 
-  component={<RenderLabel />}
->
+<Code component={<RenderLabel />}>
+<Code.Description>
+  使用 `renderLabel`， 可以自定义渲染节点内容
+</Code.Description>
 ```tsx filename="Select.tsx" copy {20}
 import { Select, type SelectOption } from "@ltopx/lx-ui";
 
@@ -77,7 +90,7 @@ export default function () {
     { label: "3", value: "3" },
   ];
   
-  const renderLabel = (item: any) => {
+  const renderLabel = (item: SelectOption) => {
     return <div>😄{item.label}😄</div>;
   };
   
@@ -97,12 +110,17 @@ export default function () {
 
 ### 尺寸大小
 
-<Code
-description="默认提供三种尺寸大小，可选值分别为 sm, base, lg"
-component={<Size />}
->
-```tsx filename="Select.tsx" copy {21,40}
-import { Select, type SelectOption } from "@ltopx/lx-ui";
+<Code component={<Size />}>
+<Code.Description>
+  提供三种尺寸的大小：`sm` , `base` , `lg`
+</Code.Description>
+```tsx filename="Select.tsx" copy {27,52}
+import {
+  Select,
+  Tabs,
+  type SelectOption,
+  type TabsOption,
+} from "@ltopx/lx-ui";
 
 export default function () {
   const options: SelectOption[] = [
@@ -115,10 +133,11 @@ export default function () {
     console.log(value, "value");
   };
   
-  return (
-    <div className="flex flex-col gap-3">
-      <div className="flex gap-2 items-center">
-        <div className="text-sm w-12">sm</div>
+  const tabOptions: TabsOption[] = [
+    {
+      label: "sm",
+      value: "sm",
+      children: (
         <Select
           className="w-60"
           placeholder="请选择"
@@ -126,18 +145,24 @@ export default function () {
           options={options}
           onChange={onChange}
         />
-      </div>
-      <div className="flex gap-2 items-center">
-        <div className="text-sm w-12">base</div>
+      ),
+    },
+    {
+      label: "base",
+      value: "base",
+      children: (
         <Select
           className="w-60"
           placeholder="请选择"
           options={options}
           onChange={onChange}
         />
-      </div>
-      <div className="flex gap-2 items-center">
-        <div className="text-sm w-12">lg</div>
+      ),
+    },
+    {
+      label: "lg",
+      value: "lg",
+      children: (
         <Select
           className="w-60"
           placeholder="请选择"
@@ -145,9 +170,11 @@ export default function () {
           options={options}
           onChange={onChange}
         />
-      </div>
-    </div>
-  ); 
+      ),
+    },
+  ];
+  
+  return <Tabs options={tabOptions} defaultActiveTab="sm" />;
 }
 ```
 </Code>
@@ -156,22 +183,23 @@ export default function () {
 
 ### Select Props
 
-| 属性         | 描述                             | 类型                              | 默认值 |
-| ------------ | -------------------------------- | --------------------------------- | ------ |
-| placeholder  | 默认占位文本                     | `string`                          | -      |
-| disabled     | 是否禁用                         | `boolean`                         | false  |
-| loading      | 是否正在加载下拉列表数据         | `boolean`                         | false  |
-| size         | 尺寸大小                         | `sm` \| `base` \| `lg`            | `base` |
-| options      | 下拉选项列表                     | `SelectOption[]`                  | -      |
-| renderLabel  | 自定义渲染列表显示内容           | `(value: any) => React.ReactNode` | -      |
-| defaultValue | 默认选中条目                     | `string`                          | -      |
-| value        | 当前选中的条目                   | `string`                          | -      |
-| onChange     | 选中条目发生变化时，会触发此方法 | `(value: string) => void`         | -      |
+| 属性         | 描述                             | 类型                                | 默认值 |
+| ------------ | -------------------------------- | ----------------------------------- | ------ |
+| className    | 节点类名                         | `string`                            | -      |
+| placeholder  | 默认占位文本                     | `string`                            | -      |
+| disabled     | 是否禁用                         | `boolean`                           | -      |
+| loading      | 是否正在加载下拉列表数据         | `boolean`                           | -      |
+| size         | 尺寸大小                         | `sm` \| `base` \| `lg`              | `base` |
+| options      | 下拉选项列表                     | `SelectOption[]`                    | -      |
+| renderLabel  | 自定义渲染列表显示内容           | `(value: any) => React.ReactNode`   | -      |
+| defaultValue | 默认选中条目                     | `string` \| `number`                | -      |
+| value        | 受控模式下选中的条目             | `string` \| `number`                | -      |
+| onChange     | 选中条目发生变化时，会触发此方法 | `(value: string \| number) => void` | -      |
 
 ### SelectOption Props
 
-| 属性     | 描述           | 类型              | 默认值 |
-| -------- | -------------- | ----------------- | ------ |
-| label    | 选项展示内容   | `React.ReactNode` | -      |
-| value    | 选项选中时的值 | `string`          | -      |
-| disabled | 是否禁用       | `boolean`         | false  |
+| 属性     | 描述           | 类型                 | 默认值 |
+| -------- | -------------- | -------------------- | ------ |
+| label    | 选项展示内容   | `React.ReactNode`    | -      |
+| value    | 选项选中时的值 | `string` \| `number` | -      |
+| disabled | 是否禁用       | `boolean`            | false  |

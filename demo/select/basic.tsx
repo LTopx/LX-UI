@@ -1,3 +1,4 @@
+import React from "react";
 import { Select, type SelectOption } from "../../components";
 
 export default function () {
@@ -7,12 +8,18 @@ export default function () {
     { label: "3", value: "3" },
   ];
 
+  const [value, setValue] = React.useState<number>(1);
+
   const onChange = (value: string) => {
     console.log(value, "value");
   };
 
+  const onChangeValue = (value: number) => {
+    setValue(value);
+  };
+
   return (
-    <div className="flex gap-3">
+    <div className="flex flex-wrap gap-3">
       <Select
         className="w-60"
         placeholder="请选择"
@@ -29,8 +36,9 @@ export default function () {
         className="w-60"
         placeholder="请选择"
         loading
-        options={options}
-        onChange={onChange}
+        options={[1, 2, 3]}
+        value={value}
+        onChange={onChangeValue}
       />
     </div>
   );

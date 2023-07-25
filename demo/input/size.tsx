@@ -1,19 +1,30 @@
 import React from "react";
-import { Tabs, Tab } from "nextra/components";
-import { Input } from "../../components";
+import { Input, Tabs, type TabsOption } from "../../components";
 
 export default function () {
-  return (
-    <Tabs items={["sm", "base", "lg"]}>
-      <Tab>
+  const tabOptions: TabsOption[] = [
+    {
+      label: "sm",
+      value: "sm",
+      children: (
         <Input className="w-52" placeholder="请输入" size="sm" allowClear />
-      </Tab>
-      <Tab>
+      ),
+    },
+    {
+      label: "base",
+      value: "base",
+      children: (
         <Input className="w-52" placeholder="请输入" size="base" allowClear />
-      </Tab>
-      <Tab>
+      ),
+    },
+    {
+      label: "lg",
+      value: "lg",
+      children: (
         <Input className="w-52" placeholder="请输入" size="lg" allowClear />
-      </Tab>
-    </Tabs>
-  );
+      ),
+    },
+  ];
+
+  return <Tabs options={tabOptions} defaultActiveTab="sm" />;
 }

@@ -5,7 +5,7 @@ import { Check_fill } from "../icon";
 
 export interface DropdownOption {
   label?: React.ReactNode;
-  value?: string;
+  value?: string | number;
   type?: "seperate";
 }
 
@@ -21,8 +21,8 @@ export interface DropdownProps {
   options?: DropdownOption[];
   /** support selection */
   selectable?: boolean;
-  value?: any;
-  onSelect?: (value: any) => void;
+  value?: string | number;
+  onSelect?: (value: string | number) => void;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -57,7 +57,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     }
   };
 
-  const onMenuSelect = (e: any, value: string) => {
+  const onMenuSelect = (e: any, value: string | number) => {
     if (disabledRef.current) return e.preventDefault();
     onSelect?.(value);
   };

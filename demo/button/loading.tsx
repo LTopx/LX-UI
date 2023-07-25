@@ -2,20 +2,12 @@ import React from "react";
 import { Button } from "../../components";
 
 export default function () {
-  const [loading1, setLoading1] = React.useState(false);
-  const [loading2, setLoading2] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
 
   const onClick1 = () => {
-    setLoading1(true);
+    setLoading(true);
     setTimeout(() => {
-      setLoading1(false);
-    }, 2000);
-  };
-
-  const onClick2 = () => {
-    setLoading2(true);
-    setTimeout(() => {
-      setLoading2(false);
+      setLoading(false);
     }, 2000);
   };
 
@@ -32,12 +24,9 @@ export default function () {
           Loading
         </Button>
       </div>
-      <div className="flex flex-wrap gap-x-3 gap-y-2">
-        <Button type="primary" loading={loading1} onClick={onClick1}>
-          Loading
-        </Button>
-        <Button type="success" loading={loading2} onClick={onClick2}>
-          Loading
+      <div className="flex">
+        <Button type="primary" loading={loading} onClick={onClick1}>
+          {loading ? "loading" : "Primary"}
         </Button>
       </div>
     </div>

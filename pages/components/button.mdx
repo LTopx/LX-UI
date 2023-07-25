@@ -7,6 +7,7 @@ import Code from "@demo/code";
 import Basic from "@demo/button/basic";
 import Disabled from "@demo/button/disabled";
 import Shape from "@demo/button/shape";
+import Size from "@demo/button/size";
 import Loading from "@demo/button/loading";
 import Block from "@demo/button/block";
 import Icon from "@demo/button/icon";
@@ -22,10 +23,13 @@ import { Button } from "@ltopx/lx-ui";
 
 ### 基础用法
 
-<Code 
-  description='提供六种基础类型的按钮使用。搭配 outline 属性，你将再获得额外五种类型的按钮。' 
-  component={<Basic />}
->
+<Code component={<Basic />}>
+
+<Code.Description>
+  提供六种基础类型的按钮使用。搭配 `outline`
+  属性，你将再获得额外五种类型的按钮。此外，还有 `link` 按钮。
+</Code.Description>
+
 ```tsx filename="Button.tsx" copy
 import { Button } from "@ltopx/lx-ui";
 
@@ -59,6 +63,7 @@ export default function () {
   );
 }
 ```
+
 </Code>
 
 ### 禁用按钮
@@ -113,10 +118,10 @@ export default function () {
 
 ### 按钮形状
 
-<Code 
-  description='按钮的形状。目前支持设置全圆角形状-rounded' 
-  component={<Shape />}
->
+<Code component={<Shape />}>
+<Code.Description>
+  按钮的形状。目前支持设置全圆角形状 `rounded`
+</Code.Description>
 ```tsx filename="Button.tsx" copy {7}
 import { Button } from "@ltopx/lx-ui";
 
@@ -133,31 +138,48 @@ export default function () {
 ```
 </Code>
 
-### 加载中按钮
+### 尺寸大小
 
-<Code
-  description='可以设置 loading 属性来使按钮显示处于加载中的状态'
-  component={<Loading />}
->
-```tsx filename="Button.tsx" copy
-import React from 'react';
+<Code component={<Size />}>
+<Code.Description>
+  提供三种尺寸的大小：`sm` , `base` , `lg`
+</Code.Description>
+```tsx filename="Button.tsx" copy {6,10}
 import { Button } from "@ltopx/lx-ui";
 
 export default function () {
-  const [loading1, setLoading1] = React.useState(false);
-  const [loading2, setLoading2] = React.useState(false);
+  return (
+    <div className="flex gap-8">
+      <Button type="primary" size="sm">
+        sm
+      </Button>
+      <Button type="primary">base</Button>
+      <Button type="primary" size="lg">
+        lg
+      </Button>
+    </div>
+  );
+}
+```
+</Code>
+
+### 加载中按钮
+
+<Code component={<Loading />}>
+<Code.Description>
+  可以设置 `loading` 属性来使按钮显示处于加载中的状态
+</Code.Description>
+```tsx filename="Button.tsx" copy
+import React from "react";
+import { Button } from "@ltopx/lx-ui";
+
+export default function () {
+  const [loading, setLoading] = React.useState(false);
   
   const onClick1 = () => {
-    setLoading1(true);
+    setLoading(true);
     setTimeout(() => {
-      setLoading1(false);
-    }, 2000);
-  };
-  
-  const onClick2 = () => {
-    setLoading2(true);
-    setTimeout(() => {
-      setLoading2(false);
+      setLoading(false);
     }, 2000);
   };
   
@@ -174,24 +196,22 @@ export default function () {
           Loading
         </Button>
       </div>
-      <div className="flex flex-wrap gap-x-3 gap-y-2">
-        <Button type="primary" loading={loading1} onClick={onClick1}>
-          Loading
-        </Button>
-        <Button type="success" loading={loading2} onClick={onClick2}>
-          Loading
+      <div className="flex">
+        <Button type="primary" loading={loading} onClick={onClick1}>
+          {loading ? "loading" : "Primary"}
         </Button>
       </div>
     </div>
   );
 }
 ```
+
 </Code>
 
 ### 块级按钮
 
 <Code
-  description='是否占满整个父容器宽度'
+  description='可直接占满整个父容器宽度'
   component={<Block />}
 >
 ```tsx filename="Button.tsx" copy
@@ -215,7 +235,7 @@ export default function () {
 ### 图标按钮
 
 <Code
-description='可以在按钮文本左侧插入图标，提升按钮的可读性。想在右侧插入图标，自己实现即可'
+description='可以在按钮文本左侧插入图标，提升按钮的可读性。（想在右侧插入图标，自己实现即可'
 component={<Icon />}
 >
 ```tsx filename="Button.tsx" copy
@@ -237,10 +257,12 @@ export default function () {
 
 ### 跳转按钮
 
-<Code
-  description='添加跳转链接，设置此属性，button的表现将跟a标签一致。'
-  component={<Href />}
->
+<Code component={<Href />}>
+
+<Code.Description>
+  添加跳转链接。若设置此属性，button的表现将跟 `a` 标签一致。
+</Code.Description>
+
 ```tsx filename="Button.tsx" copy
 import { Button } from "@ltopx/lx-ui";
 
@@ -250,29 +272,36 @@ export default function () {
       <Button type="primary" href="https://www.baidu.com">
         Href
       </Button>
-      <Button type="success" rounded href="https://www.baidu.com" target="_blank">
+      <Button
+        type="success"
+        rounded
+        href="https://www.baidu.com"
+        target="_blank"
+      >
         Href _Blank
       </Button>
     </div>
-  ); 
+  );
 }
 ```
+
 </Code>
 
 ## API
 
 ### Button Props
 
-| 属性     | 描述                                                     | 类型                                                                   | 默认值    |
-| -------- | -------------------------------------------------------- | ---------------------------------------------------------------------- | --------- |
-| type     | 按钮类型                                                 | `default` \| `primary` \| `success` \| `warning` \| `danger` \| `link` | `default` |
-| size     | 尺寸大小                                                 | `sm` \| `base` \| `lg`                                                 | `base`    |
-| disabled | 是否禁用                                                 | `boolean`                                                              | -         |
-| loading  | 是否处于加载中状态                                       | `boolean`                                                              | -         |
-| block    | 是否占满整个父容器宽度                                   | `boolean`                                                              | -         |
-| outline  | 是否以边框形式展示按钮                                   | `boolean`                                                              | -         |
-| rounded  | 是否以全圆角形式展示按钮                                 | `boolean`                                                              | -         |
-| icon     | 设置按钮左侧的图标                                       | `React.ReactNode`                                                      | -         |
-| href     | 添加跳转链接，设置此属性，button 的表现将跟 a 标签一致。 | `string`                                                               | -         |
-| target   | a 标签的 target 属性。仅当 href 存在时生效               | `HTMLAttributeAnchorTarget`                                            | -         |
-| onClick  | 点击按钮的回调                                           | `(e: Event) => void`                                                   | -         |
+| 属性      | 描述                                                       | 类型                                                                   | 默认值    |
+| --------- | ---------------------------------------------------------- | ---------------------------------------------------------------------- | --------- |
+| className | 节点类名                                                   | `string`                                                               | -         |
+| type      | 按钮类型                                                   | `default` \| `primary` \| `success` \| `warning` \| `danger` \| `link` | `default` |
+| disabled  | 是否禁用                                                   | `boolean`                                                              | -         |
+| size      | 尺寸大小                                                   | `sm` \| `base` \| `lg`                                                 | `base`    |
+| loading   | 是否处于加载中状态                                         | `boolean`                                                              | -         |
+| block     | 是否占满整个父容器宽度                                     | `boolean`                                                              | -         |
+| outline   | 是否以边框形式展示按钮                                     | `boolean`                                                              | -         |
+| rounded   | 是否以全圆角形式展示按钮                                   | `boolean`                                                              | -         |
+| icon      | 设置按钮图标，位于文字左侧（如果有文字的话）               | `React.ReactNode`                                                      | -         |
+| href      | 添加跳转链接，设置此属性，button 的表现将跟 `a` 标签一致。 | `string`                                                               | -         |
+| target    | 作为 `a` 标签的 target 属性。仅当 href 存在时生效          | `HTMLAttributeAnchorTarget`                                            | -         |
+| onClick   | 点击按钮的回调                                             | `(e: Event) => void`                                                   | -         |

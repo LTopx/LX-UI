@@ -1,5 +1,10 @@
 import React from "react";
-import { Accordion, type AccordionItem } from "../../components";
+import {
+  Accordion,
+  Tabs,
+  type AccordionItem,
+  type TabsOption,
+} from "../../components";
 
 export default function () {
   const items: AccordionItem[] = [
@@ -20,11 +25,23 @@ export default function () {
     },
   ];
 
-  return (
-    <div className="flex flex-col gap-6">
-      <Accordion items={items} size="sm" />
-      <Accordion items={items} />
-      <Accordion items={items} size="lg" />
-    </div>
-  );
+  const tabOptions: TabsOption[] = [
+    {
+      label: "sm",
+      value: "sm",
+      children: <Accordion items={items} size="sm" />,
+    },
+    {
+      label: "base",
+      value: "base",
+      children: <Accordion items={items} />,
+    },
+    {
+      label: "lg",
+      value: "lg",
+      children: <Accordion items={items} size="lg" />,
+    },
+  ];
+
+  return <Tabs options={tabOptions} defaultActiveTab="sm" />;
 }

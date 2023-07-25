@@ -22,10 +22,10 @@ import { Confirm } from "@ltopx/lx-ui";
 
 ### 基础用法
 
-<Code 
-  description='提供与 Button 按钮 相同的五种基础类型确认框。点击“确认”按钮时触发 onOk 回调' 
-  component={<Basic />}
->
+<Code component={<Basic />}>
+<Code.Description>
+  提供与 [Button](/components/button) 按钮 相同的五种基础类型确认框。点击“确认”按钮时触发 `onOk` 回调
+</Code.Description>
 ```tsx filename="Confirm.tsx" copy
 import { Confirm, Button } from "@ltopx/lx-ui";
 
@@ -85,11 +85,11 @@ export default function () {
 
 ### 禁止遮罩层关闭
 
-<Code 
-  description='当 maskClosable 设置为 false 时，点击遮罩层则无法关闭确认框' 
-  component={<MaskClosable />}
->
-```tsx filename="Confirm.tsx" copy {16}
+<Code component={<MaskClosable />}>
+<Code.Description>
+  当 `maskClosable` 设置为 false 时，点击遮罩层则无法关闭确认框
+</Code.Description>
+```tsx filename="Confirm.tsx" copy {17}
 import { Confirm, Button } from "@ltopx/lx-ui";
 
 export default function () {
@@ -120,10 +120,10 @@ export default function () {
 ### 自定义标题按钮
 
 <Code 
-  description='Confirm 确认框标题默认显示按钮，也可以自定义显示其他按钮' 
+  description='可以自定义标题处显示的按钮' 
   component={<TitleIcon />}
 >
-```tsx filename="Confirm.tsx" copy {14}
+```tsx filename="Confirm.tsx" copy {15}
 import { Confirm, Button } from "@ltopx/lx-ui";
 
 export default function () {
@@ -157,7 +157,7 @@ export default function () {
   description='可以自定义底部按钮的文字' 
   component={<IconText />}
 >
-```tsx filename="Confirm.tsx" copy {17,18}
+```tsx filename="Confirm.tsx" copy {18,19}
 import { Confirm, Button } from "@ltopx/lx-ui";
 
 export default function () {
@@ -192,13 +192,13 @@ export default function () {
 
 | 属性             | 描述                 | 类型                                                         | 默认值    |
 | ---------------- | -------------------- | ------------------------------------------------------------ | --------- |
-| className        | 内容区域类名         | `string`                                                     | -         |
+| className        | 节点类名             | `string`                                                     | -         |
 | overlayClassName | 遮罩层类名           | `string`                                                     | -         |
 | maskClosable     | 是否可点击遮罩层关闭 | `boolean`                                                    | true      |
 | disabled         | 是否禁用             | `boolean`                                                    | -         |
 | type             | 确认框类型           | `default` \| `primary` \| `success` \| `warning` \| `danger` | `primary` |
-| icon             | 自定义标题按钮       | `React.ReactNode`                                            | -         |
 | title            | 自定义标题           | `React.ReactNode`                                            | Title     |
+| icon             | 自定义标题按钮       | `React.ReactNode`                                            | -         |
 | content          | 自定义内容           | `React.ReactNode`                                            | Content   |
 | okText           | 自定义确认按钮文字   | `React.ReactNode`                                            | Ok        |
 | cancelText       | 自定义取消按钮文字   | `React.ReactNode`                                            | Cancel    |

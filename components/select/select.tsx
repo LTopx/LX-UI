@@ -8,7 +8,7 @@ import SelectItem from "./item";
 
 export interface SelectOption {
   label: React.ReactNode;
-  value: string;
+  value: string | number;
   disabled?: boolean;
 }
 
@@ -19,16 +19,16 @@ export interface SelectProps
   size?: SizeType;
   options?: string[] | number[] | SelectOption[];
   renderLabel?: (value: any) => React.ReactNode;
-  defaultValue?: string;
-  value?: string;
-  onChange?: (value: string) => void;
+  defaultValue?: string | number;
+  value?: string | number;
+  onChange?: (value: string | number) => void;
 }
 
 const Select: React.FC<SelectProps> = ({
   className,
   placeholder,
-  disabled = false,
-  loading = false,
+  disabled,
+  loading,
   size = "base",
   options = [],
   renderLabel,
@@ -38,7 +38,9 @@ const Select: React.FC<SelectProps> = ({
 }) => {
   // data
   const [isOpen, setIsOpen] = React.useState(false);
-  const [selectValue, setSelectValue] = React.useState<string | undefined>();
+  const [selectValue, setSelectValue] = React.useState<
+    string | number | undefined
+  >();
 
   // ref
   const triggerRef = React.useRef<HTMLDivElement>(null);
@@ -48,7 +50,7 @@ const Select: React.FC<SelectProps> = ({
       if (typeof item === "string" || typeof item === "number") {
         return {
           label: String(item),
-          value: String(item),
+          value: item,
           disabled: false,
         };
       }
@@ -108,8 +110,10 @@ const Select: React.FC<SelectProps> = ({
     <RadixSelect.Root
       open={isOpen}
       disabled={disabled}
-      defaultValue={defaultValue}
-      value={value}
+      defaultValue={
+        isUndefined(defaultValue) ? undefined : String(defaultValue)
+      }
+      value={isUndefined(value) ? undefined : String(value)}
       onOpenChange={onOpenChange}
       onValueChange={onValueChange}
     >
@@ -165,7 +169,7 @@ const Select: React.FC<SelectProps> = ({
             {selectOptions.map((item) => (
               <SelectItem
                 key={item.value}
-                value={item.value}
+                value={String(item.value)}
                 disabled={item.disabled}
               >
                 {renderLabel ? renderLabel(item) : item.label}

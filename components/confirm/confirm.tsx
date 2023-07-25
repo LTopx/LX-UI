@@ -17,7 +17,6 @@ export interface ConfirmProps {
   cancelText?: React.ReactNode;
   okText?: React.ReactNode;
   onOk?: () => void;
-  onCancel?: () => void;
 }
 
 const Confirm: React.FC<ConfirmProps> = React.memo(
@@ -34,7 +33,6 @@ const Confirm: React.FC<ConfirmProps> = React.memo(
     cancelText = "Cancel",
     okText = "OK",
     onOk,
-    onCancel,
   }) => {
     const [open, setOpen] = React.useState(false);
     const [loading, setLoading] = React.useState(false);

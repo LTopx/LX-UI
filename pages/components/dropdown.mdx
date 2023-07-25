@@ -11,8 +11,13 @@ import Basic from "@demo/dropdown/basic";
 import Side from "@demo/dropdown/side";
 import Align from "@demo/dropdown/align";
 import Selectable from "@demo/dropdown/selectable";
+import { Callout } from "nextra/components";
 
 ## 代码示例
+
+<Callout emoji="👾">
+  下拉选项的 `disabled` 类型状态还未开发完成。下个版本支持
+</Callout>
 
 ### 引入
 
@@ -22,10 +27,10 @@ import { Dropdown } from "@ltopx/lx-ui";
 
 ### 基础用法
 
-<Code 
-  description='基础下拉菜单，可自定义 label 显示内容' 
-  component={<Basic />}
->
+<Code component={<Basic />}>
+<Code.Description>
+  基础下拉菜单，支持自定义 `label` 显示内容
+</Code.Description>
 ```tsx filename="Dropdown.tsx" copy
 import React from "react";
 import { Dropdown, Button, type DropdownOption } from "@ltopx/lx-ui";
@@ -89,10 +94,10 @@ export default function () {
 
 ### 弹出方向和间距
 
-<Code 
-  description='可以通过 side 属性自定义Dropdown弹出方向；通过设置 sideOffset 属性自定义Dropdown与触发元素的间距' 
-  component={<Side />}
->
+<Code component={<Side />}>
+<Code.Description>
+  可以通过 `side` 属性自定义Dropdown弹出方向；通过设置 `sideOffset` 属性自定义Dropdown与触发元素的间距
+</Code.Description>
 ```tsx filename="Dropdown.tsx" copy {17,20}
 import React from "react";
 import { Drawer, Button, type DropdownOption } from "@ltopx/lx-ui";
@@ -124,10 +129,10 @@ export default function () {
 
 ### 对齐方向和间距
 
-<Code 
-  description='可以通过 align 属性自定义Dropdown对齐方向；通过设置 alignOffset 属性自定义Dropdown与触发元素的间距' 
-  component={<Align />}
->
+<Code component={<Align />}>
+<Code.Description>
+  可以通过 `align` 属性自定义Dropdown对齐方向；通过设置 `alignOffset` 属性自定义Dropdown与触发元素的间距
+</Code.Description>
 ```tsx filename="Dropdown.tsx" copy {14,17,20,23}
 import React from "react";
 import { Drawer, Button, type DropdownOption } from "@ltopx/lx-ui";
@@ -195,19 +200,19 @@ export default function () {
 
 ### Dropdown Props
 
-| 属性        | 描述               | 类型                         | 默认值   |
-| ----------- | ------------------ | ---------------------------- | -------- |
-| className   | 内容区域类名       | `string`                     | -        |
-| disabled    | 是否禁用           | `boolean`                    | -        |
-| side        | 弹出方向           | `top` \| `bottom`            | `bottom` |
-| sideOffset  | 弹出方向的间距     | `number`                     | 6        |
-| align       | 对齐方向           | `start` \| `center` \| `end` | `center` |
-| alignOffset | 对齐方向的间距     | `number`                     | -        |
-| label       | 标题               | `string`                     | -        |
-| options     | 选项列表           | `DropdownOption[]`           | -        |
-| selectable  | 是否可支持选中     | `boolean`                    | -        |
-| value       | 当前选中的值       | `string` \| `number`         | -        |
-| onSelect    | 选中某一选项的回调 | `(value: any) => void`       | -        |
+| 属性        | 描述               | 类型                                | 默认值   |
+| ----------- | ------------------ | ----------------------------------- | -------- |
+| className   | 节点类名           | `string`                            | -        |
+| disabled    | 是否禁用           | `boolean`                           | -        |
+| side        | 弹出方向           | `top` \| `bottom`                   | `bottom` |
+| sideOffset  | 弹出方向的间距     | `number`                            | 6        |
+| align       | 对齐方向           | `start` \| `center` \| `end`        | `center` |
+| alignOffset | 对齐方向的间距     | `number`                            | -        |
+| label       | 标题               | `React.ReactNode`                   | -        |
+| options     | 选项列表           | `DropdownOption[]`                  | -        |
+| selectable  | 是否可支持选中     | `boolean`                           | -        |
+| value       | 当前选中的值       | `string` \| `number`                | -        |
+| onSelect    | 选中某一选项的回调 | `(value: string \| number) => void` | -        |
 
 ### DropdownOption Props
 
@@ -215,4 +220,4 @@ export default function () {
 | ----- | -------------- | ----------------- | ------ |
 | label | 选项展示内容   | `React.ReactNode` | -      |
 | value | 选项选中时的值 | `string`          | -      |
-| type  | 是否禁用       | `seperate`        | -      |
+| type  | 选项类型       | `seperate`        | -      |

@@ -42,10 +42,10 @@ export default function () {
 
 ### 弹出方向和间距
 
-<Code 
-  description='可以通过 side 属性自定义 Tooltip 弹出方向；通过设置 sideOffset 属性自定义 Tooltip 与触发元素的间距' 
-  component={<Side />}
->
+<Code component={<Side />}>
+<Code.Description>
+  可以通过 `side` 属性自定义 Tooltip 弹出方向；通过设置 `sideOffset` 属性自定义 Tooltip 与触发元素的间距
+</Code.Description>
 ```tsx filename="Tooltip.tsx" copy {9,12}
 import { Tooltip, Button } from "@ltopx/lx-ui";
 

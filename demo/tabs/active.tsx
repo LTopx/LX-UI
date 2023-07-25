@@ -2,6 +2,8 @@ import React from "react";
 import { Tabs, type TabsOption } from "../../components";
 
 export default function () {
+  const [active, setActive] = React.useState("1");
+
   const options: TabsOption[] = [
     {
       label: "Tab1",
@@ -14,8 +16,6 @@ export default function () {
       children: <div>呃呃呃呃</div>,
     },
   ];
-
-  const [active, setActive] = React.useState("1");
 
   return (
     <div className="flex flex-col gap-2">

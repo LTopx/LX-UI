@@ -54,10 +54,10 @@ export default function () {
 
 ### 尺寸大小
 
-<Code 
-  description='默认提供三种尺寸大小，可选值分别为 sm, base, lg' 
-  component={<Size />}
->
+<Code component={<Size />}>
+<Code.Description>
+  提供三种尺寸的大小：`sm` , `base` , `lg`
+</Code.Description>
 ```tsx filename="Tabs.tsx" copy
 import { Tabs, type TabsOption } from "@ltopx/lx-ui";
 
@@ -125,9 +125,12 @@ export default function () {
   component={<Active />}
 >
 ```tsx filename="Tabs.tsx" copy
+import React from "react";
 import { Tabs, type TabsOption } from "@ltopx/lx-ui";
 
 export default function () {
+  const [active, setActive] = React.useState("1");
+  
   const options: TabsOption[] = [
     {
       label: "Tab1",
@@ -140,8 +143,6 @@ export default function () {
       children: <div>呃呃呃呃</div>,
     },
   ];
-  
-  const [active, setActive] = React.useState("1");
   
   return (
     <div className="flex flex-col gap-2">

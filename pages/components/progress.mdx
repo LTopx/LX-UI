@@ -43,10 +43,10 @@ export default function () {
 
 ### 尺寸大小
 
-<Code 
-  description='默认提供三种尺寸大小，可选值分别为 sm, base, lg' 
-  component={<Size />}
->
+<Code component={<Size />}>
+<Code.Description>
+  提供三种尺寸的大小：`sm` , `base` , `lg`
+</Code.Description>
 ```tsx filename="Progress.tsx" copy
 import { Progress } from "@ltopx/lx-ui";
 
@@ -68,7 +68,7 @@ export default function () {
 
 | 属性      | 描述       | 类型                                                         | 默认值    |
 | --------- | ---------- | ------------------------------------------------------------ | --------- |
-| className | 区域类名   | `string`                                                     | -         |
+| className | 节点类名   | `string`                                                     | -         |
 | type      | 进度条类型 | `default` \| `primary` \| `success` \| `warning` \| `danger` | `default` |
 | size      | 尺寸大小   | `sm` \| `base` \| `lg`                                       | `base`    |
 | value     | 进度条进度 | `number`                                                     | 0 (0-100) |

@@ -19,7 +19,7 @@ export interface ButtonProps
 }
 
 export const button = tv({
-  base: "text-sm flex justify-center items-center transition-colors rounded-md border cursor-pointer",
+  base: "text-sm flex justify-center items-center transition-colors rounded-md border cursor-pointer gap-2 select-none",
   variants: {
     type: {
       default:
@@ -205,7 +205,6 @@ const Button = React.forwardRef<
           ref={forwardredRef}
           className={cn(
             button({ size, type, block, rounded, loading, outline, disabled }),
-            "gap-2",
             className
           )}
           onClick={onBtnClick}
@@ -224,7 +223,6 @@ const Button = React.forwardRef<
         ref={forwardredRef}
         className={cn(
           button({ size, type, block, rounded, loading, outline, disabled }),
-          "gap-2",
           className
         )}
         onClick={onBtnClick}

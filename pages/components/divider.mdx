@@ -41,10 +41,10 @@ export default function () {
 
 ### 竖向分割线
 
-<Code 
-  description='设置type为vertical时，展示竖向分割线。' 
-  component={<Vertical />}
->
+<Code component={<Vertical />}>
+<Code.Description>
+  设置 `type` 为 vertical 时，展示竖向分割线。
+</Code.Description>
 ```tsx filename="Divider.tsx" copy
 import { Divider } from "@ltopx/lx-ui";
 
@@ -64,10 +64,10 @@ export default function () {
 
 ### 文字分割线
 
-<Code 
-  description='设置 orientation 属性，可以将文字放在分割线的左边、右边或者居中。' 
-  component={<Orientation />}
->
+<Code component={<Orientation />}>
+<Code.Description>
+  设置 `orientation` 属性，可以将文字放在分割线的左边、右边或者居中。
+</Code.Description>
 ```tsx filename="Divider.tsx" copy
 import { Divider } from "@ltopx/lx-ui";
 
@@ -95,7 +95,7 @@ export default function () {
 
 | 属性        | 描述                  | 类型                          | 默认值       |
 | ----------- | --------------------- | ----------------------------- | ------------ |
-| className   | 结构类名              | `string`                      | -            |
+| className   | 节点类名              | `string`                      | -            |
 | type        | 分割线类型，水平/竖直 | `horizontal` \| `vertical`    | `horizontal` |
 | dashed      | 是否虚线              | boolean                       | -            |
 | children    | 嵌套的标题            | `React.ReactNode`             | -            |
