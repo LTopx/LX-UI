@@ -9,7 +9,7 @@ export default function () {
     { label: "番茄,番茄", value: "444" },
   ];
 
-  const [value, setValue] = React.useState("111");
+  const [value, setValue] = React.useState<string | number>("111");
 
   return (
     <div className="flex flex-wrap gap-2">
