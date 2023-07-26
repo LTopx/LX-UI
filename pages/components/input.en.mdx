@@ -1,0 +1,192 @@
+---
+title: Input
+description: Basic form components, allowing input of content using both mouse and keyboard.
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/input/basic";
+import Size from "@demo/input/size";
+import MaxLength from "@demo/input/maxLength";
+import Number from "@demo/input/number";
+import Trigger from "@demo/input/trigger";
+import { Callout } from "nextra/components";
+
+## Examples
+
+{/* prettier-ignore */}
+<Callout emoji="👾">
+Currently, the current version still has the following known issues:
+- UI display issue in disabled state
+- The handling of controlled states needs further optimization.
+</Callout>
+
+### Import
+
+```js copy
+import { Input } from "@ltopx/lx-ui";
+```
+
+### Basic usage
+
+<Code 
+  description='Enter content through the keyboard or mouse.' 
+  component={<Basic />}
+>
+```tsx filename="Input.tsx" copy
+import React from 'react';
+import { Input } from "@ltopx/lx-ui";
+
+export default function () {
+  const [value, setValue] = React.useState<string | number>("");
+  
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Input
+        className="w-52"
+        placeholder="Please input"
+        allowClear
+        value={value}
+        onChange={setValue}
+      />
+      <Input className="w-52" placeholder="Please input" allowClear type="password" />
+    </div>
+  );
+}
+```
+</Code>
+
+### Sizes
+
+<Code component={<Size />}>
+<Code.Description>
+Provide three sizes: `sm`, `base`, and `lg`
+</Code.Description>
+```tsx filename="Input.tsx" copy
+import { Input, Tabs, type TabsOption } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <Tabs items={["sm", "base", "lg"]}>
+      <Tab>
+        <Input className="w-52" placeholder="Please input" size="sm" allowClear />
+      </Tab>
+      <Tab>
+        <Input className="w-52" placeholder="Please input" size="base" allowClear />
+      </Tab>
+      <Tab>
+        <Input className="w-52" placeholder="Please input" size="lg" allowClear />
+      </Tab>
+    </Tabs>
+  );
+}
+```
+</Code>
+
+### Length Limit
+
+<Code 
+  description='Setting maxLength can limit the maximum number of characters.' 
+  component={<MaxLength />}
+>
+```tsx filename="Input.tsx" copy {6}
+import { Input } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Input className="w-52" placeholder="Please input" allowClear maxLength={10} />
+    </div>
+  );
+}
+```
+</Code>
+
+### Input Number
+
+<Code component={<Number />}>
+<Code.Description>
+Set the type to number, which only allows input of numbers. You can also configure the maximum, minimum, and precision properties.
+</Code.Description>
+```tsx filename="Input.tsx" copy {8,16-19}
+import { Input } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-col flex-wrap gap-5">
+      <div className="flex flex-col gap-0.5">
+        <div>Basic usage</div>
+        <Input className="w-52" placeholder="Please input" allowClear type="number" />
+      </div>
+      <div className="flex flex-col gap-0.5">
+        <div>Configurable maximum, minimum, and precision attributes.</div>
+        <Input
+          className="w-52"
+          placeholder="Please input"
+          allowClear
+          type="number"
+          min={6}
+          max={10}
+          step={1}
+        />
+      </div>
+    </div>
+  );
+}
+```
+</Code>
+
+### Manually trigger event
+
+<Code 
+  description='Inherit all triggering events from the native input.' 
+  component={<Trigger />}
+>
+```tsx filename="Input.tsx" copy
+import React from "react";
+import { Input, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  const inputRef = React.useRef<HTMLInputElement>(null);
+  
+  const onFocus = () => inputRef.current?.focus();
+  
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Button type="primary" onClick={onFocus}>
+        Focus input
+      </Button>
+      <Input className="w-52" placeholder="Please input" allowClear ref={inputRef} />
+    </div>
+  );
+}
+```
+</Code>
+
+## API
+
+### Input Props
+
+| Name        | Description                                                                                                                                                              | Type                   | Default |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- | ------- |
+| className   | Additional css class                                                                                                                                                     | `string`               | -       |
+| type        | The input type, is the same as the type attribute of the native input tag. See [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#%E5%B1%9E%E6%80%A7) | `string`               | `text`  |
+| size        | Input size                                                                                                                                                               | `sm` \| `base` \| `lg` | `base`  |
+| allowClear  | Whether allowed to clear                                                                                                                                                 | boolean                | -       |
+| disabled    | Whether is disabled                                                                                                                                                      | boolean                | -       |
+| min         | Minimum value                                                                                                                                                            | number                 | -       |
+| max         | Maximum value                                                                                                                                                            | number                 | -       |
+| maxLength   | The maximum input length of the text.                                                                                                                                    | number                 | -       |
+| step        | The number to which the current value is increased or decreased. It can be an integer or decimal                                                                         | number                 | 1       |
+| placeholder | Placeholder of element                                                                                                                                                   | `string`               | -       |
+| value       | The current value                                                                                                                                                        | `string` \| `number`   | -       |
+| onFocus     | Callback when focus.                                                                                                                                                     | `() => void`           | -       |
+| onBlur      | Callback when losing focus                                                                                                                                               | `() => void`           | -       |
+| onChange    | Callback when entering                                                                                                                                                   | `(value: any) => void` | -       |
+| onEnter     | Press Enter key callback.                                                                                                                                                | `(value: any) => void` | -       |
+
+### Input Methods
+
+| Name  | Description | Type                               | Default |
+| ----- | ----------- | ---------------------------------- | ------- |
+| focus | Get focus   | `(options?: FocusOptions) => void` | -       |
+| blur  | Lose focus  | `() => void`                       | -       |

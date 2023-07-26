@@ -6,12 +6,12 @@ export default function () {
     {
       label: "Tab1",
       value: "1",
-      children: <div>啊啊啊啊</div>,
+      children: <div>xxxxx</div>,
     },
     {
       label: "Tab2",
       value: "2",
-      children: <div>呃呃呃呃</div>,
+      children: <div>yyyyy</div>,
     },
   ];
 

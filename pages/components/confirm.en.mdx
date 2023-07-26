@@ -1,0 +1,217 @@
+---
+title: Confirm
+description: When you need to perform a specific operation, use the Confirm dialog box to ask the user for confirmation.
+radix:
+  title: Alert Dialog
+  link: https://www.radix-ui.com/docs/primitives/components/alert-dialog
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/confirm/basic";
+import MaskClosable from "@demo/confirm/maskClosable";
+import TitleIcon from "@demo/confirm/titleIcon";
+import IconText from "@demo/confirm/iconText";
+
+## Examples
+
+### Import
+
+```js copy
+import { Confirm } from "@ltopx/lx-ui";
+```
+
+### Basic usage
+
+<Code component={<Basic />}>
+<Code.Description>
+Provide five basic types of confirmation dialogs that are the same as the [Button](/components/button) component. Trigger the `onOk` callback when the "Confirm" button is clicked.
+</Code.Description>
+```tsx filename="Confirm.tsx" copy
+import { Confirm, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  const content =
+    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum quo ab quis odio maxime, distinctio ea nesciunt provident cumque tempora libero officia fuga accusamus consequuntur ipsum recusandae facere voluptatem sapiente.";
+  const onOk = () => {
+    console.log("ok");
+  };
+  
+  const asyncOk = () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve("asyncOk");
+      }, 2000);
+    });
+  };
+  
+  return (
+    <div className="flex flex-wrap gap-x-3 gap-y-2">
+      <Confirm
+        title="This is a title."
+        content={content}
+        type="primary"
+        onOk={asyncOk}
+      >
+        <Button type="primary">Confirm</Button>
+      </Confirm>
+      <Confirm
+        title="This is a title."
+        content={content}
+        disabled
+        type="primary"
+        onOk={onOk}
+      >
+        <Button type="primary" disabled>
+          Confirm
+        </Button>
+      </Confirm>
+      <Confirm
+        title="This is a title."
+        content={content}
+        type="success"
+        onOk={onOk}
+      >
+        <Button type="success">Confirm</Button>
+      </Confirm>
+      <Confirm
+        title="This is a title."
+        content={content}
+        type="warning"
+        onOk={onOk}
+      >
+        <Button type="warning">Confirm</Button>
+      </Confirm>
+      <Confirm
+        title="This is a title."
+        content={content}
+        type="danger"
+        onOk={onOk}
+      >
+        <Button type="danger">Confirm</Button>
+      </Confirm>
+    </div>
+  );
+}
+```
+</Code>
+
+### MaskClosable
+
+<Code component={<MaskClosable />}>
+<Code.Description>
+When `maskClosable` is set to false, clicking on the mask layer will not close the confirmation dialog.
+</Code.Description>
+```tsx filename="Confirm.tsx" copy {17}
+import { Confirm, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  const content =
+    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum quo ab quis odio maxime, distinctio ea nesciunt provident cumque tempora libero officia fuga accusamus consequuntur ipsum recusandae facere voluptatem sapiente.";
+    
+  const onOk = () => {
+    console.log("ok");
+  };
+  
+  return (
+    <div className="flex">
+      <Confirm
+        title="This is a title."
+        content={content}
+        type="primary"
+        maskClosable={false}
+        onOk={onOk}
+      >
+        <Button type="primary">Confirm</Button>
+      </Confirm>
+    </div>
+  );
+}
+```
+</Code>
+
+### Custom Title Button
+
+<Code 
+  description='You can customize the buttons displayed at the title section.' 
+  component={<TitleIcon />}
+>
+```tsx filename="Confirm.tsx" copy {15}
+import { Confirm, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  const content =
+    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum quo ab quis odio maxime, distinctio ea nesciunt provident cumque tempora libero officia fuga accusamus consequuntur ipsum recusandae facere voluptatem sapiente.";
+    
+  const onOk = () => {
+    console.log("ok");
+  };
+  
+  return (
+    <div className="flex">
+      <Confirm
+        title="This is a title."
+        icon={<Loading_line className="animate-spin" />}
+        content={content}
+        type="primary"
+        onOk={onOk}
+      >
+        <Button type="primary">Confirm</Button>
+      </Confirm>
+    </div>
+  );
+}
+```
+</Code>
+
+### Custom Footer Button Text
+
+<Code 
+  description='You can customize the text of the bottom buttons.' 
+  component={<IconText />}
+>
+```tsx filename="Confirm.tsx" copy {18,19}
+import { Confirm, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  const content =
+    "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum quo ab quis odio maxime, distinctio ea nesciunt provident cumque tempora libero officia fuga accusamus consequuntur ipsum recusandae facere voluptatem sapiente.";
+    
+  const onOk = () => {
+    console.log("ok");
+  };
+  
+  return (
+    <div className="flex">
+      <Confirm
+        title="This is a title."
+        content={content}
+        type="success"
+        onOk={onOk}
+        cancelText="取 消"
+        okText="确 定"
+      >
+        <Button type="success">Confirm</Button>
+      </Confirm>
+    </div>
+  );
+}
+```
+</Code>
+
+## API
+
+### Confirm Props
+
+| Name             | Description                                | Type                                                         | Default   |
+| ---------------- | ------------------------------------------ | ------------------------------------------------------------ | --------- |
+| className        | Additional css class                       | `string`                                                     | -         |
+| overlayClassName | Mask layer class                           | `string`                                                     | -         |
+| maskClosable     | Whether can be closed by click mask        | `boolean`                                                    | true      |
+| disabled         | Whether is disabled                        | `boolean`                                                    | -         |
+| type             | Confirm type                               | `default` \| `primary` \| `success` \| `warning` \| `danger` | `primary` |
+| title            | Custom title                               | `React.ReactNode`                                            | Title     |
+| icon             | Custom title icon                          | `React.ReactNode`                                            | -         |
+| content          | Custom content                             | `React.ReactNode`                                            | Content   |
+| okText           | Custom the text of the confirmation button | `React.ReactNode`                                            | Ok        |
+| cancelText       | Custom the text of the cancel button       | `React.ReactNode`                                            | Cancel    |
+| onOk             | Click the "Confirm" button callback        | `(e: Event) => void`                                         | -         |

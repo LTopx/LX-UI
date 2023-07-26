@@ -14,7 +14,7 @@ export default function () {
         Modal
       </Button>
       <Modal
-        title="这是一个标题"
+        title="This is a title."
         maskClosable={false}
         open={open}
         onClose={onClose}

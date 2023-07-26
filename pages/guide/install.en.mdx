@@ -1,0 +1,76 @@
+import { Callout } from "nextra/components";
+import { Tabs, Tab } from "nextra/components";
+
+# Installation
+
+This section will guide you on how to install `LX-UI` in your project and quickly get started.
+
+<Callout emoji="⚠️">
+  LX-UI is currently developed based on React version 18. If you are using an
+  older version of React, there may be some issues. It is recommended to upgrade
+  to the latest version of React.
+</Callout>
+
+## Environment
+
+- It is recommended to use pnpm for installation (although npm or yarn can also be used).
+
+  ```bash copy
+  npm i -g pnpm
+  ```
+
+- Installing Tailwind CSS
+
+  Since LX-UI is based on Tailwind CSS, you need to install and configure Tailwind CSS in your project in order to use it properly. [Installation Guide](https://tailwindcss.com/docs/installation) for instructions on how to install and configure it.
+
+## Install LX-UI
+
+<Tabs items={["pnpm", "npm", "yarn"]}>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash copy 
+    pnpm add @ltopx/lx-ui
+    ```
+  </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash copy 
+    npm i @ltopx/lx-ui
+    ```
+  </Tab>
+  {/* prettier-ignore */}
+  <Tab>
+    ```bash copy 
+    yarn add @ltopx/lx-ui
+    ```
+  </Tab>
+</Tabs>
+
+## Configuring LX-UI
+
+Since LX-UI is developed based on Tailwind CSS, you need to modify the `tailwind.config.js` file in your project and add the relevant configurations for LX-UI.
+
+- Add presets for configuration
+- Configure content path to resolve LX-UI components
+
+```js filename="tailwind.config.js" copy {3-4}
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  presets: [require("@ltopx/lx-ui/dist/presets")],
+  content: ["./node_modules/@ltopx/lx-ui/dist/**/*.{mjs,js,ts,jsx,tsx,mdx}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+
+## Usage
+
+```js copy
+import { Select } from "@ltopx/lx-ui";
+
+export default function Home() {
+  return <Select placeholder="Please select" options={[1, 2, 3]} />;
+}
+```

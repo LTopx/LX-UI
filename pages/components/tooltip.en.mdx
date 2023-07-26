@@ -1,0 +1,108 @@
+---
+title: Tooltip
+description: Display tooltip text when the mouse hovers over, and hide it when moved away. Used for supplementary explanation.
+radix:
+  title: Tooltip
+  link: https://www.radix-ui.com/docs/primitives/components/tooltip
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/tooltip/basic";
+import Side from "@demo/tooltip/side";
+import Align from "@demo/tooltip/align";
+
+## Examples
+
+### Import
+
+```js copy
+import { Tooltip } from "@ltopx/lx-ui";
+```
+
+### Basic usage
+
+<Code 
+  description='When the mouse is moved over, the tooltip text will be displayed, and it will be hidden when moved out.' 
+  component={<Basic />}
+>
+```tsx filename="Tooltip.tsx" copy
+import { Tooltip, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex">
+      <Tooltip title="Tooltip content">
+        <Button>Tooltip</Button>
+      </Tooltip>
+    </div>
+  );
+}
+```
+</Code>
+
+### Popup direction and spacing
+
+<Code component={<Side />}>
+<Code.Description>
+You can customize the direction of the Tooltip by using the `side` attribute; and you can adjust the distance between the Tooltip and the triggering element by setting the `sideOffset` attribute.
+</Code.Description>
+```tsx filename="Tooltip.tsx" copy {9,12}
+import { Tooltip, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Tooltip title="Tooltip content">
+        <Button>Tooltip Auto</Button>
+      </Tooltip>
+      <Tooltip title="Tooltip content" side="top" sideOffset={20}>
+        <Button>Tooltip Top</Button>
+      </Tooltip>
+      <Tooltip title="Tooltip content" side="bottom" sideOffset={0}>
+        <Button>Tooltip Bottom</Button>
+      </Tooltip>
+    </div>
+  );
+}
+```
+</Code>
+
+### Alignment direction and spacing
+
+<Code component={<Align />}>
+<Code.Description>
+You can customize the alignment direction of the Tooltip by using the `align` attribute; and you can customize the distance between the Tooltip and the trigger element by setting the `alignOffset` attribute.
+</Code.Description>
+```tsx filename="Tooltip.tsx" copy {6,9,12}
+import { Tooltip, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Tooltip title="Tooltip content" align="start">
+        <Button>Tooltip Start</Button>
+      </Tooltip>
+      <Tooltip title="Tooltip content" align="center">
+        <Button>Tooltip Center</Button>
+      </Tooltip>
+      <Tooltip title="Tooltip content" align="end">
+        <Button>Tooltip End</Button>
+      </Tooltip>
+    </div>
+  );
+}
+```
+</Code>
+
+## API
+
+### Tooltip Props
+
+| Name        | Description                     | Type                         | Default  |
+| ----------- | ------------------------------- | ---------------------------- | -------- |
+| className   | Additional css class            | `string`                     | -        |
+| side        | Pop-up direction                | `top` \| `bottom`            | `bottom` |
+| sideOffset  | Spacing of the pop-up direction | `number`                     | 6        |
+| align       | Alignment Direction             | `start` \| `center` \| `end` | `center` |
+| alignOffset | Alignment Direction Spacing     | `number`                     | -        |
+| title       | Tooltip content                 | `React.ReactNode`            | -        |

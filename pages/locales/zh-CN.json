@@ -1,0 +1,13 @@
+{
+  "common": {
+    "basic-usage": "基础用法"
+  },
+  "home": {
+    "desc": "一款小而美的 React UI Component Library，帮助你快速构建 UI 界面。",
+    "start": "点击开始"
+  },
+  "input": {
+    "configure": "可配置最大最小以及精度属性",
+    "focus": "聚焦Input"
+  }
+}

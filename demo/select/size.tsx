@@ -23,7 +23,7 @@ export default function () {
       children: (
         <Select
           className="w-60"
-          placeholder="请选择"
+          placeholder="Please Select"
           size="sm"
           options={options}
           onChange={onChange}
@@ -36,7 +36,7 @@ export default function () {
       children: (
         <Select
           className="w-60"
-          placeholder="请选择"
+          placeholder="Please Select"
           options={options}
           onChange={onChange}
         />
@@ -48,7 +48,7 @@ export default function () {
       children: (
         <Select
           className="w-60"
-          placeholder="请选择"
+          placeholder="Please Select"
           size="lg"
           options={options}
           onChange={onChange}

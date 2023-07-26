@@ -11,7 +11,7 @@ export default function () {
   return (
     <div className="flex">
       <Confirm
-        title="这是一个标题"
+        title="This is a title."
         content={content}
         type="primary"
         maskClosable={false}

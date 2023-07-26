@@ -7,6 +7,7 @@
 ### Add
 
 - Improve the details of the project documentation.
+- Add multi-language support for documents.
 
 ### Fixed
 

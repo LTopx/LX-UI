@@ -1,0 +1,102 @@
+---
+title: Divider
+description: Divide the content area and separate the modules.
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/divider/basic";
+import Vertical from "@demo/divider/vertical";
+import Orientation from "@demo/divider/orientation";
+
+## Examples
+
+### Import
+
+```js copy
+import { Divider } from "@ltopx/lx-ui";
+```
+
+### Basic usage
+
+<Code 
+  description='Split paragraph content, supporting solid lines and dashed lines.' 
+  component={<Basic />}
+>
+```tsx filename="Divider.tsx" copy
+import { Divider } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div>
+      <div>A piece of text.</div>
+      <Divider />
+      <div>A piece of text.</div>
+      <Divider dashed />
+      <div>A piece of text.</div>
+    </div>
+  );
+}
+```
+</Code>
+
+### Vertical Divider
+
+<Code component={<Vertical />}>
+<Code.Description>
+When the `type` is set to vertical, it displays a vertical separator.
+</Code.Description>
+```tsx filename="Divider.tsx" copy
+import { Divider } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div>
+      <span>A piece of text.</span>
+      <Divider type="vertical" />
+      <span>A piece of text.</span>
+      <Divider type="vertical" dashed />
+      <span>A piece of text.</span>
+    </div>
+  );
+}
+```
+</Code>
+
+### Text Separator
+
+<Code component={<Orientation />}>
+<Code.Description>
+Set the `orientation` property to place the text on the left, right, or center of the divider.
+</Code.Description>
+```tsx filename="Divider.tsx" copy
+import { Divider } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div>
+      <span>A piece of text.</span>
+      <Divider orientation="left">Text</Divider>
+      <span>A piece of text.</span>
+      <Divider dashed orientation="center">
+        Text
+      </Divider>
+      <span>A piece of text.</span>
+      <Divider orientation="right">Text</Divider>
+      <span>A piece of text.</span>
+    </div>
+  );
+}
+```
+</Code>
+
+## API
+
+### Divider Props
+
+| Name        | Description                                         | Type                          | Default      |
+| ----------- | --------------------------------------------------- | ----------------------------- | ------------ |
+| className   | Additional css class                                | `string`                      | -            |
+| type        | Separator Type                                      | `horizontal` \| `vertical`    | `horizontal` |
+| dashed      | Whether it is a dashed line.                        | boolean                       | -            |
+| children    | Nested Text                                         | `React.ReactNode`             | -            |
+| orientation | The position of nested text within a dividing line. | `left` \| `center` \| `right` | `center`     |

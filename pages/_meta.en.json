@@ -1,0 +1,73 @@
+{
+  "index": {
+    "type": "page",
+    "title": "LX-UI",
+    "display": "hidden"
+  },
+  "guide": {
+    "type": "menu",
+    "title": "Guild",
+    "items": {
+      "introduction": {
+        "title": "Introduction"
+      },
+      "quick-start": {
+        "title": "Quick Start"
+      },
+      "install": {
+        "title": "Installation"
+      }
+    }
+  },
+  "components": {
+    "title": "Components",
+    "type": "menu",
+    "items": {
+      "overview": {
+        "title": "Overview"
+      },
+      "button": {
+        "title": "Button"
+      },
+      "select": {
+        "title": "Select"
+      },
+      "confirm": {
+        "title": "Confirm"
+      },
+      "drawer": {
+        "title": "Drawer"
+      },
+      "dropdown": {
+        "title": "Dropdown"
+      },
+      "modal": {
+        "title": "Modal"
+      },
+      "input": {
+        "title": "Input"
+      },
+      "divider": {
+        "title": "Divider"
+      },
+      "progress": {
+        "title": "Progress"
+      },
+      "tabs": {
+        "title": "Tabs"
+      },
+      "accordion": {
+        "title": "Accordion"
+      },
+      "tooltip": {
+        "title": "Tooltip"
+      },
+      "slider": {
+        "title": "Slider"
+      },
+      "switch": {
+        "title": "Switch"
+      }
+    }
+  }
+}

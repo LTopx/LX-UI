@@ -14,16 +14,16 @@ export default function () {
         Modal
       </Button>
       <Modal
-        title="这是一个标题"
+        title="This is a title."
         open={open}
         onClose={onClose}
         footer={
           <div className="flex gap-2 justify-end">
             <Button type="warning" onClick={onClose}>
-              自定义1
+              Custom1
             </Button>
             <Button type="danger" onClick={onOk}>
-              自定义2
+              Custom2
             </Button>
           </div>
         }

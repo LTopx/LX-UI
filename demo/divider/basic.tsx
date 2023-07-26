@@ -4,11 +4,11 @@ import { Divider } from "../../components";
 export default function () {
   return (
     <div>
-      <div>这是一段文字</div>
+      <div>A piece of text.</div>
       <Divider />
-      <div>这是一段文字</div>
+      <div>A piece of text.</div>
       <Divider dashed />
-      <div>这是一段文字</div>
+      <div>A piece of text.</div>
     </div>
   );
 }

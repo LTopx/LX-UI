@@ -1,6 +1,6 @@
 ---
-title: Modal 对话框
-description: 当需要在不影响当前页面内容的情况下，展示或处理相关事务时，可以采用Modal模态框在当前页面打开一个浮层，承载相应的操作。
+title: Modal
+description: When it is necessary to display or handle relevant transactions without affecting the current page content, a Modal dialog box can be used to open a floating layer on the current page to carry out the corresponding operations.
 radix:
   title: Alert Dialog
   link: https://www.radix-ui.com/docs/primitives/components/alert-dialog
@@ -12,18 +12,18 @@ import MaskClosable from "@demo/modal/maskClosable";
 import Footer from "@demo/modal/footer";
 import FooterText from "@demo/modal/footerText";
 
-## 代码示例
+## Examples
 
-### 引入
+### Import
 
 ```js copy
 import { Modal } from "@ltopx/lx-ui";
 ```
 
-### 基础用法
+### Basic usage
 
 <Code 
-  description='基本对话框' 
+  description='Basic Modal' 
   component={<Basic />}
 >
 ```tsx filename="Modal.tsx" copy
@@ -42,7 +42,7 @@ export default function () {
       <Button type="primary" onClick={() => setOpen(true)}>
         Modal
       </Button>
-      <Modal title="这是一个标题" open={open} onClose={onClose} onOk={onOk}>
+      <Modal title="This is a title." open={open} onClose={onClose} onOk={onOk}>
         <div>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto,
           assumenda corporis quas accusamus nesciunt quasi quisquam quibusdam
@@ -59,11 +59,11 @@ export default function () {
 ```
 </Code>
 
-### 禁止遮罩层关闭
+### MaskClosable
 
 <Code component={<MaskClosable />}>
 <Code.Description>
-  当 `maskClosable` 设置为 false 时，点击遮罩层则无法关闭对话框
+When `maskClosable` is set to false, clicking on the mask layer will not close the dialog.
 </Code.Description>
 ```tsx filename="Modal.tsx" copy {17}
 import React from "react";
@@ -82,7 +82,7 @@ export default function () {
         Modal
       </Button>
       <Modal
-        title="这是一个标题"
+        title="This is a title."
         maskClosable={false}
         open={open}
         onClose={onClose}
@@ -104,10 +104,10 @@ export default function () {
 ```
 </Code>
 
-### 自定义底部按钮文字
+### Custom Footer Button Text
 
 <Code 
-  description='可以自定义底部按钮的文字' 
+  description='You can customize the text of the bottom buttons.' 
   component={<FooterText />}
 >
 ```tsx filename="Modal.tsx" copy {20,21}
@@ -127,7 +127,7 @@ export default function () {
         Modal
       </Button>
       <Modal
-        title="这是一个标题"
+        title="This is a title."
         open={open}
         onClose={onClose}
         onOk={onOk}
@@ -150,11 +150,11 @@ export default function () {
 ```
 </Code>
 
-### 自定义页脚
+### Custom Footer
 
 <Code component={<Footer />}>
 <Code.Description>
-  传入 `footer` 可以自定义页脚区域按钮显示
+You can customize the display of buttons in the footer by passing `footer` as a props.
 </Code.Description>
 ```tsx filename="Modal.tsx" copy {19-28}
 import React from "react";
@@ -173,16 +173,16 @@ export default function () {
         Modal
       </Button>
       <Modal
-        title="这是一个标题"
+        title="This is a title."
         open={open}
         onClose={onClose}
         footer={
           <div className="flex gap-2 justify-end">
             <Button type="warning" onClick={onClose}>
-              自定义1
+              Custom1
             </Button>
             <Button type="danger" onClick={onOk}>
-              自定义2
+              Custom2
             </Button>
           </div>
         }
@@ -207,16 +207,16 @@ export default function () {
 
 ### Modal Props
 
-| 属性             | 描述                 | 类型                 | 默认值    |
-| ---------------- | -------------------- | -------------------- | --------- |
-| className        | 节点类名             | `string`             | -         |
-| overlayClassName | 遮罩层类名           | `string`             | -         |
-| width            | 对话框宽度           | `string` \| `number` | `32.5rem` |
-| maskClosable     | 是否可点击遮罩层关闭 | `boolean`            | true      |
-| title            | 自定义标题           | `React.ReactNode`    | Title     |
-| footer           | 自定义页脚           | `React.ReactNode`    | -         |
-| cancelText       | 自定义取消按钮文字   | `React.ReactNode`    | Cancel    |
-| okText           | 自定义确认按钮文字   | `React.ReactNode`    | Ok        |
-| open             | 对话框是否可见       | `boolean`            | -         |
-| onOk             | 点击“确认”按钮回调   | `() => void`         | -         |
-| onClose          | 对话框关闭时的回调   | `() => void`         | -         |
+| Name             | Description                                | Type                 | Default   |
+| ---------------- | ------------------------------------------ | -------------------- | --------- |
+| className        | Additional css class                       | `string`             | -         |
+| overlayClassName | Mask layer class                           | `string`             | -         |
+| width            | Modal width                                | `string` \| `number` | `32.5rem` |
+| maskClosable     | Whether can be closed by click mask        | `boolean`            | true      |
+| title            | Custom title                               | `React.ReactNode`    | Title     |
+| footer           | Custom footer                              | `React.ReactNode`    | -         |
+| okText           | Custom the text of the confirmation button | `React.ReactNode`    | Ok        |
+| cancelText       | Custom the text of the cancel button       | `React.ReactNode`    | Cancel    |
+| open             | Whether to display                         | `boolean`            | -         |
+| onOk             | Click the "Confirm" button callback        | `() => void`         | -         |
+| onClose          | Callback when the modal is closed.         | `() => void`         | -         |

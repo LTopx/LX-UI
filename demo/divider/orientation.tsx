@@ -4,15 +4,15 @@ import { Divider } from "../../components";
 export default function () {
   return (
     <div>
-      <span>这是一段文字</span>
-      <Divider orientation="left">文字</Divider>
-      <span>这是一段文字</span>
+      <span>A piece of text.</span>
+      <Divider orientation="left">Text</Divider>
+      <span>A piece of text.</span>
       <Divider dashed orientation="center">
-        文字
+        Text
       </Divider>
-      <span>这是一段文字</span>
-      <Divider orientation="right">文字</Divider>
-      <span>这是一段文字</span>
+      <span>A piece of text.</span>
+      <Divider orientation="right">Text</Divider>
+      <span>A piece of text.</span>
     </div>
   );
 }

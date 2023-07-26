@@ -1,0 +1,304 @@
+---
+title: Button
+description: The button is a type of command component that can initiate an immediate action.
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/button/basic";
+import Disabled from "@demo/button/disabled";
+import Shape from "@demo/button/shape";
+import Size from "@demo/button/size";
+import Loading from "@demo/button/loading";
+import Block from "@demo/button/block";
+import Icon from "@demo/button/icon";
+import Href from "@demo/button/href";
+
+## Examples
+
+### Import
+
+```js copy
+import { Button } from "@ltopx/lx-ui";
+```
+
+### Basic usage
+
+<Code component={<Basic />}>
+<Code.Description>
+  Provide six basic types of buttons to use. With the `outline` property, you
+  will have an additional five types of buttons. In addition, there is also a
+  `link` button.
+</Code.Description>
+```tsx filename="Button.tsx" copy
+import { Button } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-wrap gap-x-3 gap-y-2">
+        <Button>Default</Button>
+        <Button type="primary">Primary</Button>
+        <Button type="success">Success</Button>
+        <Button type="warning">Warning</Button>
+        <Button type="danger">Danger</Button>
+        <Button type="link">Link</Button>
+      </div>
+      <div className="flex flex-wrap gap-x-3 gap-y-2">
+        <Button outline>Default</Button>
+        <Button type="primary" outline>
+          Primary
+        </Button>
+        <Button type="success" outline>
+          Success
+        </Button>
+        <Button type="warning" outline>
+          Warning
+        </Button>
+        <Button type="danger" outline>
+          Danger
+        </Button>
+      </div>
+    </div>
+  );
+}
+```
+
+</Code>
+
+### Disabled
+
+<Code component={<Disabled />}>
+<Code.Description>
+  The `disabled` state of the button.
+</Code.Description>
+```tsx filename="Button.tsx" copy
+import { Button } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-wrap gap-x-3 gap-y-2">
+        <Button disabled>Default</Button>
+        <Button type="primary" disabled>
+          Primary
+        </Button>
+        <Button type="success" disabled>
+          Success
+        </Button>
+        <Button type="warning" disabled>
+          Warning
+        </Button>
+        <Button type="danger" disabled>
+          Danger
+        </Button>
+      </div>
+      <div className="flex flex-wrap gap-x-3 gap-y-2">
+        <Button outline disabled>
+          Default
+        </Button>
+        <Button type="primary" outline disabled>
+          Primary
+        </Button>
+        <Button type="success" outline disabled>
+          Success
+        </Button>
+        <Button type="warning" outline disabled>
+          Warning
+        </Button>
+        <Button type="danger" outline disabled>
+          Danger
+        </Button>
+      </div>
+    </div>
+  );
+}
+```
+</Code>
+
+### Shape
+
+<Code component={<Shape />}>
+<Code.Description>
+  The shape of the button. Currently, it supports setting a fully rounded shape called `rounded`.
+</Code.Description>
+```tsx filename="Button.tsx" copy {7}
+import { Button } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-x-3 gap-y-2">
+      <Button type="primary">Primary</Button>
+      <Button type="primary" rounded>
+        Rounded
+      </Button>
+    </div>
+  );
+}
+```
+</Code>
+
+### Sizes
+
+<Code component={<Size />}>
+<Code.Description>
+Provide three sizes: `sm`, `base`, and `lg`
+</Code.Description>
+```tsx filename="Button.tsx" copy {6,10}
+import { Button } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex gap-8">
+      <Button type="primary" size="sm">
+        sm
+      </Button>
+      <Button type="primary">base</Button>
+      <Button type="primary" size="lg">
+        lg
+      </Button>
+    </div>
+  );
+}
+```
+</Code>
+
+### Loading
+
+<Code component={<Loading />}>
+<Code.Description>
+  You can set the `loading` to make the button display a loading state.
+</Code.Description>
+```tsx filename="Button.tsx" copy
+import React from "react";
+import { Button } from "@ltopx/lx-ui";
+
+export default function () {
+  const [loading, setLoading] = React.useState(false);
+  
+  const onClick1 = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  };
+  
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-wrap gap-x-3 gap-y-2">
+        <Button type="primary" loading>
+          Loading
+        </Button>
+        <Button type="success" loading>
+          Loading
+        </Button>
+        <Button type="primary" rounded loading>
+          Loading
+        </Button>
+      </div>
+      <div className="flex">
+        <Button type="primary" loading={loading} onClick={onClick1}>
+          {loading ? "loading" : "Primary"}
+        </Button>
+      </div>
+    </div>
+  );
+}
+```
+
+</Code>
+
+### Block
+
+<Code
+  description='Can directly occupy the entire width of the parent container.'
+  component={<Block />}
+>
+```tsx filename="Button.tsx" copy
+import { Button } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-x-3 gap-y-2">
+      <Button type="primary" block>
+        Block
+      </Button>
+      <Button type="primary" rounded block>
+        Block
+      </Button>
+    </div>
+  );
+}
+```
+</Code>
+
+### Icon Button
+
+<Code
+description='You can insert an icon on the left side of the button text to enhance its readability. (If you want to insert an icon on the right side, you can implement it yourself.'
+component={<Icon />}
+>
+```tsx filename="Button.tsx" copy
+import { Button } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-x-3 gap-y-2">
+      <Button type="primary">Primary</Button>
+      <Button type="primary" icon={<Close_line />}>
+        Primary
+      </Button>
+      <Button type="primary" rounded loading icon={<Loading_line />} />
+    </div>
+  );
+}
+```
+</Code>
+
+### Href Button
+
+<Code component={<Href />}>
+<Code.Description>
+  Add a hyperlink. If this attribute is set, the button will behave like an `a` tag.
+</Code.Description>
+```tsx filename="Button.tsx" copy
+import { Button } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-x-3 gap-y-2">
+      <Button type="primary" href="https://www.baidu.com">
+        Href
+      </Button>
+      <Button
+        type="success"
+        rounded
+        href="https://www.baidu.com"
+        target="_blank"
+      >
+        Href _Blank
+      </Button>
+    </div>
+  );
+}
+```
+
+</Code>
+
+## API
+
+### Button Props
+
+| Name      | Description                                                                         | Type                                                                   | Default   |
+| --------- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | --------- |
+| className | Additional css class                                                                | `string`                                                               | -         |
+| type      | Button types                                                                        | `default` \| `primary` \| `success` \| `warning` \| `danger` \| `link` | `default` |
+| disabled  | Whether is disabled                                                                 | `boolean`                                                              | -         |
+| size      | Button size                                                                         | `sm` \| `base` \| `lg`                                                 | `base`    |
+| loading   | Whether is in loading                                                               | `boolean`                                                              | -         |
+| block     | Whether it occupies the entire width of the parent container.                       | `boolean`                                                              | -         |
+| outline   | Whether to display the button in a bordered form                                    | `boolean`                                                              | -         |
+| rounded   | Whether to display the buttons in a fully rounded shape.                            | `boolean`                                                              | -         |
+| icon      | Set button icon, located on the left side of the text (if there is any).            | `React.ReactNode`                                                      | -         |
+| href      | Add a hyperlink, by setting this attribute, the button will behave like an `a` tag. | `string`                                                               | -         |
+| target    | As the target attribute of the `a` tag. Only effective when href exists.            | `HTMLAttributeAnchorTarget`                                            | -         |
+| onClick   | Click button callback.                                                              | `(e: Event) => void`                                                   | -         |

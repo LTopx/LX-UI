@@ -1,0 +1,17 @@
+{
+  "overview": "Overview",
+  "button": "Button",
+  "select": "Select",
+  "confirm": "Confirm",
+  "drawer": "Drawer",
+  "dropdown": "Dropdown",
+  "modal": "Modal",
+  "input": "Input",
+  "divider": "Divider",
+  "progress": "Progress",
+  "tabs": "Tabs",
+  "accordion": "Accordion",
+  "tooltip": "Tooltip",
+  "slider": "Slider",
+  "switch": "Switch"
+}

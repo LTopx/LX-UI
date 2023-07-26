@@ -15,7 +15,7 @@ export default function () {
     <div className="flex gap-3">
       <Select
         className="w-60"
-        placeholder="请选择"
+        placeholder="Please Select"
         options={options}
         renderLabel={renderLabel}
       />

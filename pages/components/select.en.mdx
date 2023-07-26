@@ -1,6 +1,6 @@
 ---
-title: Select 选择器
-description: 当用户需要从一组同类数据中进行选择时，可以使用下拉选择器，点击后选择对应项。
+title: Select
+description: When users need to make a selection from a group of similar data, they can use a dropdown selector and click to choose the corresponding option.
 radix:
   title: Select
   link: https://www.radix-ui.com/docs/primitives/components/select
@@ -11,18 +11,18 @@ import Basic from "@demo/select/basic";
 import RenderLabel from "@demo/select/renderLabel";
 import Size from "@demo/select/size";
 
-## 代码示例
+## Examples
 
-### 引入
+### Import
 
 ```js copy
 import { Select } from "@ltopx/lx-ui";
 ```
 
-### 基础用法
+### Basic usage
 
 <Code 
-  description='基础用法' 
+  description='Basic usage' 
   component={<Basic />}
 >
 ```tsx filename="Select.tsx" copy
@@ -50,19 +50,19 @@ export default function () {
     <div className="flex flex-wrap gap-3">
       <Select
         className="w-60"
-        placeholder="请选择"
+        placeholder="Please Select"
         options={options}
         onChange={onChange}
       />
       <Select
         className="w-60"
-        placeholder="请选择"
+        placeholder="Please Select"
         options={options}
         disabled
       />
       <Select
         className="w-60"
-        placeholder="请选择"
+        placeholder="Please Select"
         loading
         options={[1, 2, 3]}
         value={value}
@@ -74,11 +74,11 @@ export default function () {
 ```
 </Code>
 
-### 自定义渲染
+### Custom rendering
 
 <Code component={<RenderLabel />}>
 <Code.Description>
-  使用 `renderLabel`， 可以自定义渲染节点内容
+  Using `renderLabel`, you can customize the rendering of node content.
 </Code.Description>
 ```tsx filename="Select.tsx" copy {20}
 import { Select, type SelectOption } from "@ltopx/lx-ui";
@@ -98,7 +98,7 @@ export default function () {
     <div className="flex gap-3">
       <Select
         className="w-60"
-        placeholder="请选择"
+        placeholder="Please Select"
         options={options}
         renderLabel={renderLabel}
       />
@@ -108,11 +108,11 @@ export default function () {
 ```
 </Code>
 
-### 尺寸大小
+### Sizes
 
 <Code component={<Size />}>
 <Code.Description>
-  提供三种尺寸的大小：`sm` , `base` , `lg`
+Provide three sizes: `sm`, `base`, and `lg`
 </Code.Description>
 ```tsx filename="Select.tsx" copy {27,52}
 import {
@@ -140,7 +140,7 @@ export default function () {
       children: (
         <Select
           className="w-60"
-          placeholder="请选择"
+          placeholder="Please Select"
           size="sm"
           options={options}
           onChange={onChange}
@@ -153,7 +153,7 @@ export default function () {
       children: (
         <Select
           className="w-60"
-          placeholder="请选择"
+          placeholder="Please Select"
           options={options}
           onChange={onChange}
         />
@@ -165,7 +165,7 @@ export default function () {
       children: (
         <Select
           className="w-60"
-          placeholder="请选择"
+          placeholder="Please Select"
           size="lg"
           options={options}
           onChange={onChange}
@@ -183,23 +183,23 @@ export default function () {
 
 ### Select Props
 
-| 属性         | 描述                             | 类型                                | 默认值 |
-| ------------ | -------------------------------- | ----------------------------------- | ------ |
-| className    | 节点类名                         | `string`                            | -      |
-| placeholder  | 默认占位文本                     | `string`                            | -      |
-| disabled     | 是否禁用                         | `boolean`                           | -      |
-| loading      | 是否正在加载下拉列表数据         | `boolean`                           | -      |
-| size         | 尺寸大小                         | `sm` \| `base` \| `lg`              | `base` |
-| options      | 下拉选项列表                     | `SelectOption[]`                    | -      |
-| renderLabel  | 自定义渲染列表显示内容           | `(value: any) => React.ReactNode`   | -      |
-| defaultValue | 默认选中条目                     | `string` \| `number`                | -      |
-| value        | 受控模式下选中的条目             | `string` \| `number`                | -      |
-| onChange     | 选中条目发生变化时，会触发此方法 | `(value: string \| number) => void` | -      |
+| Name         | Description                                          | Type                                | Default |
+| ------------ | ---------------------------------------------------- | ----------------------------------- | ------- |
+| className    | Additional css class                                 | `string`                            | -       |
+| placeholder  | Placeholder of element                               | `string`                            | -       |
+| disabled     | Whether is disabled                                  | `boolean`                           | -       |
+| loading      | Whether is in loading                                | `boolean`                           | -       |
+| size         | Select size                                          | `sm` \| `base` \| `lg`              | `base`  |
+| options      | Select options                                       | `SelectOption[]`                    | -       |
+| renderLabel  | Customize the rendering of the list display content. | `(value: any) => React.ReactNode`   | -       |
+| defaultValue | Default selected item                                | `string` \| `number`                | -       |
+| value        | Selected items in controlled mode.                   | `string` \| `number`                | -       |
+| onChange     | Callback when select an option.                      | `(value: string \| number) => void` | -       |
 
 ### SelectOption Props
 
-| 属性     | 描述           | 类型                 | 默认值 |
-| -------- | -------------- | -------------------- | ------ |
-| label    | 选项展示内容   | `React.ReactNode`    | -      |
-| value    | 选项选中时的值 | `string` \| `number` | -      |
-| disabled | 是否禁用       | `boolean`            | false  |
+| Name     | Description                            | Type                 | Default |
+| -------- | -------------------------------------- | -------------------- | ------- |
+| label    | Options Display Content                | `React.ReactNode`    | -       |
+| value    | The value when the option is selected. | `string` \| `number` | -       |
+| disabled | Whether is disabled                    | `boolean`            | false   |

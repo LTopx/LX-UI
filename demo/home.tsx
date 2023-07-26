@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Button from "../components/button/button";
 import { Arrow_right_up_line, Github_line } from "@components/icon";
+import { useLocale } from "@/hooks/useLocale";
 
 const FADE_DOWN_ANIMATION_VARIANTS = {
   hidden: { opacity: 0, y: 20 },
@@ -11,6 +12,8 @@ const FADE_DOWN_ANIMATION_VARIANTS = {
 };
 
 export function Home() {
+  const tHome = useLocale("home");
+
   return (
     <>
       <motion.div
@@ -50,7 +53,7 @@ export function Home() {
             className="my-11 text-lg text-slate-600 dark:text-slate-400"
             variants={FADE_DOWN_ANIMATION_VARIANTS}
           >
-            一款小而美的 React UI Component Library，帮助你快速构建 UI 界面。
+            {tHome("desc")}
           </motion.div>
           <motion.div
             className="flex font-semibold gap-4"
@@ -58,7 +61,7 @@ export function Home() {
           >
             <Button className="group" size="lg" type="primary" rounded>
               <Link href="/guide" className="flex gap-2 items-center">
-                点击开始
+                {tHome("start")}
                 <Arrow_right_up_line className="transition-transform group-hover:rotate-45" />
               </Link>
             </Button>

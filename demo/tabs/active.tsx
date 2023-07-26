@@ -8,18 +8,18 @@ export default function () {
     {
       label: "Tab1",
       value: "1",
-      children: <div>啊啊啊啊</div>,
+      children: <div>xxxxx</div>,
     },
     {
       label: "Tab2",
       value: "2",
-      children: <div>呃呃呃呃</div>,
+      children: <div>yyyyy</div>,
     },
   ];
 
   return (
     <div className="flex flex-col gap-2">
-      <div>当前选中：{active}</div>
+      <div>{active}</div>
       <Tabs options={options} activeTab={active} onChange={setActive} />
     </div>
   );

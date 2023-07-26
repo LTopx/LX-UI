@@ -1,0 +1,13 @@
+{
+  "common": {
+    "basic-usage": "Basic usage"
+  },
+  "home": {
+    "desc": "A small and beautiful React UI Component Library that helps you quickly build UI interfaces.",
+    "start": "Get Started"
+  },
+  "input": {
+    "configure": "Configurable maximum, minimum, and precision attributes.",
+    "focus": "Focus input"
+  }
+}

@@ -22,19 +22,19 @@ export default function () {
     <div className="flex flex-wrap gap-3">
       <Select
         className="w-60"
-        placeholder="请选择"
+        placeholder="Please Select"
         options={options}
         onChange={onChange}
       />
       <Select
         className="w-60"
-        placeholder="请选择"
+        placeholder="Please Select"
         options={options}
         disabled
       />
       <Select
         className="w-60"
-        placeholder="请选择"
+        placeholder="Please Select"
         loading
         options={[1, 2, 3]}
         value={value}

@@ -12,7 +12,7 @@ export default function () {
   return (
     <div className="flex">
       <Confirm
-        title="自定义标题按钮"
+        title="This is a title."
         icon={<Loading_line className="animate-spin" />}
         content={content}
         type="primary"

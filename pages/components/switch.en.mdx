@@ -1,0 +1,79 @@
+---
+title: Switch
+description: Mutually exclusive operation controls, allowing users to enable or disable a specific function.
+radix:
+  title: Switch
+  link: https://www.radix-ui.com/docs/primitives/components/switch
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/switch/basic";
+import DefaultChecked from "@demo/switch/defaultChecked";
+import Checked from "@demo/switch/checked";
+
+## Examples
+
+### Import
+
+```js copy
+import { Switch } from "@ltopx/lx-ui";
+```
+
+### Basic usage
+
+<Code 
+  description='Display switch' 
+  component={<Basic />}
+>
+```tsx filename="Switch.tsx" copy
+import { Switch } from "@ltopx/lx-ui";
+
+export default function () {
+  return <Switch />;
+}
+```
+</Code>
+
+### Default Checked
+
+<Code component={<DefaultChecked />}>
+<Code.Description>
+Setting `defaultChecked` allows the switch to be in the on state by default.
+</Code.Description>
+```tsx filename="Switch.tsx" copy
+import { Switch } from "@ltopx/lx-ui";
+
+export default function () {
+  return <Switch defaultChecked />;
+}
+```
+</Code>
+
+### Controlled mode
+
+<Code component={<Checked />}>
+<Code.Description>
+Set `checked` to put the switch in controlled mode.
+</Code.Description>
+```tsx filename="Switch.tsx" copy
+import { Switch } from "@ltopx/lx-ui";
+
+export default function () {
+  const [checked, setChecked] = React.useState(false);
+  
+  return <Switch checked={checked} onChange={setChecked} />;
+}
+```
+</Code>
+
+## API
+
+### Switch Props
+
+| Name           | Description                               | Type                         | Default |
+| -------------- | ----------------------------------------- | ---------------------------- | ------- |
+| className      | Additional css class                      | `string`                     | -       |
+| thumbClass     | Middle dot class                          | `string`                     | -       |
+| checked        | Whether it is open                        | `boolean`                    | -       |
+| defaultChecked | Whether to open by default                | `boolean`                    | -       |
+| onChange       | Callback when switching the toggle state. | `(checked: boolean) => void` | -       |

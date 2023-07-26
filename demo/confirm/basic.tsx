@@ -11,7 +11,7 @@ export default function () {
   const asyncOk = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve("哇哈哈");
+        resolve("asyncOk");
       }, 2000);
     });
   };
@@ -19,7 +19,7 @@ export default function () {
   return (
     <div className="flex flex-wrap gap-x-3 gap-y-2">
       <Confirm
-        title="这是一个标题"
+        title="This is a title."
         content={content}
         type="primary"
         onOk={asyncOk}
@@ -27,7 +27,7 @@ export default function () {
         <Button type="primary">Confirm</Button>
       </Confirm>
       <Confirm
-        title="这是一个标题"
+        title="This is a title."
         content={content}
         disabled
         type="primary"
@@ -38,7 +38,7 @@ export default function () {
         </Button>
       </Confirm>
       <Confirm
-        title="这是一个标题"
+        title="This is a title."
         content={content}
         type="success"
         onOk={onOk}
@@ -46,14 +46,19 @@ export default function () {
         <Button type="success">Confirm</Button>
       </Confirm>
       <Confirm
-        title="这是一个标题"
+        title="This is a title."
         content={content}
         type="warning"
         onOk={onOk}
       >
         <Button type="warning">Confirm</Button>
       </Confirm>
-      <Confirm title="这是一个标题" content={content} type="danger" onOk={onOk}>
+      <Confirm
+        title="This is a title."
+        content={content}
+        type="danger"
+        onOk={onOk}
+      >
         <Button type="danger">Confirm</Button>
       </Confirm>
     </div>

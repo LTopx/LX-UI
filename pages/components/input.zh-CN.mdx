@@ -43,12 +43,12 @@ export default function () {
     <div className="flex flex-wrap gap-2">
       <Input
         className="w-52"
-        placeholder="请输入"
+        placeholder="Please input"
         allowClear
         value={value}
         onChange={setValue}
       />
-      <Input className="w-52" placeholder="请输入" allowClear type="password" />
+      <Input className="w-52" placeholder="Please input" allowClear type="password" />
     </div>
   );
 }
@@ -68,13 +68,13 @@ export default function () {
   return (
     <Tabs items={["sm", "base", "lg"]}>
       <Tab>
-        <Input className="w-52" placeholder="请输入" size="sm" allowClear />
+        <Input className="w-52" placeholder="Please input" size="sm" allowClear />
       </Tab>
       <Tab>
-        <Input className="w-52" placeholder="请输入" size="base" allowClear />
+        <Input className="w-52" placeholder="Please input" size="base" allowClear />
       </Tab>
       <Tab>
-        <Input className="w-52" placeholder="请输入" size="lg" allowClear />
+        <Input className="w-52" placeholder="Please input" size="lg" allowClear />
       </Tab>
     </Tabs>
   );
@@ -94,7 +94,7 @@ import { Input } from "@ltopx/lx-ui";
 export default function () {
   return (
     <div className="flex flex-wrap gap-2">
-      <Input className="w-52" placeholder="请输入" allowClear maxLength={10} />
+      <Input className="w-52" placeholder="Please input" allowClear maxLength={10} />
     </div>
   );
 }
@@ -115,13 +115,13 @@ export default function () {
     <div className="flex flex-col flex-wrap gap-5">
       <div className="flex flex-col gap-0.5">
         <div>基础用法</div>
-        <Input className="w-52" placeholder="请输入" allowClear type="number" />
+        <Input className="w-52" placeholder="Please input" allowClear type="number" />
       </div>
       <div className="flex flex-col gap-0.5">
         <div>可配置最大最小以及精度属性</div>
         <Input
           className="w-52"
-          placeholder="请输入"
+          placeholder="Please input"
           allowClear
           type="number"
           min={6}
@@ -155,7 +155,7 @@ export default function () {
       <Button type="primary" onClick={onFocus}>
         聚焦Input
       </Button>
-      <Input className="w-52" placeholder="请输入" allowClear ref={inputRef} />
+      <Input className="w-52" placeholder="Please input" allowClear ref={inputRef} />
     </div>
   );
 }

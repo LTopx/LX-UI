@@ -9,7 +9,11 @@ export default function () {
       <Button type="primary" onClick={() => setOpen(true)}>
         Drawer
       </Button>
-      <Drawer title="这是一个title" open={open} onClose={() => setOpen(false)}>
+      <Drawer
+        title="This is a title."
+        open={open}
+        onClose={() => setOpen(false)}
+      >
         <div>Drawer Content</div>
       </Drawer>
     </div>

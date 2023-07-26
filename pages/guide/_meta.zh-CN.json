@@ -1,5 +1,5 @@
 {
-  "index": "简介",
+  "introduction": "简介",
   "-- Developer Guild": {
     "type": "separator",
     "title": "开发者指南"

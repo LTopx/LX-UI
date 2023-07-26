@@ -16,7 +16,7 @@ export default function () {
         </Button>
       </div>
       <Drawer
-        title="这是一个title"
+        title="This is a title."
         placement="left"
         open={openLeft}
         onClose={() => setOpenLeft(false)}
@@ -24,7 +24,7 @@ export default function () {
         <div>Drawer Content</div>
       </Drawer>
       <Drawer
-        title="这是一个title"
+        title="This is a title."
         placement="right"
         open={openRight}
         onClose={() => setOpenRight(false)}

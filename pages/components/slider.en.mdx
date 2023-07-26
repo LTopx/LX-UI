@@ -1,0 +1,70 @@
+---
+title: Slider
+description: Sliding input device, displaying current value and selectable range.
+radix:
+  title: Slider
+  link: https://www.radix-ui.com/docs/primitives/components/slider
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/slider/basic";
+import Step from "@demo/slider/step";
+
+## Examples
+
+### Import
+
+```js copy
+import { Slider } from "@ltopx/lx-ui";
+```
+
+### Basic usage
+
+<Code 
+  description='Basic usage' 
+  component={<Basic />}
+>
+```tsx filename="Slider.tsx" copy
+import { Slider } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-col gap-2">
+      <Slider defaultValue={30} max={100} />
+    </div>
+  );
+}
+```
+</Code>
+
+### Step
+
+<Code component={<Step />}>
+<Code.Description>
+Pass in the `step` to set the stride. The default step is 1.
+</Code.Description>
+```tsx filename="Slider.tsx" copy
+import { Slider } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-col gap-2">
+      <Slider defaultValue={30} max={100} step={10} />
+    </div>
+  );
+}
+```
+</Code>
+
+## API
+
+### Slider Props
+
+| Name         | Description              | Type                      | Default |
+| ------------ | ------------------------ | ------------------------- | ------- |
+| className    | Additional css class     | `string`                  | -       |
+| defaultValue | default value            | `number`                  | -       |
+| value        | Controlled value         | `number`                  | -       |
+| max          | Maximum value            | `number`                  | 100     |
+| step         | Step                     | `number`                  | 1       |
+| onChange     | Callback during sliding. | `(value: number) => void` | -       |

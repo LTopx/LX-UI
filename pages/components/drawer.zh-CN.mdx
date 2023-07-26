@@ -1,0 +1,172 @@
+---
+title: Drawer 抽屉
+description: 从屏幕某侧滑出的抽屉式的面板
+radix:
+  title: Dialog
+  link: https://www.radix-ui.com/docs/primitives/components/dialog
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/drawer/basic";
+import MaskClosable from "@demo/drawer/maskClosable";
+import Width from "@demo/drawer/width";
+import Placement from "@demo/drawer/placement";
+
+## 代码示例
+
+### 引入
+
+```js copy
+import { Drawer } from "@ltopx/lx-ui";
+```
+
+### 基础用法
+
+<Code 
+  description='点击按钮，抽屉从右侧滑出。点击遮罩层或关闭按钮可关闭抽屉。' 
+  component={<Basic />}
+>
+```tsx filename="Drawer.tsx" copy
+import React from "react";
+import { Drawer, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <div>
+      <Button type="primary" onClick={() => setOpen(true)}>
+        Drawer
+      </Button>
+      <Drawer title="This is a title." open={open} onClose={() => setOpen(false)}>
+        <div>Drawer Content</div>
+      </Drawer>
+    </div>
+  );
+}
+```
+</Code>
+
+### 禁止遮罩层关闭
+
+<Code component={<MaskClosable />}>
+<Code.Description>
+  当 `maskClosable` 设置为 false 时，点击遮罩层则无法关闭抽屉
+</Code.Description>
+```tsx filename="Drawer.tsx" copy {14}
+import React from "react";
+import { Drawer, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  const [open, setOpen] = React.useState(false);
+  
+  return (
+    <div className="flex">
+      <Button type="primary" onClick={() => setOpen(true)}>
+        Drawer
+      </Button>
+      <Drawer
+        title="This is a title."
+        maskClosable={false}
+        open={open}
+        onClose={() => setOpen(false)}
+      >
+        <div>Drawer Content</div>
+      </Drawer>
+    </div>
+  );
+}
+```
+</Code>
+
+### 自定义宽度
+
+<Code component={<Width />}>
+<Code.Description>
+   传入 `width`，可以自定义抽屉宽度。默认宽度为 `378px`
+</Code.Description>
+```tsx filename="Drawer.tsx" copy {14}
+import React from "react";
+import { Drawer, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  const [open, setOpen] = React.useState(false);
+  
+  return (
+    <div className="flex">
+      <Button type="primary" onClick={() => setOpen(true)}>
+        Drawer
+      </Button>
+      <Drawer
+        title="This is a title."
+        width={500}
+        open={open}
+        onClose={() => setOpen(false)}
+      >
+        <div>Drawer Content</div>
+      </Drawer>
+    </div>
+  );
+}
+```
+</Code>
+
+### 弹出位置
+
+<Code 
+  description='自定义抽屉弹出位置。目前支持从左右两侧弹出' 
+  component={<Placement />}
+>
+```tsx filename="Drawer.tsx" copy {20,28}
+import React from "react";
+import { Drawer, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  const [openLeft, setOpenLeft] = React.useState(false);
+  const [openRight, setOpenRight] = React.useState(false);
+  
+  return (
+    <>
+      <div className="flex gap-2">
+        <Button type="primary" onClick={() => setOpenLeft(true)}>
+          Left Drawer
+        </Button>
+        <Button type="primary" onClick={() => setOpenRight(true)}>
+          Right Drawer
+        </Button>
+      </div>
+      <Drawer
+        title="This is a title."
+        placement="left"
+        open={openLeft}
+        onClose={() => setOpenLeft(false)}
+      >
+        <div>Drawer Content</div>
+      </Drawer>
+      <Drawer
+        title="This is a title."
+        placement="right"
+        open={openRight}
+        onClose={() => setOpenRight(false)}
+      >
+        <div>Drawer Content</div>
+      </Drawer>
+    </>
+  );
+}
+```
+</Code>
+
+## API
+
+### Drawer Props
+
+| 属性             | 描述                     | 类型                 | 默认值  |
+| ---------------- | ------------------------ | -------------------- | ------- |
+| className        | 节点类名                 | `string`             | -       |
+| overlayClassName | 遮罩层类名               | `string`             | -       |
+| title            | 自定义标题               | `React.ReactNode`    | Title   |
+| placement        | 抽屉弹出方向             | `left` \| `right`    | `right` |
+| maskClosable     | 是否可点击遮罩层关闭     | `boolean`            | true    |
+| open             | 是否显示抽屉             | `boolean`            | -       |
+| width            | 抽屉显示宽度             | `number` \| `string` | 378     |
+| onClose          | 关闭抽屉时触发的回调函数 | `() => void`         | -       |

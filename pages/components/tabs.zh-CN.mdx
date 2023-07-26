@@ -1,0 +1,177 @@
+---
+title: Tabs 标签页
+description: 将内容组织同一视图中，一次可查看一个视图内容。查看其他内容可切换选项卡查看。
+radix:
+  title: Tabs
+  link: https://www.radix-ui.com/docs/primitives/components/tabs
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/tabs/basic";
+import Size from "@demo/tabs/size";
+import ItemsFull from "@demo/tabs/itemsFull";
+import Active from "@demo/tabs/active";
+
+## 代码示例
+
+### 引入
+
+```js copy
+import { Tabs } from "@ltopx/lx-ui";
+```
+
+### 基础用法
+
+<Code 
+  description='默认选中第一个 tab' 
+  component={<Basic />}
+>
+```tsx filename="Tabs.tsx" copy
+import { Tabs, type TabsOption } from "@ltopx/lx-ui";
+
+export default function () {
+  const options: TabsOption[] = [
+    {
+      label: "Tab1",
+      value: "1",
+      children: <div>xxxxx</div>,
+    },
+    {
+      label: "Tab2",
+      value: "2",
+      children: <div>yyyyy</div>,
+    },
+  ];
+  
+  return (
+    <div>
+      <Tabs options={options} defaultActiveTab="1" />
+    </div>
+  );
+}
+```
+</Code>
+
+### 尺寸大小
+
+<Code component={<Size />}>
+<Code.Description>
+  提供三种尺寸的大小：`sm` , `base` , `lg`
+</Code.Description>
+```tsx filename="Tabs.tsx" copy
+import { Tabs, type TabsOption } from "@ltopx/lx-ui";
+
+export default function () {
+  const options: TabsOption[] = [
+    {
+      label: "Tab1",
+      value: "1",
+      children: <div>xxxxx</div>,
+    },
+    {
+      label: "Tab2",
+      value: "2",
+      children: <div>yyyyy</div>,
+    },
+  ];
+  
+  return (
+    <div className="flex flex-col gap-5">
+      <Tabs options={options} defaultActiveTab="1" size="sm" />
+      <Tabs options={options} defaultActiveTab="1" />
+      <Tabs options={options} defaultActiveTab="1" size="lg" />
+    </div>
+  );
+}
+```
+</Code>
+
+### 占满一行
+
+<Code component={<ItemsFull />}>
+<Code.Description>
+配置 `itemsFull`，可以使 Tab Item 占满一行。
+</Code.Description>
+```tsx filename="Tabs.tsx" copy {19}
+import { Tabs, type TabsOption } from "@ltopx/lx-ui";
+
+export default function () {
+  const options: TabsOption[] = [
+    {
+      label: "Tab1",
+      value: "1",
+      children: <div>xxxxx</div>,
+    },
+    {
+      label: "Tab2",
+      value: "2",
+      children: <div>yyyyy</div>,
+    },
+  ];
+  
+  return (
+    <div>
+      <Tabs options={options} defaultActiveTab="1" itemsFull />
+    </div>
+  );
+}
+```
+</Code>
+
+### 受控模式
+
+<Code 
+  description='通过 activeTab 开启受控模式。' 
+  component={<Active />}
+>
+```tsx filename="Tabs.tsx" copy
+import React from "react";
+import { Tabs, type TabsOption } from "@ltopx/lx-ui";
+
+export default function () {
+  const [active, setActive] = React.useState("1");
+  
+  const options: TabsOption[] = [
+    {
+      label: "Tab1",
+      value: "1",
+      children: <div>xxxxx</div>,
+    },
+    {
+      label: "Tab2",
+      value: "2",
+      children: <div>yyyyy</div>,
+    },
+  ];
+  
+  return (
+    <div className="flex flex-col gap-2">
+      <div>{active}</div>
+      <Tabs options={options} activeTab={active} onChange={setActive} />
+    </div>
+  );
+}
+```
+</Code>
+
+## API
+
+### Tabs Props
+
+| 属性             | 描述                     | 类型                      | 默认值 |
+| ---------------- | ------------------------ | ------------------------- | ------ |
+| className        | 节点类名                 | `string`                  | -      |
+| size             | 尺寸大小                 | `sm` \| `base` \| `lg`    | `base` |
+| options          | Tabs 选项内容            | `TabsOption[]`            | -      |
+| defaultActiveTab | 默认选中的标签选项       | `string`                  | -      |
+| itemsFull        | 标签页选项是否占满一行   | `boolean`                 | -      |
+| activeTab        | 受控模式下选中的标签选项 | `number`                  | -      |
+| onChange         | 切换标签页时的回调       | `(value: string) => void` | -      |
+
+### TabsOption Props
+
+| 属性     | 描述             | 类型              | 默认值 |
+| -------- | ---------------- | ----------------- | ------ |
+| label    | 标签页显示文本   | `React.ReactNode` | -      |
+| value    | 标签页选中对应值 | `string`          | -      |
+| children | 标签页显示内容   | `React.ReactNode` | -      |

@@ -10,7 +10,7 @@ export default function () {
         Drawer
       </Button>
       <Drawer
-        title="这是一个title"
+        title="This is a title."
         maskClosable={false}
         open={open}
         onClose={() => setOpen(false)}

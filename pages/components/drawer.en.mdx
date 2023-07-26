@@ -1,6 +1,6 @@
 ---
-title: Drawer 抽屉
-description: 从屏幕左侧滑出的抽屉式的面板
+title: Drawer
+description: A drawer-style panel that slides out from one side of the screen.
 radix:
   title: Dialog
   link: https://www.radix-ui.com/docs/primitives/components/dialog
@@ -12,18 +12,18 @@ import MaskClosable from "@demo/drawer/maskClosable";
 import Width from "@demo/drawer/width";
 import Placement from "@demo/drawer/placement";
 
-## 代码示例
+## Examples
 
-### 引入
+### Import
 
 ```js copy
 import { Drawer } from "@ltopx/lx-ui";
 ```
 
-### 基础用法
+### Basic usage
 
 <Code 
-  description='点击按钮，抽屉从右侧滑出。点击遮罩层或关闭按钮可关闭抽屉。' 
+  description='Click the button, and the drawer will slide out from the right side. You can close the drawer by clicking on the overlay or the close button.' 
   component={<Basic />}
 >
 ```tsx filename="Drawer.tsx" copy
@@ -37,7 +37,7 @@ export default function () {
       <Button type="primary" onClick={() => setOpen(true)}>
         Drawer
       </Button>
-      <Drawer title="这是一个title" open={open} onClose={() => setOpen(false)}>
+      <Drawer title="This is a title." open={open} onClose={() => setOpen(false)}>
         <div>Drawer Content</div>
       </Drawer>
     </div>
@@ -46,11 +46,11 @@ export default function () {
 ```
 </Code>
 
-### 禁止遮罩层关闭
+### MaskClosable
 
 <Code component={<MaskClosable />}>
 <Code.Description>
-  当 `maskClosable` 设置为 false 时，点击遮罩层则无法关闭抽屉
+When `maskClosable` is set to false, clicking on the mask layer will not close the drawer.
 </Code.Description>
 ```tsx filename="Drawer.tsx" copy {14}
 import React from "react";
@@ -65,7 +65,7 @@ export default function () {
         Drawer
       </Button>
       <Drawer
-        title="这是一个title"
+        title="This is a title."
         maskClosable={false}
         open={open}
         onClose={() => setOpen(false)}
@@ -78,11 +78,11 @@ export default function () {
 ```
 </Code>
 
-### 自定义宽度
+### Custom Width
 
 <Code component={<Width />}>
 <Code.Description>
-   传入 `width`，可以自定义抽屉宽度。默认宽度为 `378px`
+Pass in `width` to customize the width of the drawer. The default width is `378px`.
 </Code.Description>
 ```tsx filename="Drawer.tsx" copy {14}
 import React from "react";
@@ -97,7 +97,7 @@ export default function () {
         Drawer
       </Button>
       <Drawer
-        title="这是一个title"
+        title="This is a title."
         width={500}
         open={open}
         onClose={() => setOpen(false)}
@@ -110,10 +110,10 @@ export default function () {
 ```
 </Code>
 
-### 弹出位置
+### Location
 
 <Code 
-  description='自定义抽屉弹出位置。目前支持从左右两侧弹出' 
+  description='Customize the position of the drawer popup. Currently, it supports popping out from both the left and right sides.' 
   component={<Placement />}
 >
 ```tsx filename="Drawer.tsx" copy {20,28}
@@ -135,7 +135,7 @@ export default function () {
         </Button>
       </div>
       <Drawer
-        title="这是一个title"
+        title="This is a title."
         placement="left"
         open={openLeft}
         onClose={() => setOpenLeft(false)}
@@ -143,7 +143,7 @@ export default function () {
         <div>Drawer Content</div>
       </Drawer>
       <Drawer
-        title="这是一个title"
+        title="This is a title."
         placement="right"
         open={openRight}
         onClose={() => setOpenRight(false)}
@@ -160,13 +160,13 @@ export default function () {
 
 ### Drawer Props
 
-| 属性             | 描述                     | 类型                 | 默认值  |
-| ---------------- | ------------------------ | -------------------- | ------- |
-| className        | 节点类名                 | `string`             | -       |
-| overlayClassName | 遮罩层类名               | `string`             | -       |
-| title            | 自定义标题               | `React.ReactNode`    | Title   |
-| placement        | 抽屉弹出方向             | `left` \| `right`    | `right` |
-| maskClosable     | 是否可点击遮罩层关闭     | `boolean`            | true    |
-| open             | 是否显示抽屉             | `boolean`            | -       |
-| width            | 抽屉显示宽度             | `number` \| `string` | 378     |
-| onClose          | 关闭抽屉时触发的回调函数 | `() => void`         | -       |
+| Name             | Description                                              | Type                 | Default |
+| ---------------- | -------------------------------------------------------- | -------------------- | ------- |
+| className        | Additional css class                                     | `string`             | -       |
+| overlayClassName | Mask layer class                                         | `string`             | -       |
+| title            | Custom title                                             | `React.ReactNode`    | Title   |
+| placement        | Drawer Pull-out Direction                                | `left` \| `right`    | `right` |
+| maskClosable     | Whether can be closed by click mask                      | `boolean`            | true    |
+| open             | Whether to display                                       | `boolean`            | -       |
+| width            | The width of the drawer                                  | `number` \| `string` | 378     |
+| onClose          | The callback function triggered when closing the drawer. | `() => void`         | -       |

@@ -8,12 +8,17 @@ export default function () {
     <div className="flex flex-wrap gap-2">
       <Input
         className="w-52"
-        placeholder="请输入"
+        placeholder="Please input"
         allowClear
         value={value}
         onChange={setValue}
       />
-      <Input className="w-52" placeholder="请输入" allowClear type="password" />
+      <Input
+        className="w-52"
+        placeholder="Please input"
+        allowClear
+        type="password"
+      />
     </div>
   );
 }

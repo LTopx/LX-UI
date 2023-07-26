@@ -1,0 +1,10 @@
+{
+  "introduction": "Introduction",
+  "-- Developer Guild": {
+    "type": "separator",
+    "title": "Developer Guide"
+  },
+  "quick-start": "Quick Start",
+  "install": "Installation",
+  "change-log": "Change Log"
+}

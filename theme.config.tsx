@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { DocsThemeConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
 import { useConfig } from "nextra-theme-docs";
@@ -56,7 +55,11 @@ const config: DocsThemeConfig = {
     ),
   },
   search: {
-    placeholder: "搜索文档...",
+    placeholder: () => {
+      const router = useRouter();
+      if (router.locale === "zh-CN") return "搜索文档...";
+      return "Search documentation…";
+    },
   },
   nextThemes: {
     defaultTheme: "dark",
@@ -137,6 +140,10 @@ const config: DocsThemeConfig = {
       </div>
     ),
   },
+  i18n: [
+    { locale: "en", text: "English" },
+    { locale: "zh-CN", text: "中文" },
+  ],
 };
 
 export default config;

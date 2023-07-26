@@ -1,0 +1,127 @@
+---
+title: Accordion
+description: Used to group and hide complex content areas, which can be collapsed or expanded.
+radix:
+  title: Accordion
+  link: https://www.radix-ui.com/docs/primitives/components/accordion
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/accordion/basic";
+import Size from "@demo/accordion/size";
+
+## Examples
+
+### Import
+
+```js copy
+import { Accordion } from "@ltopx/lx-ui";
+```
+
+### Basic usage
+
+<Code 
+  description='You can click to expand or collapse the panel.' 
+  component={<Basic />}
+>
+```tsx filename="Accordion.tsx" copy
+import { Accordion, type AccordionItem } from "@ltopx/lx-ui";
+export default function () {
+  const items: AccordionItem[] = [
+    {
+      label: "111",
+      value: "111",
+      children: <div>111</div>,
+    },
+    {
+      label: "222",
+      value: "222",
+      children: <div>222</div>,
+    },
+    {
+      label: "333",
+      value: "333",
+      children: <div>333</div>,
+    },
+  ];
+  return <Accordion items={items} />;
+}
+```
+</Code>
+
+### Sizes
+
+<Code component={<Size />}>
+<Code.Description>
+Provide three sizes: `sm`, `base`, and `lg`
+</Code.Description>
+```tsx filename="Accordion.tsx" copy
+import {
+  Accordion,
+  Tabs,
+  type AccordionItem,
+  type TabsOption,
+} from "@ltopx/lx-ui";
+
+export default function () {
+  const items: AccordionItem[] = [
+    {
+      label: "111",
+      value: "111",
+      children: <div>111</div>,
+    },
+    {
+      label: "222",
+      value: "222",
+      children: <div>222</div>,
+    },
+    {
+      label: "333",
+      value: "333",
+      children: <div>333</div>,
+    },
+  ];
+  
+  const tabOptions: TabsOption[] = [
+    {
+      label: "sm",
+      value: "sm",
+      children: <Accordion items={items} size="sm" />,
+    },
+    {
+      label: "base",
+      value: "base",
+      children: <Accordion items={items} />,
+    },
+    {
+      label: "lg",
+      value: "lg",
+      children: <Accordion items={items} size="lg" />,
+    },
+  ];
+  
+  return <Tabs options={tabOptions} defaultActiveTab="sm" />;
+}
+```
+</Code>
+
+## API
+
+### Accordion Props
+
+| Name             | Description          | Type                   | Default |
+| ---------------- | -------------------- | ---------------------- | ------- |
+| className        | Additional css class | `string`               | -       |
+| itemClassName    | Option node class    | `string`               | -       |
+| triggerClassName | Option title class   | `string`               | -       |
+| contentClassName | Option content class | `string`               | -       |
+| size             | Accordion size       | `sm` \| `base` \| `lg` | `base`  |
+| items            | Options Content List | `AccordionProps[]`     | -       |
+
+### AccordionProps Props
+
+| Name     | Description             | Type              | Default |
+| -------- | ----------------------- | ----------------- | ------- |
+| label    | Options title           | `React.ReactNode` | -       |
+| value    | Options value           | `string`          | -       |
+| children | Options Display Content | `React.ReactNode` | -       |
