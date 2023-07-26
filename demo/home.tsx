@@ -60,7 +60,10 @@ export function Home() {
             variants={FADE_DOWN_ANIMATION_VARIANTS}
           >
             <Button className="group" size="lg" type="primary" rounded>
-              <Link href="/guide" className="flex gap-2 items-center">
+              <Link
+                href="/guide/introduction"
+                className="flex gap-2 items-center"
+              >
                 {tHome("start")}
                 <Arrow_right_up_line className="transition-transform group-hover:rotate-45" />
               </Link>

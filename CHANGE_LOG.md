@@ -13,6 +13,7 @@
 
 - Fix the style problem of Button in dark mode.
 - Fix the bug of Select option and value type support.
+- Fix the bug of incorrect path configuration for redirecting to the Guild page on the homepage.
 
 ### Changed
 

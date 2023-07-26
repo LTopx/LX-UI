@@ -13,6 +13,7 @@
 
 - 修复 Button dark mode 下的样式问题
 - 修复 Select option 和 value 对数据类型支持的 bug
+- 修复首页跳转 Guild 页面 path 配置错误的 bug
 
 ### 调整
 
