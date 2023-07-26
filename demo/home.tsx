@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Button from "../components/button/button";
 import { Arrow_right_up_line, Github_line } from "@components/icon";
-import { useLocale } from "@/hooks/useLocale";
+import useLocale from "@/hooks/useLocale";
 
 const FADE_DOWN_ANIMATION_VARIANTS = {
   hidden: { opacity: 0, y: 20 },

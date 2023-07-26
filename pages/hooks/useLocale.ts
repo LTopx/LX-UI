@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import en from "../locales/en.json";
 import zhCN from "../locales/zh-CN.json";
 
-export const useLocale = (key: string) => {
+const useLocale = (key: string) => {
   const router = useRouter();
 
   const locale = router.locale;
@@ -22,3 +22,5 @@ export const useLocale = (key: string) => {
 
   return getLocale;
 };
+
+export default useLocale;

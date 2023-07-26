@@ -1,6 +1,6 @@
 import React from "react";
 import { Input } from "../../components";
-import { useLocale } from "@/hooks/useLocale";
+import useLocale from "@/hooks/useLocale";
 
 export default function () {
   const tCommon = useLocale("common");
