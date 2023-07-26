@@ -1,52 +1,58 @@
-<p align="center">
-<h1 align="center">LX-UI</h1>
-<p align="center">Based on Radix UI and Tailwind CSS. Works great with Next.js!</p>
+<div align="center">
+<h1>LX-UI</h1>
+<p>Based on Radix UI and Tailwind CSS. Works great with Next.js!</p>
+<p>
+<a href="https://www.npmjs.com/package/@ltopx/lx-ui"><img src="https://img.shields.io/npm/v/@ltopx/lx-ui?color=38bdf8&amp;label=" alt="NPM version"></a>
 </p>
-<p align="center">
-<a href="https://www.npmjs.com/package/@ltopx/lx-ui"><img src="https://img.shields.io/npm/v/@ltopx/lx-ui?color=38bdf8&amp;label=" alt="NPM version"></a></p>
-<p align="center">
-<a href="https://lx-ui.ltopx.com">Document</a>
+<p>
+English
+/
+<a href="./README_CN.md">简体中文</a> 
 </p>
+<p>
+<a href="https://lx-ui.ltopx.com">Document</a> 
+</p>
+</div>
 
-## 简介
+## Introduction
 
-`LX-UI` 是基于 [Radix UI](https://www.radix-ui.com) 和 [Tailwind CSS](https://tailwindcss.com/) 二次封装开发的一套 React 组件库。
+`LX-UI` is a set of React component library developed based on [Radix UI](https://www.radix-ui.com) and [Tailwind CSS](https://tailwindcss.com/).
 
-项目创建的目的是为了解决个人开发项目 [L-GPT](https://chat.ltopx.com) 的 UI 统一问题。前期可能会比较简陋 🤣🤣，不过后续会逐步迭代完善。
+The purpose of creating this project is to solve the issue of UI consistency for my personal development project, [L-GPT](https://chat.ltopx.com). The initial version may be relatively simple 🤣🤣, but it will gradually iterate and improve in the future.
 
-## 特性
+## Features
 
-- 💎 基于 Radix UI，丰富和拓展了部分组件
-- 🔥 使用了 Tailwind CSS，便于后续样式定制
-- 🎉 支持 Typescript
-- 📱 支持响应式
+- 💎 Based on Radix UI, it enriches and extends some components
+- 🔥 Utilizes Tailwind CSS for easy customization of styles in the future
+- 🎉 Supports Typescript
+- 📱 Responsive design support
 
-## 安装使用
+## Setup
 
-### 环境准备
+### Environment
 
-- 建议使用 pnpm 安装 (当然使用 npm、yarn 也行)
+- It is recommended to use pnpm for installation (although npm or yarn can also be used)
 
   ```bash copy
   npm i -g pnpm
   ```
 
-- Tailwind CSS 安装
+- Installing Tailwind CSS
 
-  因为 LX-UI 是基于 Tailwind CSS 的，因此需要在您的项目中安装并配置 Tailwind CSS 才能正常使用。[安装配置参考链接](https://tailwindcss.com/docs/installation)
+  Since LX-UI is based on Tailwind CSS, you need to install and configure Tailwind CSS in your project in order to use it properly. [Tailwind CSS installation guide](https://tailwindcss.com/docs/installation)
 
-### 安装 LX-UI
+### Install
 
 ```bash
 pnpm add @ltopx/lx-ui
 ```
 
-### 配置 LX-UI
+### Configuring
 
-由于 LX-UI 是基于 Tailwind CSS 开发的，因此需要修改您项目中的 `tailwind.config.js` 文件，添加 LX-UI 的相关配置。
+Since LX-UI is developed based on Tailwind CSS, you need to modify the `tailwind.config.js` file in your project and add the relevant configurations for LX-UI.
 
-- 添加 presets 预设配置
-- 配置 content 路径解析 LX-UI 组件
+- Add presets configuration.
+- Configure content path to resolve LX-UI components.
 
 ```js filename="tailwind.config.js" copy {3-4}
 /** @type {import('tailwindcss').Config} */
@@ -60,7 +66,7 @@ module.exports = {
 };
 ```
 
-### 使用 LX-UI
+## Usage
 
 ```js copy
 import { Select } from "@ltopx/lx-ui";
