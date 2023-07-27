@@ -1,10 +1,11 @@
 # LX-UI Change Log
 
-## v0.1.1
+## v0.1.2
 
 ### Fixed
 
 - Fix Select types type definition.
+- Fix Dropdown types type definition.
 
 ## v0.1.0
 

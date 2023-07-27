@@ -6,9 +6,9 @@ import type { SizeType } from "../config-provider";
 import { Down_fill, Loading_line } from "../icon";
 import SelectItem from "./item";
 
-export interface SelectOption {
+export interface SelectOption<ValueType = any> {
   label: React.ReactNode;
-  value: string | number;
+  value: ValueType;
   disabled?: boolean;
 }
 
@@ -20,7 +20,7 @@ export interface SelectProps<ValueType = any>
   disabled?: boolean;
   loading?: boolean;
   size?: SizeType;
-  options?: string[] | number[] | SelectOption[];
+  options?: string[] | number[] | SelectOption<ValueType>[];
   renderLabel?: (value: any) => React.ReactNode;
   defaultValue?: ValueType;
   value?: ValueType;

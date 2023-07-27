@@ -3,13 +3,13 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { cn } from "../_lib/cn";
 import { Check_fill } from "../icon";
 
-export interface DropdownOption {
+export interface DropdownOption<ValueType = any> {
   label?: React.ReactNode;
-  value?: string | number;
+  value?: ValueType;
   type?: "seperate";
 }
 
-export interface DropdownProps {
+export interface DropdownProps<ValueType = any> {
   className?: string;
   disabled?: boolean;
   children?: React.ReactNode;
@@ -18,11 +18,11 @@ export interface DropdownProps {
   align?: "start" | "center" | "end";
   alignOffset?: number;
   label?: React.ReactNode;
-  options?: DropdownOption[];
+  options?: DropdownOption<ValueType>[];
   /** support selection */
   selectable?: boolean;
   value?: string | number;
-  onSelect?: (value: string | number) => void;
+  onSelect?: (value: ValueType) => void;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
