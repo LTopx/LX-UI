@@ -12,16 +12,19 @@ export interface SelectOption {
   disabled?: boolean;
 }
 
-export interface SelectProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
+export interface SelectProps<ValueType = any>
+  extends Omit<
+    React.HTMLAttributes<HTMLDivElement>,
+    "onChange" | "defaultValue"
+  > {
   disabled?: boolean;
   loading?: boolean;
   size?: SizeType;
   options?: string[] | number[] | SelectOption[];
   renderLabel?: (value: any) => React.ReactNode;
-  defaultValue?: string | number;
-  value?: string | number;
-  onChange?: (value: string | number) => void;
+  defaultValue?: ValueType;
+  value?: ValueType;
+  onChange?: (value: ValueType) => void;
 }
 
 const Select: React.FC<SelectProps> = ({

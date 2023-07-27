@@ -1,6 +1,6 @@
 {
   "name": "@ltopx/lx-ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "description": "A react ui library based on radix-ui and tailwindcss",
   "module": "dist/index.mjs",

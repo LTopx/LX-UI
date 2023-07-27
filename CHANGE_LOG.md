@@ -1,5 +1,11 @@
 # LX-UI Change Log
 
+## v0.1.1
+
+### Fixed
+
+- Fix Select types type definition.
+
 ## v0.1.0
 
 > 2023-07-26
