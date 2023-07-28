@@ -32,38 +32,42 @@ const Tabs: React.FC<TabsProps> = ({
 
   return (
     <RadixTabs.Root
-      className={cn("w-full", className)}
+      className={className}
       defaultValue={defaultActiveTab}
       value={activeTab}
       onValueChange={onValueChange}
     >
-      <div className="flex">
+      <div className="flex flex-auto items-stretch whitespace-nowrap overflow-x-auto">
         <RadixTabs.List
-          className={cn(
-            "flex gap-1 rounded text-sm w-auto p-1",
-            "bg-lx-color-fill-3 dark:bg-lx-color-fill-3-dark",
-            { "flex-1": !!itemsFull }
-          )}
+          className={cn("flex text-sm", { "flex-1": !!itemsFull })}
         >
-          {options.map((item) => (
-            <RadixTabs.Trigger
+          {options.map((item, index) => (
+            <div
               key={item.value}
-              value={item.value}
               className={cn(
-                {
-                  "h-6": size === "sm",
-                  "h-7": size === "base",
-                  "h-8": size === "lg",
-                },
-                "rounded px-3 transition-colors flex-1",
-                "hover:bg-white dark:hover:bg-lx-color-fill-3-dark",
-                "data-[state=active]:bg-white dark:data-[state=active]:bg-lx-color-fill-3-dark",
-                "text-neutral-700 dark:text-neutral-400",
-                "data-[state=active]:text-sky-500 dark:data-[state=active]:text-sky-400"
+                "bg-lx-color-fill-3 dark:bg-lx-color-fill-3-dark py-1 px-0.5 flex",
+                { "flex-1": !!itemsFull },
+                { "pl-1 rounded-l": index === 0 },
+                { "pr-1 rounded-r": index === options.length - 1 }
               )}
             >
-              {item.label}
-            </RadixTabs.Trigger>
+              <RadixTabs.Trigger
+                value={item.value}
+                className={cn(
+                  {
+                    "h-6": size === "sm",
+                    "h-7": size === "base",
+                    "h-8": size === "lg",
+                  },
+                  { "flex-1": !!itemsFull },
+                  "rounded px-3 transition-colors",
+                  "data-[state=active]:bg-white dark:data-[state=active]:bg-lx-color-fill-3-dark",
+                  "hover:bg-white dark:hover:bg-lx-color-fill-3-dark"
+                )}
+              >
+                {item.label}
+              </RadixTabs.Trigger>
+            </div>
           ))}
         </RadixTabs.List>
       </div>

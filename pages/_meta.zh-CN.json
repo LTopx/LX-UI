@@ -16,6 +16,9 @@
       },
       "install": {
         "title": "安装"
+      },
+      "change-log": {
+        "title": "更新日志"
       }
     }
   },

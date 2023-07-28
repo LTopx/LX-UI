@@ -16,6 +16,9 @@
       },
       "install": {
         "title": "Installation"
+      },
+      "change-log": {
+        "title": "Change Log"
       }
     }
   },

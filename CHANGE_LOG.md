@@ -1,11 +1,14 @@
 # LX-UI Change Log
 
-## v0.1.2
+## v0.1.4
+
+> 2023-07-28
 
 ### Fixed
 
 - Fix Select types type definition.
 - Fix Dropdown types type definition.
+- Fix Tabs style.
 
 ## v0.1.0
 
