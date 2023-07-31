@@ -19,7 +19,7 @@ export interface ButtonProps
 }
 
 export const button = tv({
-  base: "text-sm flex justify-center items-center transition-colors rounded-md border cursor-pointer gap-2 select-none",
+  base: "text-sm flex justify-center whitespace-nowrap items-center transition-colors rounded-md border cursor-pointer gap-2 select-none",
   variants: {
     type: {
       default:

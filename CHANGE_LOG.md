@@ -1,5 +1,13 @@
 # LX-UI Change Log
 
+## v0.1.5
+
+> 2023-07-31
+
+### Fixed
+
+- Fix the problem that the text of the Button button may be wrapped in some cases.
+
 ## v0.1.4
 
 > 2023-07-28
