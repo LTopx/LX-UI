@@ -16,6 +16,7 @@ export interface TabsProps {
   defaultActiveTab?: string;
   activeTab?: string;
   itemsFull?: boolean;
+  extra?: React.ReactNode;
   onChange?: (value: string) => void;
 }
 
@@ -26,6 +27,7 @@ const Tabs: React.FC<TabsProps> = ({
   defaultActiveTab,
   activeTab,
   itemsFull,
+  extra,
   onChange,
 }) => {
   const onValueChange = (value: string) => onChange?.(value);
@@ -37,7 +39,7 @@ const Tabs: React.FC<TabsProps> = ({
       value={activeTab}
       onValueChange={onValueChange}
     >
-      <div className="flex flex-auto items-stretch whitespace-nowrap overflow-x-auto">
+      <div className="flex flex-auto justify-between items-stretch whitespace-nowrap overflow-x-auto">
         <RadixTabs.List
           className={cn("flex text-sm", { "flex-1": !!itemsFull })}
         >
@@ -70,6 +72,7 @@ const Tabs: React.FC<TabsProps> = ({
             </div>
           ))}
         </RadixTabs.List>
+        {!!extra && <div className="flex items-center">{extra}</div>}
       </div>
 
       {options.map((item) => (
