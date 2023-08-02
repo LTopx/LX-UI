@@ -9,5 +9,8 @@
   "input": {
     "configure": "Configurable maximum, minimum, and precision attributes.",
     "focus": "Focus input"
+  },
+  "textarea": {
+    "focus": "Focus Textarea"
   }
 }

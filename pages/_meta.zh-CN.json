@@ -50,6 +50,9 @@
       "input": {
         "title": "Input 输入框"
       },
+      "textarea": {
+        "title": "Textarea 文本域"
+      },
       "divider": {
         "title": "Divider 分割线"
       },

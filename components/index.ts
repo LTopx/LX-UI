@@ -12,6 +12,8 @@ export { default as Modal } from "./modal";
 export type { ModalProps } from "./modal";
 export { default as Input } from "./input";
 export type { InputProps } from "./input";
+export { default as Textarea } from "./textarea";
+export type { TextareaProps } from "./textarea";
 export { default as Divider } from "./divider";
 export type { DividerProps } from "./divider";
 export { default as Progress } from "./progress";

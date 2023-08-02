@@ -1,42 +1,29 @@
 import React from "react";
-import type { SizeType } from "../config-provider";
 import { cn } from "../_lib/cn";
 import { isUndefined } from "../_lib/is";
 import { Close_line } from "../icon";
 
-export type InputType = "text" | "password" | "number";
-
-export interface InputProps
-  extends Omit<React.HTMLAttributes<HTMLInputElement>, "onChange"> {
+export interface TextareaProps
+  extends Omit<React.HTMLAttributes<HTMLTextAreaElement>, "onChange"> {
   allowClear?: boolean;
   disabled?: boolean;
-  min?: number;
-  max?: number;
   maxLength?: number;
-  step?: number;
-  type?: InputType;
-  size?: SizeType;
-  defaultValue?: string | number;
-  value?: string | number;
+  defaultValue?: string;
+  value?: string;
   onChange?: (value: any) => void;
   onEnter?: (value: any) => void;
 }
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(
+const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   (
     {
       className,
       allowClear,
       disabled,
-      min,
-      max,
-      maxLength,
-      step = 1,
-      type = "text",
-      size = "base",
       placeholder,
       defaultValue,
       value,
+      maxLength,
       onFocus,
       onBlur,
       onChange,
@@ -44,21 +31,19 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     },
     forwardredRef
   ) => {
-    // data
     const [isFocus, setFocus] = React.useState(false);
-    const [inputValue, setInputValue] = React.useState<string | number>();
+    const [textareaValue, setTextareaValue] = React.useState<string>();
 
-    // ref
-    const inputRef = React.useRef<HTMLInputElement>(null);
+    const textareaRef = React.useRef<HTMLTextAreaElement>(null);
 
     const onChangeValue = (e: any) => {
-      setInputValue(e.target.value);
+      setTextareaValue(e.target.value);
       onChange?.(e.target.value);
     };
 
     const onClear = () => {
-      if (!inputRef.current) return;
-      setInputValue("");
+      if (!textareaRef.current) return;
+      setTextareaValue("");
       onChange?.("");
     };
 
@@ -66,39 +51,20 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       if (event.keyCode === 13) onEnter?.(event.target.value);
     };
 
-    const onInputBlur = (event: any) => {
-      if (type === "number") {
-        const value = Number(event.target.value);
-        if (max && value > max) {
-          setInputValue(max);
-          onChange?.(max);
-        } else if (min && value < min) {
-          setInputValue(min);
-          onChange?.(min);
-        } else if (!isUndefined(step) && step > 0) {
-          const stepValue = Math.round(value / step) * step;
-          setInputValue(stepValue);
-          onChange?.(stepValue);
-        }
-      }
-
-      onBlur?.(event);
-    };
-
     React.useEffect(() => {
-      if (!isUndefined(defaultValue)) setInputValue(defaultValue);
+      if (!isUndefined(defaultValue)) setTextareaValue(defaultValue);
     }, [defaultValue]);
 
     React.useEffect(() => {
-      if (!isUndefined(value)) setInputValue(value);
+      if (!isUndefined(value)) setTextareaValue(value);
     }, [value]);
 
-    React.useImperativeHandle(forwardredRef, () => inputRef.current, []);
+    React.useImperativeHandle(forwardredRef, () => textareaRef.current, []);
 
     return (
       <div
         className={cn(
-          "group rounded border border-transparent transition-colors flex items-center",
+          "group rounded relative border border-transparent transition-colors flex items-center",
           "text-lx-color-text-1 dark:text-lx-color-text-1-dark",
           "bg-lx-color-fill-2 dark:bg-lx-color-fill-2-dark",
           "hover:bg-lx-color-fill-3 dark:hover:bg-lx-color-fill-3-dark",
@@ -112,50 +78,41 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           {
             "hover:bg-lx-color-fill-2 dark:hover:bg-lx-color-fill-2-dark cursor-not-allowed select-none text-[rgb(201,205,212)] dark:text-lx-color-text-4-dark":
               disabled,
-          },
-          { "h-7 px-3": size === "sm" },
-          { "h-8 px-3": size === "base" },
-          { "h-9 px-4": size === "lg" },
-          className
+          }
         )}
-        onMouseDown={(e) => {
-          if ((e.target as HTMLElement).tagName !== "INPUT") e.preventDefault();
-        }}
-        onClick={() => inputRef.current?.focus()}
+        onClick={() => textareaRef.current?.focus()}
       >
-        <input
-          ref={inputRef}
+        <textarea
+          ref={textareaRef}
           className={cn(
-            "appearance-none bg-transparent w-full h-full text-sm leading-[1.5715] outline-none",
+            "appearance-none bg-transparent outline-none min-h-[64px] w-full h-full text-sm leading-[1.5715] px-3 py-1",
+            { "pr-5": allowClear },
             {
               "cursor-not-allowed select-none placeholder:text-[rgb(201,205,212)] dark:placeholder:text-lx-color-text-4-dark":
                 disabled,
             },
-            { "py-0.5": size === "sm" },
-            { "py-1": size === "base" },
-            { "py-1.5": size === "lg" }
+            className
           )}
           style={{ boxShadow: "none" }}
-          type={type}
           placeholder={placeholder}
           disabled={disabled}
           maxLength={maxLength}
-          value={isUndefined(inputValue) ? "" : inputValue}
+          value={textareaValue}
           onFocus={(e) => {
             setFocus(true);
             onFocus?.(e);
           }}
           onBlur={(e) => {
             setFocus(false);
-            onInputBlur(e);
+            onBlur?.(e);
           }}
           onChange={onChangeValue}
           onKeyDown={onKeyDown}
         />
-        {!!(!!allowClear && !disabled && inputValue) && (
+        {!!(!!allowClear && !disabled && textareaValue) && (
           <span
             className={cn(
-              "group-hover:block relative cursor-pointer hidden",
+              "group-hover:block absolute cursor-pointer top-[10px] right-[10px] hidden",
               "before:absolute before:transition-colors before:rounded-full before:w-5 before:h-5 before:left-[50%] before:top-[50%] before:-translate-x-[50%] before:-translate-y-[50%]",
               "before:hover:bg-[rgb(201,205,212)] dark:before:hover:bg-lx-color-fill-4-dark",
               {
@@ -173,6 +130,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   }
 );
 
-Input.displayName = "Input";
+Textarea.displayName = "Textarea";
 
-export default Input;
+export default Textarea;

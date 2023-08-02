@@ -50,6 +50,9 @@
       "input": {
         "title": "Input"
       },
+      "textarea": {
+        "title": "Textarea"
+      },
       "divider": {
         "title": "Divider"
       },

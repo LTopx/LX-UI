@@ -2,7 +2,7 @@ import React from "react";
 import { Input } from "../../components";
 
 export default function () {
-  const [value, setValue] = React.useState<string | number>("123");
+  const [value, setValue] = React.useState<string | number>();
 
   return (
     <div className="flex flex-wrap gap-2">
@@ -19,12 +19,7 @@ export default function () {
         allowClear
         defaultValue="hello world"
       />
-      <Input
-        className="w-52"
-        placeholder="Please input"
-        allowClear
-        type="password"
-      />
+      <Input className="w-52" placeholder="Please input" type="password" />
     </div>
   );
 }

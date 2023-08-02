@@ -1,0 +1,159 @@
+---
+title: Textarea 文本域
+description: 基础表单组件，使用鼠标和键盘输入内容，用于多行输入。
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/textarea/basic";
+import Disabled from "@demo/textarea/disabled";
+import MaxLength from "@demo/textarea/maxLength";
+import Trigger from "@demo/textarea/trigger";
+
+## 代码示例
+
+### 引入
+
+```js copy
+import { Textarea } from "@ltopx/lx-ui";
+```
+
+### 基础用法
+
+<Code 
+  description='通过键盘或鼠标输入内容。' 
+  component={<Basic />}
+>
+```tsx filename="Textarea.tsx" copy
+import React from 'react';
+import { Textarea } from "@ltopx/lx-ui";
+
+export default function () {
+  const [value, setValue] = React.useState<string>("123");
+  
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Textarea
+        className="w-52"
+        placeholder="Please enter"
+        allowClear
+        value={value}
+        onChange={setValue}
+      />
+      <Textarea
+        className="w-52"
+        placeholder="Please enter"
+        allowClear
+        defaultValue="hello world"
+      />
+    </div>
+  );
+}
+```
+</Code>
+
+### 禁止输入
+
+<Code 
+  description='禁止输入任何内容。' 
+  component={<Disabled />}
+>
+```tsx filename="Textarea.tsx" copy
+import React from 'react';
+import { Textarea } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Textarea
+        className="w-52"
+        placeholder="Please enter"
+        allowClear
+        disabled
+        value="123"
+      />
+      <Textarea className="w-52" placeholder="Please enter" disabled />
+    </div>
+  );
+}
+```
+</Code>
+
+### 长度限制
+
+<Code 
+  description='设置 maxLength 可以限制最大字数' 
+  component={<MaxLength />}
+>
+```tsx filename="Textarea.tsx" copy {10}
+import { Textarea } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Textarea
+        className="w-52"
+        placeholder="Please enter"
+        allowClear
+        maxLength={10}
+      />
+    </div>
+  );
+}
+```
+</Code>
+
+### 手动触发事件
+
+<Code 
+  description='继承原生 textarea 的所有触发事件' 
+  component={<Trigger />}
+>
+```tsx filename="Textarea.tsx" copy
+import React from "react";
+import { Textarea, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  const textareaRef = React.useRef<HTMLTextAreaElement>(null);
+  const onFocus = () => textareaRef.current?.focus();
+  
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Button type="primary" onClick={onFocus}>
+        聚焦 Textarea
+      </Button>
+      <Textarea
+        className="w-52"
+        placeholder="Please enter"
+        allowClear
+        ref={textareaRef}
+      />
+    </div>
+  );
+}
+```
+</Code>
+
+## API
+
+### Textarea Props
+
+| 属性         | 描述                 | 类型                   | 默认值 |
+| ------------ | -------------------- | ---------------------- | ------ |
+| className    | 节点类名             | `string`               | -      |
+| allowClear   | 是否允许清空         | boolean                | -      |
+| disabled     | 是否禁用             | boolean                | -      |
+| maxLength    | 文本域最大输入的长度 | number                 | -      |
+| placeholder  | 默认占位文本         | `string`               | -      |
+| defaultValue | 文本域默认值         | `string` \| `number`   | -      |
+| value        | 文本域的值，受控模式 | `string` \| `number`   | -      |
+| onFocus      | 获得焦点时的回调     | `() => void`           | -      |
+| onBlur       | 失去焦点时的回调     | `() => void`           | -      |
+| onChange     | 输入时的回调         | `(value: any) => void` | -      |
+| onEnter      | 按下回车键的回调     | `(value: any) => void` | -      |
+
+### Textarea Methods
+
+| 属性  | 描述     | 类型                               | 默认值 |
+| ----- | -------- | ---------------------------------- | ------ |
+| focus | 获取焦点 | `(options?: FocusOptions) => void` | -      |
+| blur  | 取消焦点 | `() => void`                       | -      |

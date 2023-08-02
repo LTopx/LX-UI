@@ -8,6 +8,9 @@
   },
   "input": {
     "configure": "可配置最大最小以及精度属性",
-    "focus": "聚焦Input"
+    "focus": "聚焦 Input"
+  },
+  "textarea": {
+    "focus": "聚焦 Textarea"
   }
 }

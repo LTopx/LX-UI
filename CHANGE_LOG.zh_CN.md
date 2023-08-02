@@ -1,6 +1,6 @@
 # LX-UI 更新日志
 
-## v0.1.8
+## v0.1.11
 
 > 2023-08-02
 
@@ -14,6 +14,7 @@
 
 - Tabs 新增支持 extra 属性，在 tab 右侧添加内容
 - Confirm 新增支持配置 trigger 处的 className
+- 新增 Textarea 组件以及相关文档
 
 ## v0.1.4
 

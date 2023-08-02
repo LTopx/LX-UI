@@ -1,6 +1,6 @@
 # LX-UI Change Log
 
-## v0.1.8
+## v0.1.11
 
 > 2023-08-02
 
@@ -14,6 +14,7 @@
 
 - Tabs adds support for extra properties to add content on the right side of the tab.
 - Confirm adds support for configuring the className at the trigger.
+- Add Textarea component and related documentation.
 
 ## v0.1.4
 

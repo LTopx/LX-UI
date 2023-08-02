@@ -1,0 +1,159 @@
+---
+title: Textarea
+description: Basic form component, used for inputting content with both mouse and keyboard, suitable for multi-line input.
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/textarea/basic";
+import Disabled from "@demo/textarea/disabled";
+import MaxLength from "@demo/textarea/maxLength";
+import Trigger from "@demo/textarea/trigger";
+
+## Examples
+
+### Import
+
+```js copy
+import { Textarea } from "@ltopx/lx-ui";
+```
+
+### Basic usage
+
+<Code 
+  description='Enter content through the keyboard or mouse.' 
+  component={<Basic />}
+>
+```tsx filename="Textarea.tsx" copy
+import React from 'react';
+import { Textarea } from "@ltopx/lx-ui";
+
+export default function () {
+  const [value, setValue] = React.useState<string>("123");
+  
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Textarea
+        className="w-52"
+        placeholder="Please enter"
+        allowClear
+        value={value}
+        onChange={setValue}
+      />
+      <Textarea
+        className="w-52"
+        placeholder="Please enter"
+        allowClear
+        defaultValue="hello world"
+      />
+    </div>
+  );
+}
+```
+</Code>
+
+### Disabled
+
+<Code 
+  description='No content is allowed to be entered.' 
+  component={<Disabled />}
+>
+```tsx filename="Textarea.tsx" copy
+import React from 'react';
+import { Textarea } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Textarea
+        className="w-52"
+        placeholder="Please enter"
+        allowClear
+        disabled
+        value="123"
+      />
+      <Textarea className="w-52" placeholder="Please enter" disabled />
+    </div>
+  );
+}
+```
+</Code>
+
+### Length Limit
+
+<Code 
+  description='Setting maxLength can limit the maximum number of characters.' 
+  component={<MaxLength />}
+>
+```tsx filename="Textarea.tsx" copy {10}
+import { Textarea } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Textarea
+        className="w-52"
+        placeholder="Please enter"
+        allowClear
+        maxLength={10}
+      />
+    </div>
+  );
+}
+```
+</Code>
+
+### Manually trigger event
+
+<Code 
+  description='Inherit all triggering events from the native textarea.' 
+  component={<Trigger />}
+>
+```tsx filename="Textarea.tsx" copy
+import React from "react";
+import { Textarea, Button } from "@ltopx/lx-ui";
+
+export default function () {
+  const textareaRef = React.useRef<HTMLTextAreaElement>(null);
+  const onFocus = () => textareaRef.current?.focus();
+  
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Button type="primary" onClick={onFocus}>
+        Focus Textarea
+      </Button>
+      <Textarea
+        className="w-52"
+        placeholder="Please enter"
+        allowClear
+        ref={textareaRef}
+      />
+    </div>
+  );
+}
+```
+</Code>
+
+## API
+
+### Textarea Props
+
+| Name         | Description                           | Type                   | Default |
+| ------------ | ------------------------------------- | ---------------------- | ------- |
+| className    | Additional css class                  | `string`               | -       |
+| allowClear   | Whether allowed to clear              | boolean                | -       |
+| disabled     | Whether is disabled                   | boolean                | -       |
+| maxLength    | The maximum input length of the text. | number                 | -       |
+| placeholder  | Placeholder of element                | `string`               | -       |
+| defaultValue | Default value                         | `string` \| `number`   | -       |
+| value        | The current value                     | `string` \| `number`   | -       |
+| onFocus      | Callback when focus.                  | `() => void`           | -       |
+| onBlur       | Callback when losing focus            | `() => void`           | -       |
+| onChange     | Callback when entering                | `(value: any) => void` | -       |
+| onEnter      | Press Enter key callback.             | `(value: any) => void` | -       |
+
+### Textarea Methods
+
+| Name  | Description | Type                               | Default |
+| ----- | ----------- | ---------------------------------- | ------- |
+| focus | Get focus   | `(options?: FocusOptions) => void` | -       |
+| blur  | Lose focus  | `() => void`                       | -       |
