@@ -1,12 +1,19 @@
 # LX-UI 更新日志
 
-## v0.1.5
+## v0.1.8
 
-> 2023-07-31
+> 2023-08-02
 
 ### 修复
 
 - 修复 Button 按钮文本某些情况下可能被换行的问题
+- 修复 Input disabled 状态下的样式问题
+- 修复 Input value、defaultValue 类型逻辑
+
+### 新增
+
+- Tabs 新增支持 extra 属性，在 tab 右侧添加内容
+- Confirm 新增支持配置 trigger 处的 className
 
 ## v0.1.4
 

@@ -5,20 +5,13 @@ description: 基础表单组件，使用鼠标和键盘输入内容。
 
 import Code from "@demo/code";
 import Basic from "@demo/input/basic";
+import Disabled from "@demo/input/disabled";
 import Size from "@demo/input/size";
 import MaxLength from "@demo/input/maxLength";
 import Number from "@demo/input/number";
 import Trigger from "@demo/input/trigger";
-import { Callout } from "nextra/components";
 
 ## 代码示例
-
-{/* prettier-ignore */}
-<Callout emoji="👾">
-  目前版本还有以下已知问题
-  - disabled 状态 UI显示问题
-  - 受控状态的处理还需优化
-</Callout>
 
 ### 引入
 
@@ -37,7 +30,7 @@ import React from 'react';
 import { Input } from "@ltopx/lx-ui";
 
 export default function () {
-  const [value, setValue] = React.useState<string | number>("");
+  const [value, setValue] = React.useState<string | number>("123");
   
   return (
     <div className="flex flex-wrap gap-2">
@@ -48,7 +41,45 @@ export default function () {
         value={value}
         onChange={setValue}
       />
-      <Input className="w-52" placeholder="Please input" allowClear type="password" />
+      <Input
+        className="w-52"
+        placeholder="Please input"
+        allowClear
+        defaultValue="hello world"
+      />
+      <Input
+        className="w-52"
+        placeholder="Please input"
+        allowClear
+        type="password"
+      />
+    </div>
+  );
+}
+```
+</Code>
+
+### 禁止输入
+
+<Code 
+  description='禁止输入任何内容。' 
+  component={<Disabled />}
+>
+```tsx filename="Input.tsx" copy
+import React from 'react';
+import { Input } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Input
+        className="w-52"
+        placeholder="Please input"
+        allowClear
+        disabled
+        value="123"
+      />
+      <Input className="w-52" placeholder="Please input" disabled />
     </div>
   );
 }
@@ -166,23 +197,24 @@ export default function () {
 
 ### Input Props
 
-| 属性        | 描述                                                                                                                                        | 类型                   | 默认值 |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ------ |
-| className   | 节点类名                                                                                                                                    | `string`               | -      |
-| type        | input 类型，与原生 input 标签的 type 属性相同。见 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#%E5%B1%9E%E6%80%A7) | `string`               | `text` |
-| size        | 尺寸大小                                                                                                                                    | `sm` \| `base` \| `lg` | `base` |
-| allowClear  | 是否允许清空                                                                                                                                | boolean                | -      |
-| disabled    | 是否禁用                                                                                                                                    | boolean                | -      |
-| min         | 最小值                                                                                                                                      | number                 | -      |
-| max         | 最大值                                                                                                                                      | number                 | -      |
-| maxLength   | 输入框最大输入的长度                                                                                                                        | number                 | -      |
-| step        | 数字变化步长                                                                                                                                | number                 | 1      |
-| placeholder | 默认占位文本                                                                                                                                | `string`               | -      |
-| value       | 输入框的值，受控模式                                                                                                                        | `string` \| `number`   | -      |
-| onFocus     | 获得焦点时的回调                                                                                                                            | `() => void`           | -      |
-| onBlur      | 失去焦点时的回调                                                                                                                            | `() => void`           | -      |
-| onChange    | 输入时的回调                                                                                                                                | `(value: any) => void` | -      |
-| onEnter     | 按下回车键的回调                                                                                                                            | `(value: any) => void` | -      |
+| 属性         | 描述                                                                                                                                        | 类型                   | 默认值 |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ------ |
+| className    | 节点类名                                                                                                                                    | `string`               | -      |
+| type         | input 类型，与原生 input 标签的 type 属性相同。见 [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#%E5%B1%9E%E6%80%A7) | `string`               | `text` |
+| size         | 尺寸大小                                                                                                                                    | `sm` \| `base` \| `lg` | `base` |
+| allowClear   | 是否允许清空                                                                                                                                | boolean                | -      |
+| disabled     | 是否禁用                                                                                                                                    | boolean                | -      |
+| min          | 最小值                                                                                                                                      | number                 | -      |
+| max          | 最大值                                                                                                                                      | number                 | -      |
+| maxLength    | 输入框最大输入的长度                                                                                                                        | number                 | -      |
+| step         | 数字变化步长                                                                                                                                | number                 | 1      |
+| placeholder  | 默认占位文本                                                                                                                                | `string`               | -      |
+| defaultValue | 输入框默认值                                                                                                                                | `string` \| `number`   | -      |
+| value        | 输入框的值，受控模式                                                                                                                        | `string` \| `number`   | -      |
+| onFocus      | 获得焦点时的回调                                                                                                                            | `() => void`           | -      |
+| onBlur       | 失去焦点时的回调                                                                                                                            | `() => void`           | -      |
+| onChange     | 输入时的回调                                                                                                                                | `(value: any) => void` | -      |
+| onEnter      | 按下回车键的回调                                                                                                                            | `(value: any) => void` | -      |
 
 ### Input Methods
 

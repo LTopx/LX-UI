@@ -5,20 +5,13 @@ description: Basic form components, allowing input of content using both mouse a
 
 import Code from "@demo/code";
 import Basic from "@demo/input/basic";
+import Disabled from "@demo/input/disabled";
 import Size from "@demo/input/size";
 import MaxLength from "@demo/input/maxLength";
 import Number from "@demo/input/number";
 import Trigger from "@demo/input/trigger";
-import { Callout } from "nextra/components";
 
 ## Examples
-
-{/* prettier-ignore */}
-<Callout emoji="👾">
-Currently, the current version still has the following known issues:
-- UI display issue in disabled state
-- The handling of controlled states needs further optimization.
-</Callout>
 
 ### Import
 
@@ -37,7 +30,7 @@ import React from 'react';
 import { Input } from "@ltopx/lx-ui";
 
 export default function () {
-  const [value, setValue] = React.useState<string | number>("");
+  const [value, setValue] = React.useState<string | number>("123");
   
   return (
     <div className="flex flex-wrap gap-2">
@@ -48,7 +41,45 @@ export default function () {
         value={value}
         onChange={setValue}
       />
-      <Input className="w-52" placeholder="Please input" allowClear type="password" />
+      <Input
+        className="w-52"
+        placeholder="Please input"
+        allowClear
+        defaultValue="hello world"
+      />
+      <Input
+        className="w-52"
+        placeholder="Please input"
+        allowClear
+        type="password"
+      />
+    </div>
+  );
+}
+```
+</Code>
+
+### Disabled
+
+<Code 
+  description='No content is allowed to be entered.' 
+  component={<Disabled />}
+>
+```tsx filename="Input.tsx" copy
+import React from 'react';
+import { Input } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <div className="flex flex-wrap gap-2">
+      <Input
+        className="w-52"
+        placeholder="Please input"
+        allowClear
+        disabled
+        value="123"
+      />
+      <Input className="w-52" placeholder="Please input" disabled />
     </div>
   );
 }
@@ -166,23 +197,24 @@ export default function () {
 
 ### Input Props
 
-| Name        | Description                                                                                                                                                              | Type                   | Default |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- | ------- |
-| className   | Additional css class                                                                                                                                                     | `string`               | -       |
-| type        | The input type, is the same as the type attribute of the native input tag. See [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#%E5%B1%9E%E6%80%A7) | `string`               | `text`  |
-| size        | Input size                                                                                                                                                               | `sm` \| `base` \| `lg` | `base`  |
-| allowClear  | Whether allowed to clear                                                                                                                                                 | boolean                | -       |
-| disabled    | Whether is disabled                                                                                                                                                      | boolean                | -       |
-| min         | Minimum value                                                                                                                                                            | number                 | -       |
-| max         | Maximum value                                                                                                                                                            | number                 | -       |
-| maxLength   | The maximum input length of the text.                                                                                                                                    | number                 | -       |
-| step        | The number to which the current value is increased or decreased. It can be an integer or decimal                                                                         | number                 | 1       |
-| placeholder | Placeholder of element                                                                                                                                                   | `string`               | -       |
-| value       | The current value                                                                                                                                                        | `string` \| `number`   | -       |
-| onFocus     | Callback when focus.                                                                                                                                                     | `() => void`           | -       |
-| onBlur      | Callback when losing focus                                                                                                                                               | `() => void`           | -       |
-| onChange    | Callback when entering                                                                                                                                                   | `(value: any) => void` | -       |
-| onEnter     | Press Enter key callback.                                                                                                                                                | `(value: any) => void` | -       |
+| Name         | Description                                                                                                                                                              | Type                   | Default |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- | ------- |
+| className    | Additional css class                                                                                                                                                     | `string`               | -       |
+| type         | The input type, is the same as the type attribute of the native input tag. See [MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#%E5%B1%9E%E6%80%A7) | `string`               | `text`  |
+| size         | Input size                                                                                                                                                               | `sm` \| `base` \| `lg` | `base`  |
+| allowClear   | Whether allowed to clear                                                                                                                                                 | boolean                | -       |
+| disabled     | Whether is disabled                                                                                                                                                      | boolean                | -       |
+| min          | Minimum value                                                                                                                                                            | number                 | -       |
+| max          | Maximum value                                                                                                                                                            | number                 | -       |
+| maxLength    | The maximum input length of the text.                                                                                                                                    | number                 | -       |
+| step         | The number to which the current value is increased or decreased. It can be an integer or decimal                                                                         | number                 | 1       |
+| placeholder  | Placeholder of element                                                                                                                                                   | `string`               | -       |
+| defaultValue | Default value                                                                                                                                                            | `string` \| `number`   | -       |
+| value        | The current value                                                                                                                                                        | `string` \| `number`   | -       |
+| onFocus      | Callback when focus.                                                                                                                                                     | `() => void`           | -       |
+| onBlur       | Callback when losing focus                                                                                                                                               | `() => void`           | -       |
+| onChange     | Callback when entering                                                                                                                                                   | `(value: any) => void` | -       |
+| onEnter      | Press Enter key callback.                                                                                                                                                | `(value: any) => void` | -       |
 
 ### Input Methods
 

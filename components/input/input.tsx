@@ -16,6 +16,7 @@ export interface InputProps
   step?: number;
   type?: InputType;
   size?: SizeType;
+  defaultValue?: string | number;
   value?: string | number;
   onChange?: (value: any) => void;
   onEnter?: (value: any) => void;
@@ -34,6 +35,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       type = "text",
       size = "base",
       placeholder,
+      defaultValue,
       value,
       onFocus,
       onBlur,
@@ -44,7 +46,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ) => {
     // data
     const [isFocus, setFocus] = React.useState(false);
-    const [inputValue, setInputValue] = React.useState<string | number>("");
+    const [inputValue, setInputValue] = React.useState<string | number>();
 
     // ref
     const inputRef = React.useRef<HTMLInputElement>(null);
@@ -56,8 +58,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     const onClear = () => {
       if (!inputRef.current) return;
-      onChange?.("");
       setInputValue("");
+      onChange?.("");
     };
 
     const onKeyDown = (event: any) => {
@@ -84,9 +86,11 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     };
 
     React.useEffect(() => {
-      if (isUndefined(value)) return;
-      if (value === inputValue) return;
-      setInputValue(value);
+      if (!isUndefined(defaultValue)) setInputValue(defaultValue);
+    }, [defaultValue]);
+
+    React.useEffect(() => {
+      if (!isUndefined(value) && isUndefined(inputValue)) setInputValue(value);
     }, [value]);
 
     React.useImperativeHandle(forwardredRef, () => inputRef.current, []);
@@ -105,6 +109,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             "dark:bg-[#232324] dark:hover:bg-[#232324] dark:border-sky-500":
               isFocus,
           },
+          {
+            "hover:bg-lx-color-fill-2 dark:hover:bg-lx-color-fill-2-dark cursor-not-allowed select-none text-[rgb(201,205,212)] dark:text-lx-color-text-4-dark":
+              disabled,
+          },
           { "h-7 px-3": size === "sm" },
           { "h-8 px-3": size === "base" },
           { "h-9 px-4": size === "lg" },
@@ -119,6 +127,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           ref={inputRef}
           className={cn(
             "appearance-none bg-transparent w-full h-full text-sm leading-[1.5715] outline-none",
+            {
+              "cursor-not-allowed select-none placeholder:text-[rgb(201,205,212)] dark:placeholder:text-lx-color-text-4-dark":
+                disabled,
+            },
             { "py-0.5": size === "sm" },
             { "py-1": size === "base" },
             { "py-1.5": size === "lg" }
@@ -128,7 +140,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           placeholder={placeholder}
           disabled={disabled}
           maxLength={maxLength}
-          value={inputValue}
+          value={isUndefined(inputValue) ? "" : inputValue}
           onFocus={(e) => {
             setFocus(true);
             onFocus?.(e);
@@ -140,7 +152,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           onChange={onChangeValue}
           onKeyDown={onKeyDown}
         />
-        {!!allowClear && inputValue && (
+        {!!(!!allowClear && !disabled && inputValue) && (
           <span
             className={cn(
               "group-hover:block relative cursor-pointer hidden",

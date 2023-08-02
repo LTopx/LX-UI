@@ -1,12 +1,19 @@
 # LX-UI Change Log
 
-## v0.1.5
+## v0.1.8
 
-> 2023-07-31
+> 2023-08-02
 
 ### Fixed
 
 - Fix the problem that the text of the Button button may be wrapped in some cases.
+- Fix the style problem of Input disabled state.
+- Fix the Input value and defaultValue type logic.
+
+### Add
+
+- Tabs adds support for extra properties to add content on the right side of the tab.
+- Confirm adds support for configuring the className at the trigger.
 
 ## v0.1.4
 

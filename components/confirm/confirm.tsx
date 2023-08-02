@@ -7,6 +7,7 @@ import { Information_fill } from "../icon";
 export interface ConfirmProps {
   className?: string;
   overlayClassName?: string;
+  triggerClassName?: string;
   children?: React.ReactNode;
   maskClosable?: boolean;
   disabled?: boolean;
@@ -23,6 +24,7 @@ const Confirm: React.FC<ConfirmProps> = React.memo(
   ({
     className,
     overlayClassName,
+    triggerClassName,
     children,
     maskClosable = true,
     disabled,
@@ -89,7 +91,7 @@ const Confirm: React.FC<ConfirmProps> = React.memo(
     return (
       <AlertDialog.Root open={open} onOpenChange={onOpenChange}>
         <AlertDialog.Trigger asChild onClick={(e) => e.stopPropagation()}>
-          <div>{children}</div>
+          <div className={triggerClassName}>{children}</div>
         </AlertDialog.Trigger>
         <AlertDialog.Portal>
           <AlertDialog.Overlay
