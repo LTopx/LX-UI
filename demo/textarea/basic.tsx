@@ -7,7 +7,7 @@ export default function () {
   return (
     <div className="flex flex-wrap gap-2">
       <Textarea
-        className="w-52 h-40"
+        className="w-52"
         placeholder="Please enter"
         allowClear
         value={value}
