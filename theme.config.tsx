@@ -1,13 +1,17 @@
 import { DocsThemeConfig } from "nextra-theme-docs";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useConfig } from "nextra-theme-docs";
 import Button from "./components/button";
 
 const logo = (
-  <div className="font-extrabold text-transparent text-3xl">
-    <span className="bg-clip-text bg-logo bg-[size:400%] animate-flow">
-      LX-UI
-    </span>
+  <div className="flex items-center gap-2">
+    <Image src="/logo.png" alt="logo" width={40} height={40} />
+    <div className="font-extrabold text-transparent text-3xl">
+      <span className="bg-clip-text bg-logo bg-[size:400%] animate-flow">
+        LX-UI
+      </span>
+    </div>
   </div>
 );
 
@@ -35,7 +39,7 @@ const config: DocsThemeConfig = {
           content="height=device-height ,width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"
         />
         <meta name="og:title" content={title ? title + " – LX-UI" : "LX-UI"} />
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="any" />
         {!!process.env.UMAMI_WEBSITE_ID && (
           <script
             async
