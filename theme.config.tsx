@@ -5,7 +5,7 @@ import { useConfig } from "nextra-theme-docs";
 import Button from "./components/button";
 
 const logo = (
-  <div className="flex items-center gap-2">
+  <div className="flex gap-2 items-center">
     <Image src="/logo.png" alt="logo" width={40} height={40} />
     <div className="font-extrabold text-transparent text-3xl">
       <span className="bg-clip-text bg-logo bg-[size:400%] animate-flow">
@@ -51,10 +51,10 @@ const config: DocsThemeConfig = {
     );
   },
   banner: {
-    key: "0.8.1-release",
+    key: "0.8.2-release",
     text: (
       <a href="https://chat.ltopx.com" target="_blank">
-        🎉 L-GPT v0.8.1 released. Get to know →
+        🎉 L-GPT v0.8.2 released. Get to know →
       </a>
     ),
   },
