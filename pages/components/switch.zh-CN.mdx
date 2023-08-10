@@ -8,6 +8,7 @@ radix:
 
 import Code from "@demo/code";
 import Basic from "@demo/switch/basic";
+import Size from "@demo/switch/size";
 import DefaultChecked from "@demo/switch/defaultChecked";
 import Checked from "@demo/switch/checked";
 
@@ -30,6 +31,26 @@ import { Switch } from "@ltopx/lx-ui";
 
 export default function () {
   return <Switch />;
+}
+```
+</Code>
+
+### 自定义尺寸大小
+
+<Code component={<Size />}>
+<Code.Description>
+通过 `className` 和 `thumbClassName` 可以自定义 `Switch` 尺寸大小
+</Code.Description>
+```tsx filename="Switch.tsx" copy {6,7}
+import { Switch } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <Switch
+      className="h-4 w-8"
+      thumbClassName="w-3 h-3 translate-x-0.5 data-[state=checked]:translate-x-[18px]"
+    />
+  );
 }
 ```
 </Code>
@@ -73,7 +94,7 @@ export default function () {
 | 属性           | 描述                 | 类型                         | 默认值 |
 | -------------- | -------------------- | ---------------------------- | ------ |
 | className      | 节点类名             | `string`                     | -      |
-| thumbClass     | 中间圆点类名         | `string`                     | -      |
+| thumbClassName | 中间圆点类名         | `string`                     | -      |
 | checked        | 受控模式，是否打开   | `boolean`                    | -      |
 | defaultChecked | 默认打开状态         | `boolean`                    | -      |
 | onChange       | 切换开关状态时的回调 | `(checked: boolean) => void` | -      |

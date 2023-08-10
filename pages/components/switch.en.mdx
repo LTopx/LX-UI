@@ -8,6 +8,7 @@ radix:
 
 import Code from "@demo/code";
 import Basic from "@demo/switch/basic";
+import Size from "@demo/switch/size";
 import DefaultChecked from "@demo/switch/defaultChecked";
 import Checked from "@demo/switch/checked";
 
@@ -30,6 +31,26 @@ import { Switch } from "@ltopx/lx-ui";
 
 export default function () {
   return <Switch />;
+}
+```
+</Code>
+
+### Customize size
+
+<Code component={<Size />}>
+<Code.Description>
+By using `className` and `thumbClassName`, you can customize the size of the `Switch`.
+</Code.Description>
+```tsx filename="Switch.tsx" copy {6,7}
+import { Switch } from "@ltopx/lx-ui";
+
+export default function () {
+  return (
+    <Switch
+      className="h-4 w-8"
+      thumbClassName="w-3 h-3 translate-x-0.5 data-[state=checked]:translate-x-[18px]"
+    />
+  );
 }
 ```
 </Code>
@@ -73,7 +94,7 @@ export default function () {
 | Name           | Description                               | Type                         | Default |
 | -------------- | ----------------------------------------- | ---------------------------- | ------- |
 | className      | Additional css class                      | `string`                     | -       |
-| thumbClass     | Middle dot class                          | `string`                     | -       |
+| thumbClassName | Middle dot class                          | `string`                     | -       |
 | checked        | Whether it is open                        | `boolean`                    | -       |
 | defaultChecked | Whether to open by default                | `boolean`                    | -       |
 | onChange       | Callback when switching the toggle state. | `(checked: boolean) => void` | -       |

@@ -4,7 +4,7 @@ import { cn } from "../_lib/cn";
 
 export interface SwitchProps {
   className?: string;
-  thumbClass?: string;
+  thumbClassName?: string;
   checked?: boolean;
   defaultChecked?: boolean;
   onChange?: (checked: boolean) => void;
@@ -12,7 +12,7 @@ export interface SwitchProps {
 
 const Switch: React.FC<SwitchProps> = ({
   className,
-  thumbClass,
+  thumbClassName,
   checked,
   defaultChecked,
   onChange,
@@ -34,7 +34,7 @@ const Switch: React.FC<SwitchProps> = ({
         className={cn(
           "block w-4 h-4 bg-white rounded-full transition-all",
           "translate-x-1 data-[state=checked]:translate-x-7",
-          thumbClass
+          thumbClassName
         )}
       />
     </RadixSwitch.Root>

@@ -1,5 +1,17 @@
 # LX-UI Change Log
 
+## v0.1.12
+
+> 2023-08-10
+
+### Add
+
+- Add Switch custom size demo example.
+
+### Changed
+
+- Adjust the Switch className: thumbClass => thumbClassName.
+
 ## v0.1.11
 
 > 2023-08-02

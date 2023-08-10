@@ -1,5 +1,17 @@
 # LX-UI 更新日志
 
+## v0.1.12
+
+> 2023-08-10
+
+### 新增
+
+- 新增 Switch 自定义尺寸的 demo 示例
+
+### 调整
+
+- 调整 Switch 的类名：thumbClass => thumbClassName
+
 ## v0.1.11
 
 > 2023-08-02
