@@ -51,10 +51,10 @@ const config: DocsThemeConfig = {
     );
   },
   banner: {
-    key: "0.8.2-release",
+    key: "0.8.3-release",
     text: (
       <a href="https://chat.ltopx.com" target="_blank">
-        🎉 L-GPT v0.8.2 released. Get to know →
+        🎉 L-GPT v0.8.3 released. Get to know →
       </a>
     ),
   },
