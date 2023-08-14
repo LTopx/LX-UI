@@ -4,6 +4,7 @@ import { cn } from "../_lib/cn";
 
 export interface ToolTipProps {
   className?: string;
+  triggerClassName?: string;
   title?: React.ReactNode;
   side?: "top" | "bottom";
   sideOffset?: number;
@@ -14,6 +15,7 @@ export interface ToolTipProps {
 
 const Tooltip: React.FC<ToolTipProps> = ({
   className,
+  triggerClassName,
   title,
   side,
   align,
@@ -25,7 +27,7 @@ const Tooltip: React.FC<ToolTipProps> = ({
     <RadixTooltip.Provider delayDuration={300}>
       <RadixTooltip.Root>
         <RadixTooltip.Trigger asChild>
-          <div>{children}</div>
+          <div className={triggerClassName}>{children}</div>
         </RadixTooltip.Trigger>
         <RadixTooltip.Portal>
           <RadixTooltip.Content

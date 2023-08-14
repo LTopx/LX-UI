@@ -1,12 +1,13 @@
 # LX-UI 更新日志
 
-## v0.1.12
+## v0.1.15
 
-> 2023-08-10
+> 2023-08-14
 
 ### 新增
 
 - 新增 Switch 自定义尺寸的 demo 示例
+- Tooltip 新增 triggerClassName 属性，支持自定义 Tooltip 触发区域的样式
 
 ### 调整
 

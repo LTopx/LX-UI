@@ -1,12 +1,13 @@
 # LX-UI Change Log
 
-## v0.1.12
+## v0.1.15
 
-> 2023-08-10
+> 2023-08-14
 
 ### Add
 
 - Add Switch custom size demo example.
+- Tooltip adds triggerClassName property to support custom style of Tooltip trigger area.
 
 ### Changed
 
