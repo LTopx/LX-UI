@@ -1,5 +1,13 @@
 # LX-UI Change Log
 
+## v0.1.16
+
+> 2023-08-20
+
+### Fixed
+
+- Fix the style problem caused by the value processing of Select.
+
 ## v0.1.15
 
 > 2023-08-14

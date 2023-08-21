@@ -106,7 +106,7 @@ const Select: React.FC<SelectProps> = ({
   }, [defaultValue]);
 
   React.useEffect(() => {
-    if (!isUndefined(value) && isUndefined(selectValue)) setSelectValue(value);
+    if (!isUndefined(value)) setSelectValue(value);
   }, [value]);
 
   return (

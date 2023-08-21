@@ -1,0 +1,49 @@
+---
+title: Checkbox 复选框
+description: 在一组数据中，用户可通过复选框选择一个或多个数据。
+radix:
+  title: Checkbox
+  link: https://www.radix-ui.com/primitives/docs/components/checkbox
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/checkbox/basic";
+
+## 代码示例
+
+### 引入
+
+```js copy
+import { Checkbox } from "@ltopx/lx-ui";
+```
+
+### 基础用法
+
+<Code 
+  description='可点击展开或收起面板。' 
+  component={<Basic />}
+>
+```tsx filename="Accordion.tsx" copy
+import { Accordion, type AccordionItem } from "@ltopx/lx-ui";
+export default function () {
+  const items: AccordionItem[] = [
+    {
+      label: "111",
+      value: "111",
+      children: <div>111</div>,
+    },
+    {
+      label: "222",
+      value: "222",
+      children: <div>222</div>,
+    },
+    {
+      label: "333",
+      value: "333",
+      children: <div>333</div>,
+    },
+  ];
+  return <Accordion items={items} />;
+}
+```
+</Code>
