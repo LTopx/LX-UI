@@ -3,6 +3,7 @@
   "button": "Button 按钮",
   "select": "Select 选择器",
   "confirm": "Confirm 确认框",
+  "datePicker": "DatePicker 日期选择",
   "drawer": "Drawer 抽屉",
   "dropdown": "Dropdown 下拉菜单",
   "modal": "Modal 对话框",

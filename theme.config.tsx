@@ -54,7 +54,7 @@ const config: DocsThemeConfig = {
     key: "0.8.4-release",
     text: (
       <a href="https://chat.ltopx.com" target="_blank">
-        🎉 L-GPT v0.8.4 released. Get to know →
+        🎉 Le-AI v0.8.4 released. Get to know →
       </a>
     ),
   },

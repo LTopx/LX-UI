@@ -86,6 +86,14 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
+        "lx-datepicker-shown": {
+          from: { height: 0 },
+          to: { height: "var(--radix-popover-content-available-height)" },
+        },
+        "lx-datepicker-hide": {
+          from: { height: "var(--radix-popover-content-available-height)" },
+          to: { height: 0 },
+        },
       },
       animation: {
         "lx-select-open": "lx-select-open 0.2s ease-in-out",
@@ -108,6 +116,10 @@ module.exports = {
           "lx-accordion-down 300ms cubic-bezier(0.87, 0, 0.13, 1)",
         "lx-accordion-up":
           "lx-accordion-up 300ms cubic-bezier(0.87, 0, 0.13, 1)",
+        "lx-datepicker-hide":
+          "lx-datepicker-hide 300ms cubic-bezier(0.87, 0, 0.13, 1)",
+        "lx-datepicker-shown":
+          "lx-datepicker-shown 300ms cubic-bezier(0.87, 0, 0.13, 1)",
       },
     },
   },

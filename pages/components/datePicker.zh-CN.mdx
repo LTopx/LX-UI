@@ -1,0 +1,51 @@
+---
+title: DatePicker 日期选择器
+description: 选择日期。
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/datePicker/basic";
+
+## 代码示例
+
+### 引入
+
+```js copy
+import { DatePicker } from "@ltopx/lx-ui";
+```
+
+### 基础用法
+
+<Code 
+  description='日期输入器的基础使用。' 
+  component={<Basic />}
+>
+```tsx filename="DatePicker.tsx" copy
+import { DatePicker } from "@ltopx/lx-ui";
+
+export default function () {
+  const [date, setDate] = React.useState<Date>();
+  
+  const onChange = (value: Date | undefined) => {
+    setDate(value);
+  };
+  
+  return (
+    <div className="flex gap-2">
+      <DatePicker className="w-52" value={date} onChange={onChange} />
+    </div>
+  );
+}
+```
+</Code>
+
+## API
+
+### DatePicker Props
+
+| 属性      | 描述                             | 类型                    | 默认值 |
+| --------- | -------------------------------- | ----------------------- | ------ |
+| className | 节点类名                         | `string`                | -      |
+| size      | 尺寸大小                         | `sm` \| `base` \| `lg`  | `base` |
+| value     | 选中的日期                       | `Date`                  | -      |
+| onChange  | 选中日期发生变化时，会触发此方法 | `(value: Date) => void` | -      |

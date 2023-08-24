@@ -5,3 +5,4 @@ export * from "./down_fill";
 export * from "./loading_line";
 export * from "./github_line";
 export * from "./information_fill";
+export * from "./calendar_line";

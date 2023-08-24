@@ -6,7 +6,7 @@
   z-index: 10;
 }
 
-table {
+table.nx-block {
   display: block !important;
   width: 100%;
   text-align: left;
@@ -20,11 +20,11 @@ table {
   scrollbar-gutter: unset !important;
 }
 
-:is(.dark table) {
+:is(.dark table.nx-block) {
   border-color: #333334;
 }
 
-table th {
+table.nx-block th {
   white-space: nowrap;
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
   text-align: inherit;
@@ -39,37 +39,37 @@ table th {
   border-right: 0px solid transparent !important;
 }
 
-:is(.dark table th) {
+:is(.dark table.nx-block th) {
   background-color: #2d2e31;
   border-bottom-color: #333334 !important;
   color: rgba(255, 255, 255, 0.9);
 }
 
-table td:first-child {
+table.nx-block td:first-child {
   width: 1%;
   font-weight: 600;
   white-space: nowrap;
 }
 
-table tr {
+table.nx-block tr {
   box-sizing: border-box;
   background-clip: padding-box;
   transition: background-color 0.3s;
 }
 
-table tbody tr:hover {
+table.nx-block tbody tr:hover {
   background-color: rgba(60, 90, 100, 0.04) !important;
 }
 
-:is(.dark table tbody tr:hover) {
+:is(.dark table.nx-block tbody tr:hover) {
   background: rgb(38 38 38) !important;
 }
 
-table tbody tr:hover td {
+table.nx-block tbody tr:hover td {
   background: none;
 }
 
-table td {
+table.nx-block td {
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
   padding: 12px !important;
   color: #595959;
@@ -78,21 +78,21 @@ table td {
   min-width: 110px;
 }
 
-:is(.dark table td) {
+:is(.dark table.nx-block td) {
   background-color: #111111;
   color: rgba(255, 255, 255, 0.9);
 }
 
-table tr:not(:last-child) td {
+table.nx-block tr:not(:last-child) td {
   border-bottom: 0px solid transparent !important;
 }
 
-table code {
+table.nx-block code {
   background: hsl(var(--nextra-primary-hue) 100% 39%/0.05) !important;
   color: var(--shiki-color-text);
 }
 
-:is(.dark table code) {
+:is(.dark table.nx-block code) {
   background: hsla(0, 0%, 100%, 0.1) !important;
 }
 

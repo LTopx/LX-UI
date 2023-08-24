@@ -1,0 +1,51 @@
+---
+title: DatePicker
+description: Select a date.
+---
+
+import Code from "@demo/code";
+import Basic from "@demo/datePicker/basic";
+
+## Examples
+
+### Import
+
+```js copy
+import { DatePicker } from "@ltopx/lx-ui";
+```
+
+### Basic usage
+
+<Code 
+  description='Basic usage of the DatePicker.' 
+  component={<Basic />}
+>
+```tsx filename="DatePicker.tsx" copy
+import { DatePicker } from "@ltopx/lx-ui";
+
+export default function () {
+  const [date, setDate] = React.useState<Date>();
+  
+  const onChange = (value: Date | undefined) => {
+    setDate(value);
+  };
+  
+  return (
+    <div className="flex gap-2">
+      <DatePicker className="w-52" value={date} onChange={onChange} />
+    </div>
+  );
+}
+```
+</Code>
+
+## API
+
+### DatePicker Props
+
+| Name      | Description                                              | Type                    | Default |
+| --------- | -------------------------------------------------------- | ----------------------- | ------- |
+| className | Additional css class                                     | `string`                | -       |
+| size      | DatePicker size                                          | `sm` \| `base` \| `lg`  | `base`  |
+| value     | Selected date                                            | `Date`                  | -       |
+| onChange  | This method is triggered when the selected date changes. | `(value: Date) => void` | -       |

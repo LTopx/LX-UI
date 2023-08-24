@@ -1,12 +1,16 @@
 # LX-UI Change Log
 
-## v0.1.16
+## v0.1.18
 
-> 2023-08-20
+> 2023-08-24
 
 ### Fixed
 
 - Fix the style problem caused by the value processing of Select.
+
+### Add
+
+- Add DatePicker component and related documentation.
 
 ## v0.1.15
 

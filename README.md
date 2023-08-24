@@ -18,7 +18,7 @@ English
 
 `LX-UI` is a set of React component library developed based on [Radix UI](https://www.radix-ui.com) and [Tailwind CSS](https://tailwindcss.com/).
 
-The purpose of creating this project is to solve the issue of UI consistency for my personal development project, [L-GPT](https://chat.ltopx.com). The initial version may be relatively simple 🤣🤣, but it will gradually iterate and improve in the future.
+The purpose of creating this project is to solve the issue of UI consistency for my personal development project, [Le-AI](https://le-ai.app). The initial version may be relatively simple 🤣🤣, but it will gradually iterate and improve in the future.
 
 ## Features
 

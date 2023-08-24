@@ -38,6 +38,9 @@
       "confirm": {
         "title": "Confirm"
       },
+      "datePicker": {
+        "title": "DatePicker"
+      },
       "drawer": {
         "title": "Drawer"
       },

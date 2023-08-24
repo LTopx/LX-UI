@@ -38,6 +38,9 @@
       "confirm": {
         "title": "Confirm 确认框"
       },
+      "datePicker": {
+        "title": "DatePicker 日期选择"
+      },
       "drawer": {
         "title": "Drawer 抽屉"
       },

@@ -71,7 +71,8 @@ export type IconType =
   | "check_fill"
   | "command_line"
   | "add_line"
-  | "menu_line";
+  | "menu_line"
+  | "calendar_line";
 
 export interface IconProps {
   className?: string;

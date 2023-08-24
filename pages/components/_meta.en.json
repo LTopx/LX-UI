@@ -3,6 +3,7 @@
   "button": "Button",
   "select": "Select",
   "confirm": "Confirm",
+  "datePicker": "DatePicker",
   "drawer": "Drawer",
   "dropdown": "Dropdown",
   "modal": "Modal",
